@@ -33,25 +33,3 @@ body {
   padding: 0 10px;
   margin: 0 auto;
 }
-
-.language-switch__btn .mdc-button__label {
-  color: #fff !important;
-  font-size: 16px;
-  line-height: 20px;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  font-family: "Inter", sans-serif;
-  font-weight: 400;
-}
-
-.language-switch__option .mat-mdc-menu-item-text {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
-.language-switch__option .mat-mdc-menu-item-text span {
-  text-align: center;
-  width: 100%;
-}

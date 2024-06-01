@@ -1,22 +1,38 @@
+.header {
+}
+.header__list {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  height: 45px;
+}
+
 .header-part {
   display: flex;
   gap: 34px;
 }
 .social-list {
   display: flex;
+  align-self: center;
   gap: 26px;
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-.social-list__item {
-}
-
-.social-item__link {
-}
-
 .social-item__link-icon {
   width: 26px;
   height: 26px;
+}
+
+.download-cv__btn {
+  width: 120px;
+  height: 40px;
+  background-color: #f4f5f5;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  font-size: 12px;
+  line-height: 16px;
+  color: #666666;
 }
