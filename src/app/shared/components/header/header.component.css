@@ -1,0 +1,22 @@
+.header-part {
+  display: flex;
+  gap: 34px;
+}
+.social-list {
+  display: flex;
+  gap: 26px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.social-list__item {
+}
+
+.social-item__link {
+}
+
+.social-item__link-icon {
+  width: 26px;
+  height: 26px;
+}

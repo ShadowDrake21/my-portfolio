@@ -1,1 +1,95 @@
-<p>language-switch works!</p>
+<!-- <button class="language-switch__btn" mat-button [matMenuTriggerFor]="menu">
+  <img
+    class="language-switch__icon"
+    src="/assets/icons/language-switcher/world-icon.svg"
+    alt="languages"
+  />
+  Language
+</button>
+<mat-menu #menu="matMenu">
+  <button #languageSwitchers mat-menu-item class="language-switch__option">
+    <img
+      class="language-switch__item-icon"
+      src="/assets/icons/language-switcher/english-flag.svg"
+      alt="english"
+    />
+    <span>English</span>
+  </button>
+  <button mat-menu-item class="language-switch__option">
+    <img
+      class="language-switch__item-icon"
+      src="/assets/icons/language-switcher/poland-flag.svg"
+      alt="polish"
+    />
+    <span>Polski</span>
+  </button>
+  <button mat-menu-item class="language-switch__option">
+    <img
+      class="language-switch__item-icon"
+      src="/assets/icons/language-switcher/ukraine-flag.svg"
+      alt="ukrainian"
+    />
+    <span>Українська</span>
+  </button>
+</mat-menu> -->
+
+<div class="language-switch">
+  <div>
+    <button class="language-switch__btn" (click)="onToggleLanguageSwitch()">
+      <img
+        class="language-switch__icon"
+        src="/assets/icons/language-switcher/world-icon.svg"
+        alt="languages"
+      />
+      <span class="inter-regular">Language</span>
+    </button>
+    <ul #languageSwitchDropdown class="language-switch__dropdown">
+      <li class="active">
+        <button
+          class="language-switch__option"
+          (click)="onLanguageSwitch('en')"
+        >
+          <img
+            class="language-switch__item-icon"
+            src="/assets/icons/language-switcher/english-flag.svg"
+            alt="english"
+          />
+          <span class="language-switch__option-span">English</span>
+        </button>
+      </li>
+      <li>
+        <button
+          class="language-switch__option"
+          (click)="onLanguageSwitch('pl')"
+        >
+          <img
+            class="language-switch__item-icon"
+            src="/assets/icons/language-switcher/poland-flag.svg"
+            alt="polish"
+          />
+          <span class="language-switch__option-span">Polski</span>
+        </button>
+      </li>
+      <li>
+        <button
+          class="language-switch__option"
+          (click)="onLanguageSwitch('ua')"
+        >
+          <img
+            class="language-switch__item-icon"
+            src="/assets/icons/language-switcher/ukraine-flag.svg"
+            alt="ukrainian"
+          />
+          <span class="language-switch__option-span">Українська</span>
+        </button>
+      </li>
+    </ul>
+  </div>
+  <div>
+    <img
+      class="current-language__icon"
+      [src]="currentLanguageImg"
+      alt="current language"
+    />
+  </div>
+</div>
