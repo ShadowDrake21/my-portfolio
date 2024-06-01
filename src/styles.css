@@ -1,13 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400..900&display=swap");
 
-/* .inter-<uniquifier> {
+.inter-regular {
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
-  font-weight: <weight>;
+  font-weight: 400;
   font-style: normal;
-  font-variation-settings:
-    "slnt" 0;
-} */
+  font-variation-settings: "slnt" 0;
+}
 
 html,
 body {
@@ -15,5 +14,5 @@ body {
 }
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  /* font-family: Roboto, "Helvetica Neue", sans-serif; */
 }
