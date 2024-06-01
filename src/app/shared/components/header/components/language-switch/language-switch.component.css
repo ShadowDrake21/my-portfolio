@@ -5,6 +5,7 @@
 }
 
 .language-switch__btn {
+  cursor: pointer;
   position: relative;
   z-index: 10;
   width: 170px;
@@ -57,11 +58,6 @@
   pointer-events: all;
 }
 
-.language-switch__dropdown li {
-  width: 100%;
-  margin-bottom: 5px;
-}
-
 .language-switch__option {
   display: flex;
   width: 100%;
@@ -72,7 +68,9 @@
   font-size: 16px;
   line-height: 20px;
   padding: 3px;
+  margin-bottom: 5px;
   align-items: center;
+  cursor: pointer;
 }
 
 .language-switch__option.active {

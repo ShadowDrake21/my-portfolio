@@ -2,23 +2,29 @@ import {
   AfterViewInit,
   Component,
   ElementRef,
+  inject,
   OnInit,
+  Renderer2,
   ViewChild,
 } from '@angular/core';
 import { MatMenu, MatMenuItem, MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { BehaviorSubject, Observable, of } from 'rxjs';
+import { ClickOutsideDirective } from '@shared/directives/click-outside.directive';
 
 type languageType = 'en' | 'pl' | 'ua';
 
 @Component({
   selector: 'app-language-switch',
   standalone: true,
-  imports: [MatMenuModule, MatButtonModule],
+  imports: [MatMenuModule, MatButtonModule, ClickOutsideDirective],
   templateUrl: './language-switch.component.html',
   styleUrl: './language-switch.component.css',
+  providers: [],
 })
 export class LanguageSwitchComponent implements OnInit, AfterViewInit {
+  private renderer = inject(Renderer2);
+
   @ViewChild('languageSwitchDropdown')
   languageSwitchDropdown!: ElementRef<HTMLUListElement>;
 
@@ -41,7 +47,8 @@ export class LanguageSwitchComponent implements OnInit, AfterViewInit {
     });
   }
 
-  onToggleLanguageSwitch() {
+  onToggleLanguageSwitch(event: MouseEvent) {
+    event?.stopPropagation();
     const el = this.languageSwitchDropdown.nativeElement;
     el.classList.toggle('show');
   }
@@ -75,14 +82,10 @@ export class LanguageSwitchComponent implements OnInit, AfterViewInit {
           if (choosenLanguage) {
             (Array.from(sociaListEl.children) as Array<HTMLLIElement>).forEach(
               (li) => {
-                if (li.classList.contains('active')) {
-                  li.classList.remove('active');
-                  return;
-                }
+                li.classList.toggle('active', li === liElement);
               }
             );
 
-            liElement.classList.add('active');
             this.saveToLS('current_language', choosenLanguage);
             this.currentLanguage$$.next(choosenLanguage as languageType);
           }
@@ -108,6 +111,11 @@ export class LanguageSwitchComponent implements OnInit, AfterViewInit {
           '/assets/icons/language-switcher/ukraine-flag.svg';
         break;
     }
+  }
+
+  clickedOutside(): void {
+    const el = this.languageSwitchDropdown.nativeElement;
+    el.classList.remove('show');
   }
 
   saveToLS(name: string, data: string) {

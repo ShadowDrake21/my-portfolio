@@ -1,7 +1,10 @@
-<div class="language-switch">
+<div class="language-switch" clickOutside (clickOutside)="clickedOutside()">
   <div>
     <div class="language-switch__wrapper">
-      <button class="language-switch__btn" (click)="onToggleLanguageSwitch()">
+      <button
+        class="language-switch__btn"
+        (click)="onToggleLanguageSwitch($event)"
+      >
         <img
           class="language-switch__icon"
           src="/assets/icons/language-switcher/world-icon.svg"
