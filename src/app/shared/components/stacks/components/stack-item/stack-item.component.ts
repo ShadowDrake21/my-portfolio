@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { IStackItem } from '@shared/models/stack.interface';
+import { IStackItem } from '@shared/models/stack.model';
 
 @Component({
   selector: 'app-stack-item',

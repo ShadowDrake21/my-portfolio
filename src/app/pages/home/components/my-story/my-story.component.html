@@ -1,1 +1,9 @@
-<p>my-story works!</p>
+<section class="section light-mode__section my-story">
+  <h2 class="section-title my-story__title">My story</h2>
+  <div *ngFor="let item of myStoryContent" class="my-story__content-item">
+    <h3 class="my-story__content-item__title">{{ item.title }}</h3>
+    <p *ngFor="let paragraph of item.text" class="my-story__content-item__text">
+      {{ paragraph }}
+    </p>
+  </div>
+</section>

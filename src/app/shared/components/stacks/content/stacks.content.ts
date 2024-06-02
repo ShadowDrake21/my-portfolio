@@ -1,4 +1,4 @@
-import { IStackItem } from '@shared/models/stack.interface';
+import { IStackItem } from '@shared/models/stack.model';
 
 export const technologyStackContent: IStackItem[] = [
   { icon: '/assets/icons/technology-stack/angular.svg', title: 'Angular' },
