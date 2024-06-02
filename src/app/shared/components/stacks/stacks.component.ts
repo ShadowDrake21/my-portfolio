@@ -4,7 +4,7 @@ import { StackItemComponent } from './components/stack-item/stack-item.component
 import {
   languageStackContent,
   technologyStackContent,
-} from './content/stacks.content';
+} from '../../content/stacks.content';
 
 @Component({
   selector: 'app-stacks',

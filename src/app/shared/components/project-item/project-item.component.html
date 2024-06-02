@@ -1,1 +1,20 @@
-<p>project-item works!</p>
+<div class="project-item">
+  <div class="project-item__img-wrapper">
+    <img
+      [src]="projectItem.image"
+      alt="projectItem image"
+      class="project-item__img"
+    />
+  </div>
+  <div class="project-item__content">
+    <div class="project-item__technologies"></div>
+    <div class="project-item__links inter-medium">
+      <a class="project-item__link main" [href]="projectItem.link">{{
+        projectItem.title
+      }}</a>
+      <a class="project-item__link github" [href]="projectItem.githubLink"
+        >On GitHub</a
+      >
+    </div>
+  </div>
+</div>

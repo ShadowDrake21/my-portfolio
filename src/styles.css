@@ -64,6 +64,7 @@ p {
 
 a {
   display: inline-block;
+  text-decoration: none;
 }
 
 .section {
@@ -88,4 +89,10 @@ a {
 .section-title {
   font-size: 28px;
   line-height: 34px;
+}
+
+.project-item__links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
 }

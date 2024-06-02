@@ -1,0 +1,25 @@
+.project-item {
+  width: 50%;
+  padding: 25px;
+  border: 1px solid var(--border-1);
+}
+
+.project-item__img-wrapper {
+}
+
+.project-item__img {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.project-item__links.main {
+  font-size: 18px;
+  line-height: 24px;
+  text-decoration: underline;
+  color: #000;
+}
+
+.project-item__link.github {
+  color: #666666;
+}

@@ -3,5 +3,10 @@
     <h2>Last projects</h2>
     <a href=""></a>
   </div>
-  <div></div>
+  <div>
+    <app-project-item
+      *ngFor="let project of lastProjectContent"
+      [item]="project"
+    ></app-project-item>
+  </div>
 </section>
