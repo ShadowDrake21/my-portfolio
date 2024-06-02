@@ -1,12 +1,17 @@
 .header {
+  position: absolute;
+  top: 33px;
+  width: 100%;
 }
+
 .header__list {
   display: flex;
   justify-content: space-between;
   list-style: none;
   margin: 0;
-  padding: 0;
   height: 45px;
+  padding: 0 24px;
+  margin-bottom: 10px;
 }
 
 .header-part {
@@ -56,7 +61,7 @@
   transform: translateY(-50%);
 }
 
-.header__btn {
+.header__navbar {
   display: flex;
   justify-content: center;
   padding-top: 10px;

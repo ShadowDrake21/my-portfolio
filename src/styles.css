@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400..900&display=swap");
 
+:root {
+  --border-1: rgba(0, 0, 0, 0.08);
+}
+
 .inter-regular {
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
@@ -18,18 +22,52 @@ html,
 body {
   height: 100%;
 }
+
 body {
   margin: 0;
+  font-size: 16px;
+  line-height: 20px;
   background-color: #f4f4f4;
+  padding: 30px;
+}
+
+ul,
+li {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  display: inline-block;
 }
 
 .section {
+  width: 100%;
+  padding: 24px;
+}
+
+.light-mode__section {
   background-color: #fff;
-  padding: 0 24px;
 }
 
 .container {
   max-width: 1152px;
   padding: 0 10px;
   margin: 0 auto;
+}
+
+.entire-positioning {
+  position: relative;
 }

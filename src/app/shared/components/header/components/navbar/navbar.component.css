@@ -1,4 +1,5 @@
 .navbar {
+  border: 1px solid rgba(102, 102, 102, 0.1);
   background-color: rgba(240, 240, 242, 0.25);
   padding: 12px;
 }
@@ -41,6 +42,15 @@
 }
 
 .theme-mode.dark-mode .navbar__item-btn {
+  border: 1px solid #0a0091;
+}
+
+.theme-mode.dark-mode .navbar__item-btn img {
+  filter: invert(7%) sepia(66%) saturate(7491%) hue-rotate(250deg)
+    brightness(101%) contrast(123%);
+}
+
+.theme-mode.dark-mode .navbar__item-btn {
   border: 1px solid #000;
 }
 
@@ -51,7 +61,7 @@
   width: 120px;
   height: 100%;
   background-color: #f4f5f5;
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--border-1);
   font-size: 12px;
   line-height: 16px;
   color: #666666;

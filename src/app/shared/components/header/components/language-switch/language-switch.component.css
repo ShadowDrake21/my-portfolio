@@ -81,3 +81,7 @@
   width: 100%;
   text-align: center;
 }
+
+.current-language__icon {
+  border: 1px solid #6666;
+}

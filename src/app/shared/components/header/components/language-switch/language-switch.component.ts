@@ -11,6 +11,7 @@ import { MatMenu, MatMenuItem, MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { ClickOutsideDirective } from '@shared/directives/click-outside.directive';
+import { retrieveFromLS, saveToLS } from '@shared/utils/localStorage.utils';
 
 type languageType = 'en' | 'pl' | 'ua';
 
@@ -36,7 +37,7 @@ export class LanguageSwitchComponent implements OnInit, AfterViewInit {
   currentLanguageImg!: string;
 
   ngOnInit(): void {
-    const currentLanguageStr = this.retrieveFromLS('current_language');
+    const currentLanguageStr = retrieveFromLS('current_language');
     if (currentLanguageStr) {
       this.currentLanguage$$.next(
         JSON.parse(currentLanguageStr) as languageType
@@ -86,7 +87,7 @@ export class LanguageSwitchComponent implements OnInit, AfterViewInit {
               }
             );
 
-            this.saveToLS('current_language', choosenLanguage);
+            saveToLS('current_language', choosenLanguage);
             this.currentLanguage$$.next(choosenLanguage as languageType);
           }
         }
@@ -116,13 +117,5 @@ export class LanguageSwitchComponent implements OnInit, AfterViewInit {
   clickedOutside(): void {
     const el = this.languageSwitchDropdown.nativeElement;
     el.classList.remove('show');
-  }
-
-  saveToLS(name: string, data: string) {
-    localStorage.setItem(name, JSON.stringify(data));
-  }
-
-  retrieveFromLS(name: string): string | null {
-    return localStorage.getItem(name) ?? null;
   }
 }
