@@ -4,12 +4,25 @@
   --border-1: rgba(0, 0, 0, 0.08);
 }
 
-.inter-regular {
+.inter-light,
+.inter-regular,
+.inter-medium {
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
-  font-weight: 400;
   font-style: normal;
   font-variation-settings: "slnt" 0;
+}
+
+.inter-light {
+  font-weight: 300;
+}
+
+.inter-regular {
+  font-weight: 400;
+}
+
+.inter-medium {
+  font-weight: 500;
 }
 
 *,
@@ -63,7 +76,7 @@ a {
 }
 
 .container {
-  max-width: 1152px;
+  max-width: 1450px;
   padding: 0 10px;
   margin: 0 auto;
 }

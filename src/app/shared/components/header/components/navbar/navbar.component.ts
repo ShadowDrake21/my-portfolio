@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Component, inject, OnInit } from '@angular/core';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 import { retrieveFromLS, saveToLS } from '@shared/utils/localStorage.utils';
 
 type themeModeType = 'light' | 'dark';
@@ -12,6 +12,8 @@ type themeModeType = 'light' | 'dark';
   styleUrl: './navbar.component.css',
 })
 export class NavbarComponent implements OnInit {
+  private activatedRoute = inject(ActivatedRoute);
+
   themeMode: themeModeType = 'light';
 
   ngOnInit(): void {
