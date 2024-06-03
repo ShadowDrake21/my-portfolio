@@ -1,0 +1,31 @@
+<div class="repositories-list">
+  <h5 class="repositories-list__title inter-light">Latest repositories</h5>
+  <div
+    *ngIf="repositories$ | async as repositories"
+    class="repositories-list__container"
+  >
+    <a
+      *ngFor="let repository of repositories"
+      [href]="repository.html_url"
+      target="_blank"
+      class="repositories-list__container-item inter-medium"
+    >
+      <ng-container *ngIf="!repository.private">
+        <div class="repositories-list__container-item__top">
+          <div class="repositories-list__container-item__top-inner">
+            <h6 class="repositories-list__container-item__name inter-semibold">
+              {{ repository.name | truncateText : 40 }}
+            </h6>
+            <span class="repositories-list__container-item__type">Public</span>
+          </div>
+          <p class="repositories-list__container-item__desc">
+            {{ repository.description ?? "" | truncateText : 60 }}
+          </p>
+        </div>
+        <div class="repositories-list__container-item__language">
+          {{ repository.language }}
+        </div>
+      </ng-container>
+    </a>
+  </div>
+</div>

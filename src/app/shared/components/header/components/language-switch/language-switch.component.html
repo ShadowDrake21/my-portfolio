@@ -1,0 +1,50 @@
+<div class="language-switch" clickOutside (clickOutside)="clickedOutside()">
+  <div>
+    <div class="language-switch__wrapper">
+      <button
+        class="language-switch__btn"
+        (click)="onToggleLanguageSwitch($event)"
+      >
+        <img
+          class="language-switch__icon"
+          src="/assets/icons/language-switcher/world-icon.svg"
+          alt="languages"
+        />
+        <span class="inter-regular">Language</span>
+      </button>
+    </div>
+    <ul #languageSwitchDropdown class="language-switch__dropdown">
+      <li data-language="en" class="language-switch__option">
+        <img
+          class="language-switch__item-icon"
+          src="/assets/icons/language-switcher/english-flag.svg"
+          alt="english"
+        />
+        <span class="language-switch__option-span">English</span>
+      </li>
+      <li data-language="pl" class="language-switch__option">
+        <img
+          class="language-switch__item-icon"
+          src="/assets/icons/language-switcher/poland-flag.svg"
+          alt="polish"
+        />
+        <span class="language-switch__option-span">Polski</span>
+      </li>
+      <li data-language="ua" class="language-switch__option">
+        <img
+          class="language-switch__item-icon"
+          src="/assets/icons/language-switcher/ukraine-flag.svg"
+          alt="ukrainian"
+        />
+        <span class="language-switch__option-span">Українська</span>
+      </li>
+    </ul>
+  </div>
+  <div class="current-language__icon-wrapper">
+    <img
+      class="current-language__icon"
+      [src]="currentLanguageImg"
+      alt="current language"
+    />
+  </div>
+</div>
