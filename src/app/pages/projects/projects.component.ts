@@ -7,14 +7,8 @@ import { StyledLinkComponent } from '@shared/components/styled-link/styled-link.
 @Component({
   selector: 'app-projects',
   standalone: true,
-  imports: [CommonModule, ProjectItemComponent, StyledLinkComponent],
+  imports: [],
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.css',
 })
-export class ProjectsComponent {
-  allProjectsContent = allProjectsContent;
-
-  public lastProjectContent = this.allProjectsContent
-    .splice(this.allProjectsContent.length - 4, this.allProjectsContent.length)
-    .reverse();
-}
+export class ProjectsComponent {}

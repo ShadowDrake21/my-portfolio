@@ -5,8 +5,9 @@ import { MainScreenComponent } from './components/main-screen/main-screen.compon
 import { StacksComponent } from '@shared/components/stacks/stacks.component';
 import { MyGithubComponent } from './components/my-github/my-github.component';
 import { MyStoryComponent } from './components/my-story/my-story.component';
-import { ProjectsComponent } from '../projects/projects.component';
+
 import { FooterComponent } from '@shared/components/footer/footer.component';
+import { ProjectsComponent } from './components/projects/projects.component';
 
 @Component({
   selector: 'app-home',

@@ -1,1 +1,20 @@
-<p>projects works!</p>
+<section class="latest-projects section light-mode__section">
+  <div class="latest-projects__top">
+    <h2 class="latest-project__title section-title">Last projects</h2>
+    <helper-styled-link
+      link="/projects"
+      title="All projects"
+    ></helper-styled-link>
+  </div>
+  <div
+    class="latest-project__list"
+    *ngIf="lastProjects$ | async as lastProjects"
+  >
+    <div
+      class="latest-project__list-item__wrapper"
+      *ngFor="let project of lastProjects"
+    >
+      <app-project-item [item]="project"></app-project-item>
+    </div>
+  </div>
+</section>

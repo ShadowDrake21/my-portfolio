@@ -1,9 +1,10 @@
 import { Component, Input } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'helper-styled-link',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './styled-link.component.html',
   styleUrl: './styled-link.component.css',
 })
