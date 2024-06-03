@@ -6,7 +6,8 @@
 
 .inter-light,
 .inter-regular,
-.inter-medium {
+.inter-medium,
+.inter-semibold {
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
@@ -25,15 +26,14 @@
   font-weight: 500;
 }
 
+.inter-semibold {
+  font-weight: 600;
+}
+
 *,
 *::after,
 *::before {
   box-sizing: border-box;
-}
-
-html,
-body {
-  height: 100%;
 }
 
 body {
