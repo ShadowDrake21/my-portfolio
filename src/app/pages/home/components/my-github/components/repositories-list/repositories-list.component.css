@@ -1,0 +1,74 @@
+.repositories-list__title {
+  font-size: 20px;
+  line-height: 26px;
+  color: #454545;
+  padding-bottom: 15px;
+}
+
+.repositories-list__container {
+  display: flex;
+  justify-content: space-between;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.repositories-list__container-item {
+  display: inline-block;
+  max-width: 300px;
+  width: 100%;
+  color: #666666;
+  border: 1px solid #999999;
+  border-radius: 6px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100px;
+}
+
+.repositories-list__container-item__top-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 10px;
+}
+
+.repositories-list__container-item__name {
+  color: #0969da;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.repositories-list__container-item__type {
+  border: 1px solid rgba(69, 69, 69, 0.35);
+  font-size: 14px;
+  line-height: 18px;
+  border-radius: 16px;
+  padding: 1px 11px;
+}
+
+.repositories-list__container-item__desc {
+  font-size: 12px;
+  line-height: 16px;
+  word-wrap: break-word;
+  padding-bottom: 20px;
+}
+
+.repositories-list__container-item__language {
+  font-size: 12px;
+  line-height: 16px;
+  position: relative;
+  padding-left: 18px;
+}
+
+.repositories-list__container-item__language::before {
+  position: absolute;
+  content: "";
+  width: 12px;
+  height: 12px;
+  background-color: #044591;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 50%;
+}

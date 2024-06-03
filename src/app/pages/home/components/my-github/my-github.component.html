@@ -1,1 +1,11 @@
-<p>my-github works!</p>
+<section class="my-github section light-mode__section">
+  <h2 class="my-github__title section-title">My GitHub</h2>
+  <div class="my-github__inner">
+    <div class="my-github__left">
+      <app-git-profile [profile]="user$"></app-git-profile>
+    </div>
+    <div class="my-github__right">
+      <app-repositories-list [repositories]="repos$"></app-repositories-list>
+    </div>
+  </div>
+</section>

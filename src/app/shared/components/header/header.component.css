@@ -18,18 +18,10 @@
   display: flex;
   gap: 34px;
 }
-.social-list {
-  display: flex;
-  align-self: center;
-  gap: 26px;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
 
-.social-item__link-icon {
-  width: 35px;
-  height: 35px;
+.header-socials__wrapper {
+  display: flex;
+  align-items: center;
 }
 
 .work-available {
