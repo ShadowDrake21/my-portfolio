@@ -1,12 +1,17 @@
-<section class="section light-mode__section">
-  <div>
-    <h2>Last projects</h2>
-    <a href=""></a>
+<section class="latest-projects section light-mode__section">
+  <div class="latest-projects__top">
+    <h2 class="latest-project__title section-title">Last projects</h2>
+    <helper-styled-link
+      link="/projects"
+      title="All projects"
+    ></helper-styled-link>
   </div>
-  <div>
-    <app-project-item
+  <div class="latest-project__list">
+    <div
+      class="latest-project__list-item__wrapper"
       *ngFor="let project of lastProjectContent"
-      [item]="project"
-    ></app-project-item>
+    >
+      <app-project-item [item]="project"></app-project-item>
+    </div>
   </div>
 </section>

@@ -16,13 +16,13 @@ export class ProjectItemComponent implements OnInit {
   private technologyStackContent = technologyStackContent;
 
   ngOnInit(): void {
-    this.projectItem.technologies.forEach((technology) => {
-      const newIcon = this.technologyStackContent.find(
+    this.projectItem.technologies.forEach((technology, index) => {
+      const newIconPath = this.technologyStackContent.find(
         (stackItem) => stackItem.title === technology
       )?.icon;
 
-      if (newIcon) {
-        this.projectItem.technologies.find();
+      if (newIconPath) {
+        this.projectItem.technologies[index] = newIconPath;
       }
     });
   }

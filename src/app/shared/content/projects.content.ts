@@ -41,7 +41,7 @@ export const allProjectsContent: IProject[] = [
       'RxJS',
       'Firebase',
       'Stripe',
-      'Bootstrap',
+      'Bootstrap 5',
       'NodeJS',
     ],
     title: 'E-shpp with NgRX an RxJS',

@@ -1,19 +1,34 @@
 .project-item {
-  width: 50%;
   padding: 25px;
   border: 1px solid var(--border-1);
-}
-
-.project-item__img-wrapper {
 }
 
 .project-item__img {
   width: 100%;
   object-fit: cover;
   border-radius: 6px;
+  border: 1px solid var(--border-1);
 }
 
-.project-item__links.main {
+.project-item__technologies {
+  padding: 20px 0;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.project-item__technology {
+  width: 35px;
+  height: 35px;
+}
+
+.project-item__links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.project-item__link.main {
   font-size: 18px;
   line-height: 24px;
   text-decoration: underline;
