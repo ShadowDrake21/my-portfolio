@@ -1,1 +1,26 @@
-<p>working-experience works!</p>
+<section class="section light-mode__section working-experience">
+  <h2 class="section-title working-experience__title">Working experience</h2>
+  <div
+    *ngIf="workingExperienceContent.length; else noExperience"
+    class="working-experience__list"
+  >
+    <div
+      *ngFor="let item of workingExperienceContent"
+      class="working-experience__list-item"
+    >
+      <h5 class="working-experience__list-item__title inter-medium">
+        {{ item.positionName }}
+      </h5>
+      <span class="working-experience__list-text">{{
+        item.companyName + ", " + item.workYears
+      }}</span>
+    </div>
+  </div>
+  <ng-template #noExperience>
+    <div class="working-experience__noexperience-wrapper">
+      <p class="working-experience__noexperience inter-medium">
+        For now I don’t have any experience, but I’m looking forward to get it!
+      </p>
+    </div>
+  </ng-template>
+</section>
