@@ -1,0 +1,70 @@
+.education {
+  min-height: 440px;
+  position: relative;
+}
+
+.education__list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.education__title {
+  padding-bottom: 15px;
+}
+
+.education__list-item {
+  position: relative;
+  padding: 17px 17px 17px 50px;
+  border: 1px solid var(--border-1);
+  display: flex;
+  align-items: center;
+  gap: 45px;
+}
+
+.education__list-item::before {
+  position: absolute;
+  content: "";
+  width: 20px;
+  height: 20px;
+  background-image: url("/assets/icons/education/bachelor-hat.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  top: 20px;
+  left: 16px;
+}
+
+.education__list-item__title {
+  padding-bottom: 12px;
+  font-size: 18px;
+  line-height: 24px;
+  color: #454545;
+}
+
+.education__list-item__text {
+  font-size: 12px;
+  line-height: 16px;
+  color: #999999;
+}
+
+.education__list-item__right {
+  position: relative;
+  padding-left: 10px;
+}
+
+.education__list-item__right::before {
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 4px;
+  background-color: #000;
+  border-radius: 50%;
+}
+
+.education__list-item__right-text {
+  font-size: 14px;
+  line-height: 18px;
+}
