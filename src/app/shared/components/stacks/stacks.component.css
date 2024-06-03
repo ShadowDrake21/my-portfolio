@@ -1,0 +1,22 @@
+.stacks-title {
+  padding-bottom: 20px;
+}
+
+.stacks-half:first-child {
+  padding-bottom: 30px;
+}
+
+.technology-grid__list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+}
+
+.language-grid__list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+  grid-column-gap: 20px;
+}

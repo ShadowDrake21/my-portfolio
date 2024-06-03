@@ -1,0 +1,12 @@
+.my-github__title {
+  padding-bottom: 15px;
+}
+
+.my-github__inner {
+  display: flex;
+  gap: 40px;
+}
+
+.my-github__left {
+  width: 400px;
+}

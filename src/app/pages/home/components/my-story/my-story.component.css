@@ -1,0 +1,19 @@
+.my-story {
+}
+
+.my-story__title {
+  padding-bottom: 20px;
+}
+
+.my-story__content-item {
+  padding-bottom: 15px;
+}
+
+.my-story__content-item__title {
+  padding-bottom: 15px;
+}
+
+.my-story__content-item__text {
+  text-align: end;
+  padding-bottom: 10px;
+}

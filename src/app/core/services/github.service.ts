@@ -1,0 +1,27 @@
+import { Injectable } from '@angular/core';
+import { Octokit } from '@octokit/rest';
+import { IRepo, IUser } from '@shared/models/github.model';
+import { from, map, Observable } from 'rxjs';
+import { environment } from 'src/environments/environment.development';
+
+@Injectable({
+  providedIn: 'root',
+})
+export class GithubService {
+  private octokit = new Octokit({ auth: environment.github_access_token });
+
+  getAuthenticatedUser(): Observable<IUser> {
+    return from(this.octokit.request('GET /user')).pipe(
+      map((response) => response.data as IUser)
+    );
+  }
+
+  getLatestRepositories(): Observable<IRepo[]> {
+    return from(
+      this.octokit.request('GET /user/repos', {
+        sort: 'created',
+        direction: 'desc',
+      })
+    ).pipe(map((response) => response.data as IRepo[]));
+  }
+}

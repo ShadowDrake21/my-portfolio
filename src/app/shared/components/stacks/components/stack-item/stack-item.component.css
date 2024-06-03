@@ -1,0 +1,34 @@
+.stack-item {
+  padding: 12px 15px;
+  height: 80px;
+  border: 1px solid var(--border-1);
+  display: flex;
+  align-items: center;
+
+  gap: 15px;
+}
+
+.stack-item__icon-wrapper {
+}
+
+.stack-item__icon {
+  width: 45px;
+  height: 45px;
+}
+
+.stack-item__content {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.stack-item__title {
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.stack-item__level {
+  font-size: 13px;
+  line-height: 17px;
+  color: #454545;
+}
