@@ -1,0 +1,32 @@
+<div class="project-item">
+  <img
+    [src]="projectItem.image"
+    alt="projectItem image"
+    class="project-item__img"
+  />
+
+  <div class="project-item__content">
+    <div class="project-item__technologies">
+      <img
+        *ngFor="let image of projectItem.technologies"
+        [src]="image"
+        class="project-item__technology"
+        alt="project technology"
+      />
+    </div>
+    <div class="project-item__links inter-medium">
+      <a
+        class="project-item__link main"
+        [href]="projectItem.link"
+        target="_blank"
+        >{{ projectItem.title }}</a
+      >
+      <a
+        class="project-item__link github"
+        [href]="projectItem.githubLink"
+        target="_blank"
+        >On GitHub</a
+      >
+    </div>
+  </div>
+</div>
