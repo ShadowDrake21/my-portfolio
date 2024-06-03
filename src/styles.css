@@ -67,6 +67,13 @@ a {
   text-decoration: none;
 }
 
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding-bottom: 24px;
+}
+
 .section {
   width: 100%;
   padding: 24px;
@@ -89,4 +96,8 @@ a {
 .section-title {
   font-size: 28px;
   line-height: 34px;
+}
+
+.first-screen {
+  padding-top: 185px;
 }
