@@ -1,0 +1,27 @@
+.tasks-text {
+  padding-bottom: 15px;
+}
+
+.tasks-list {
+  display: flex;
+  gap: 15px;
+  justify-content: space-between;
+}
+
+.tasks-list__item {
+  color: #454545;
+  position: relative;
+  padding-left: 20px;
+}
+
+.tasks-list__item::before {
+  position: absolute;
+  content: "";
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: #666666;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+}
