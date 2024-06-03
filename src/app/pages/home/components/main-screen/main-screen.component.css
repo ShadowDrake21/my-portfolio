@@ -13,7 +13,7 @@
   flex-shrink: 0;
   width: 440px;
   height: 440px;
-  border-radius: 999px;
+  border-radius: 50%;
   overflow: hidden;
 }
 
@@ -58,7 +58,7 @@
   content: "";
   width: 14px;
   height: 14px;
-  border-radius: 999px;
+  border-radius: 50%;
   background-color: #666666;
   top: 50%;
   transform: translateY(-50%);

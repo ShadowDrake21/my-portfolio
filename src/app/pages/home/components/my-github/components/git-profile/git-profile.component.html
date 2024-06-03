@@ -1,0 +1,30 @@
+<div *ngIf="profile$ | async as profile" class="my-github__profile">
+  <div class="my-github__profile-img__wrapper">
+    <img
+      class="my-github__profile-img"
+      [src]="profile.avatar_url"
+      alt="git-user img"
+    />
+  </div>
+  <div class="my-github__profile-content">
+    <div class="my-github__profile-content__top">
+      <h4 class="my-github__profile-content__name inter-semibold">
+        {{ profile.name }}
+      </h4>
+      <div class="my-github__profile-content__location">
+        {{ profile.location }}
+      </div>
+    </div>
+    <div class="my-github__profile-login inter-light">
+      <span>{{ profile.login }}</span>
+      <span>he/him</span>
+    </div>
+    <p class="my-github__profile-text inter-light">{{ profile.bio }}</p>
+    <p class="my-github__profile-text inter-light">
+      Number of public repositories: {{ profile.public_repos }}
+    </p>
+    <a [href]="profile.html_url" target="_blank" class="my-github__profile-link"
+      >Go to GitHub</a
+    >
+  </div>
+</div>
