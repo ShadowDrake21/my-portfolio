@@ -1,1 +1,21 @@
-<p>education works!</p>
+<section class="section light-mode__section education">
+  <h2 class="section-title education__title">Education</h2>
+  <div class="education__list">
+    <div *ngFor="let item of educationContent" class="education__list-item">
+      <div class="education__list-item__left">
+        <h5 class="education__list-item__title inter-medium">
+          {{ item.studyName }}
+        </h5>
+        <span class="education__list-item__text">{{
+          item.universityName + ", " + item.studyYears
+        }}</span>
+      </div>
+      <div *ngIf="item.yearsToFinish" class="education__list-item__right">
+        <p class="education__list-item__right-text">
+          {{ item.yearsToFinish }}
+          {{ item.yearsToFinish! > 1 ? "years" : "year" }} to finish
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

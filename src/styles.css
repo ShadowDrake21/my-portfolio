@@ -67,6 +67,13 @@ a {
   text-decoration: none;
 }
 
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding-bottom: 24px;
+}
+
 .section {
   width: 100%;
   padding: 24px;
