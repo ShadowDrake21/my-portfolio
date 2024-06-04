@@ -5,9 +5,6 @@
   padding-bottom: 25px;
 }
 
-.latest-project__title {
-}
-
 .latest-project__list {
   display: grid;
   grid-template-columns: repeat(2, 1fr);

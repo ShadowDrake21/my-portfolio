@@ -1,6 +1,6 @@
 import { IProject } from '@shared/models/project.model';
 
-export const allProjectsContent: IProject[] = [
+export const mainStackProjectsContent: IProject[] = [
   {
     image: '/assets/images/projects/main/js-game-thumbnail.jpg',
     technologies: ['JavaScript'],
@@ -11,7 +11,7 @@ export const allProjectsContent: IProject[] = [
   },
   {
     image: '/assets/images/projects/main/book-angular-app-thumbnail.jpg',
-    technologies: ['Angular', 'Firebase'],
+    technologies: ['Angular', 'Firebase', 'TailwindCSS'],
     title: 'Book Angular application',
     link: 'https://book-angular-app.netlify.app/',
     githubLink: 'https://github.com/ShadowDrake21/book-angular-app',
@@ -44,7 +44,7 @@ export const allProjectsContent: IProject[] = [
       'Bootstrap 5',
       'NodeJS',
     ],
-    title: 'E-shpp with NgRX an RxJS',
+    title: 'E-shop with NgRX an RxJS',
     link: 'https://ngrx-internet-shop.netlify.app/',
     githubLink: 'https://github.com/ShadowDrake21/ngrx-internet-shop',
     year: '2024',
@@ -56,5 +56,32 @@ export const allProjectsContent: IProject[] = [
     link: '',
     githubLink: 'https://github.com/ShadowDrake21/my-portfolio',
     year: '2024',
+  },
+];
+
+export const otherProjectsContent: IProject[] = [
+  {
+    image: '/assets/images/projects/other/tutor app.jpg',
+    technologies: ['React', 'TailwindCSS'],
+    title: 'Tutor site',
+    link: 'https://tutor-site-theta.vercel.app/',
+    githubLink: 'https://github.com/ShadowDrake21/tutor-site',
+    year: '2023',
+  },
+  {
+    image: '/assets/images/projects/other/marvel app.jpg',
+    technologies: ['React'],
+    title: 'Marvel app',
+    link: 'https://aesthetic-empanada-6857b1.netlify.app/',
+    githubLink: 'https://github.com/ShadowDrake21/marvel-app',
+    year: '2023',
+  },
+  {
+    image: '/assets/images/projects/other/bmw app.jpg',
+    technologies: ['React'],
+    title: 'BMW app',
+    link: 'https://krapyvianskyi-drake21-bmw-app.netlify.app/i5',
+    githubLink: 'https://github.com/ShadowDrake21/bmw-app',
+    year: '2023',
   },
 ];
