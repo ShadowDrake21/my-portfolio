@@ -1,6 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
-import { technologyStackContent } from '@shared/content/stacks.content';
+import {
+  otherTechnologiesContent,
+  technologyStackContent,
+} from '@shared/content/stacks.content';
 import { IProject } from '@shared/models/project.model';
 
 @Component({
@@ -14,16 +17,33 @@ export class ProjectItemComponent implements OnInit {
   @Input({ required: true, alias: 'item' }) projectItem!: IProject;
 
   private technologyStackContent = technologyStackContent;
+  private otherTechnologiesContent = otherTechnologiesContent;
 
   ngOnInit(): void {
-    this.projectItem.technologies.forEach((technology, index) => {
-      const newIconPath = this.technologyStackContent.find(
-        (stackItem) => stackItem.title === technology
-      )?.icon;
+    this.updateTechnologyIcons();
+  }
 
-      if (newIconPath) {
-        this.projectItem.technologies[index] = newIconPath;
+  private updateTechnologyIcons(): void {
+    this.projectItem.technologies = this.projectItem.technologies.map(
+      (technology) => {
+        const newIconPath = this.findIconPath(technology);
+        return newIconPath ? newIconPath : technology;
       }
-    });
+    );
+  }
+
+  private findIconPath(technology: string): string | undefined {
+    const stackItem = this.technologyStackContent.find(
+      (item) => item.title === technology
+    );
+
+    if (stackItem) {
+      return stackItem.icon;
+    } else {
+      const otherItem = this.otherTechnologiesContent.find(
+        (item) => item.title === technology
+      );
+      return otherItem ? otherItem.icon : undefined;
+    }
   }
 }
