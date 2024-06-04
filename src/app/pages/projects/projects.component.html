@@ -1,74 +1,108 @@
-<section class="section light-mode__section first-screen projects">
-  <h2 class="projects__title inter-semibold">My Projects</h2>
-  <mat-tab-group
-    animationDuration="0ms"
-    (selectedTabChange)="onTabChanged($event)"
-  >
-    <mat-tab label="Main stack">
-      <div class="projects-tab">
-        <form
-          [formGroup]="projectFiltrationForm"
-          class="projects-tab__filtration"
-        >
-          <mat-form-field>
-            <mat-label>Technology</mat-label>
-            <mat-select
-              (selectionChange)="onFormChange()"
-              formControlName="technology"
-            >
-              <mat-option
-                *ngFor="let technology of technologyFilterContent"
-                [value]="technology"
-                >{{ technology }}</mat-option
+<div class="page">
+  <section class="section light-mode__section first-screen projects">
+    <h2 class="projects__title inter-semibold">My Projects</h2>
+    <mat-tab-group
+      animationDuration="0ms"
+      (selectedTabChange)="onTabChanged($event)"
+    >
+      <mat-tab label="Main stack">
+        <div class="projects-tab">
+          <form
+            [formGroup]="projectFiltrationForm"
+            class="projects-tab__filtration"
+          >
+            <mat-form-field>
+              <mat-label>Technology</mat-label>
+              <mat-select
+                (selectionChange)="onFormChange()"
+                formControlName="technology"
               >
-            </mat-select>
-          </mat-form-field>
-          <mat-form-field>
-            <mat-label>Year</mat-label>
-            <mat-select
-              (selectionChange)="onFormChange()"
-              formControlName="year"
-            >
-              <mat-option
-                *ngFor="let year of yearFilterContent"
-                [value]="year"
-                >{{ year }}</mat-option
+                <mat-option
+                  *ngFor="let technology of technologyFilterContent"
+                  [value]="technology"
+                  >{{ technology }}</mat-option
+                >
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Year</mat-label>
+              <mat-select
+                (selectionChange)="onFormChange()"
+                formControlName="year"
               >
-            </mat-select>
-          </mat-form-field>
-        </form>
-        <div class="projects-tab__list">
-          @for (item of mainStackProjectsContent | slice: (mainCurrentPage-1) *
-          itemsPerPage : mainCurrentPage * itemsPerPage; track item) {
-          <app-project-item [item]="item"></app-project-item>
+                <mat-option
+                  *ngFor="let year of yearFilterContent"
+                  [value]="year"
+                  >{{ year }}</mat-option
+                >
+              </mat-select>
+            </mat-form-field>
+            <button
+              *ngIf="projectFiltrationForm.touched"
+              mat-flat-button
+              color="warn"
+              class="projects-tab__filtration-btn"
+              type="reset"
+            >
+              Reset
+            </button>
+            <button
+              *ngIf="!checkIfDataChanged()"
+              type="button"
+              mat-flat-button
+              color="primary"
+              class="projects-tab__filtration-btn"
+              (click)="loadAllProjects()"
+            >
+              Load all projects
+            </button>
+          </form>
+          @if (copiedMainStackProjectsContent.length) {
+          <div class="projects-tab__list">
+            @for (item of copiedMainStackProjectsContent | slice:
+            (mainCurrentPage-1) * itemsPerPage : mainCurrentPage * itemsPerPage;
+            track item) {
+            <app-project-item [item]="item"></app-project-item>
+            }
+          </div>
+          } @else {
+          <div class="projects-tab__list-noelements">
+            <h4 class="inter-medium">
+              There is no project that satisfy that criteria
+            </h4>
+          </div>
           }
-        </div>
 
-        <ngb-pagination
-          *ngIf="getContentSize('main') > itemsPerPage"
-          class="project-tab__pagination"
-          [(page)]="mainCurrentPage"
-          [pageSize]="itemsPerPage"
-          [collectionSize]="getContentSize('main')"
-        />
-      </div>
-    </mat-tab>
-    <mat-tab label="Other">
-      <div class="projects-tab">
-        <div class="projects-tab__list">
-          @for (item of otherProjectsContent | slice: (otherCurrentPage-1) *
-          itemsPerPage : otherCurrentPage * itemsPerPage; track item) {
-          <app-project-item [item]="item"></app-project-item>
-          }
+          <ngb-pagination
+            *ngIf="
+              getContentSize('main') > itemsPerPage &&
+              copiedMainStackProjectsContent.length > itemsPerPage
+            "
+            class="project-tab__pagination"
+            [(page)]="mainCurrentPage"
+            [pageSize]="itemsPerPage"
+            [collectionSize]="getContentSize('main')"
+          />
         </div>
+      </mat-tab>
+      <mat-tab label="Other">
+        <div class="projects-tab">
+          <div class="projects-tab__list">
+            @for (item of copiedOtherProjectsContent | slice:
+            (otherCurrentPage-1) * itemsPerPage : otherCurrentPage *
+            itemsPerPage; track item) {
+            <app-project-item [item]="item"></app-project-item>
+            }
+          </div>
 
-        <ngb-pagination
-          *ngIf="getContentSize('other') > itemsPerPage"
-          class="project-tab__pagination"
-          [(page)]="otherCurrentPage"
-          [pageSize]="itemsPerPage"
-          [collectionSize]="getContentSize('other')"
-        /></div
-    ></mat-tab>
-  </mat-tab-group>
-</section>
+          <ngb-pagination
+            *ngIf="getContentSize('other') > itemsPerPage"
+            class="project-tab__pagination"
+            [(page)]="otherCurrentPage"
+            [pageSize]="itemsPerPage"
+            [collectionSize]="getContentSize('other')"
+          /></div
+      ></mat-tab>
+    </mat-tab-group>
+  </section>
+</div>
