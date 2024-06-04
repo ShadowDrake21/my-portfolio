@@ -3,8 +3,9 @@ import { Component } from '@angular/core';
 import { StackItemComponent } from './components/stack-item/stack-item.component';
 import {
   languageStackContent,
+  otherTechnologiesContent,
   technologyStackContent,
-} from '../../content/stacks.content';
+} from '@shared/content/stacks.content';
 
 @Component({
   selector: 'app-stacks',
@@ -15,5 +16,6 @@ import {
 })
 export class StacksComponent {
   technologyStackContent = technologyStackContent;
+  otherTechnologiesContent = otherTechnologiesContent;
   languageStackContent = languageStackContent;
 }

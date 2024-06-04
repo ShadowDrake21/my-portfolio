@@ -9,6 +9,17 @@
     </div>
   </div>
   <div class="stacks-half">
+    <h2 class="stacks-title section-title">
+      Other technologies I've worked with
+    </h2>
+    <div class="stacks-list language-grid__list">
+      <app-stack-item
+        *ngFor="let other of otherTechnologiesContent; let i = index"
+        [item]="other"
+      ></app-stack-item>
+    </div>
+  </div>
+  <div class="stacks-half">
     <h2 class="stacks-title section-title">Language stack</h2>
     <div class="stacks-list language-grid__list">
       <app-stack-item

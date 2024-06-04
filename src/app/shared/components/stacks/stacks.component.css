@@ -2,7 +2,8 @@
   padding-bottom: 20px;
 }
 
-.stacks-half:first-child {
+.stacks-half:first-child,
+.stacks-half:nth-child(2) {
   padding-bottom: 30px;
 }
 
