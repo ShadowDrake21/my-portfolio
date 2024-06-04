@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ProjectItemComponent } from '@shared/components/project-item/project-item.component';
 import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatTabChangeEvent, MatTabsModule } from '@angular/material/tabs';
@@ -16,6 +16,7 @@ import {
   yearFilterContent,
 } from './content/projects.content';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-projects',
@@ -29,18 +30,20 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
     MatSelectModule,
     MatFormFieldModule,
     ReactiveFormsModule,
+    MatButtonModule,
   ],
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.css',
 })
-export class ProjectsComponent {
-  mainStackProjectsContent = mainStackProjectsContent.reverse();
-  otherProjectsContent = otherProjectsContent.reverse();
+export class ProjectsComponent implements OnInit {
+  private initialMainStackProjectsContent: IProject[] = [];
+  copiedMainStackProjectsContent: IProject[] = [];
+  copiedOtherProjectsContent: IProject[] = [];
 
   technologyFilterContent = technologyFilterContent;
   yearFilterContent = yearFilterContent;
 
-  itemsPerPage: number = 6;
+  itemsPerPage: number = 4;
   mainCurrentPage: number = 1;
   otherCurrentPage: number = 1;
 
@@ -48,6 +51,17 @@ export class ProjectsComponent {
     technology: new FormControl(''),
     year: new FormControl(''),
   });
+
+  ngOnInit(): void {
+    this.initialMainStackProjectsContent = [
+      ...mainStackProjectsContent,
+    ].reverse();
+
+    this.copiedMainStackProjectsContent = [
+      ...this.initialMainStackProjectsContent,
+    ];
+    this.copiedOtherProjectsContent = [...otherProjectsContent].reverse();
+  }
 
   getContentSize(tabType: 'main' | 'other'): number {
     return tabType === 'main'
@@ -64,6 +78,72 @@ export class ProjectsComponent {
   }
 
   onFormChange() {
-    console.log(this.projectFiltrationForm.value);
+    const formValue = this.projectFiltrationForm.value;
+
+    if (formValue.technology && formValue.year) {
+      this.copiedMainStackProjectsContent = this.projectFilter(
+        this.initialMainStackProjectsContent,
+        'technology',
+        formValue.technology
+      );
+      this.copiedMainStackProjectsContent = this.projectFilter(
+        this.copiedMainStackProjectsContent,
+        'year',
+        formValue.year
+      );
+    } else if (formValue.technology && !formValue.year) {
+      this.copiedMainStackProjectsContent = this.projectFilter(
+        this.initialMainStackProjectsContent,
+        'technology',
+        formValue.technology
+      );
+    } else if (!formValue.technology && formValue.year) {
+      this.copiedMainStackProjectsContent = this.projectFilter(
+        this.initialMainStackProjectsContent,
+        'year',
+        formValue.year!
+      );
+    }
+  }
+
+  private projectFilter(
+    array: IProject[],
+    criteria_type: 'technology' | 'year',
+    criteria_value: string
+  ): IProject[] {
+    let returnArray: IProject[] = [];
+    if (criteria_type === 'technology') {
+      returnArray = array.filter((project) =>
+        project.technologies.includes(criteria_value)
+      );
+    } else {
+      returnArray = array.filter((project) =>
+        project.year.includes(criteria_value)
+      );
+    }
+
+    return returnArray;
+  }
+
+  loadAllProjects() {
+    this.copiedMainStackProjectsContent = this.initialMainStackProjectsContent;
+    this.projectFiltrationForm.reset();
+  }
+
+  checkIfDataChanged() {
+    return this.checkIfArraysEqual(
+      this.initialMainStackProjectsContent,
+      this.copiedMainStackProjectsContent
+    );
+  }
+
+  private checkIfArraysEqual(arr1: IProject[], arr2: IProject[]): boolean {
+    if (arr1.length !== arr2.length) return false;
+    for (let i = 0; i < arr1.length; i++) {
+      if (JSON.stringify(arr1[i]) !== JSON.stringify(arr2[i])) {
+        return false;
+      }
+    }
+    return true;
   }
 }

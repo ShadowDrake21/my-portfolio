@@ -72,7 +72,7 @@ export const otherProjectsContent: IProject[] = [
     image: '/assets/images/projects/other/marvel app.jpg',
     technologies: ['React'],
     title: 'Marvel app',
-    link: 'https://aesthetic-empanada-6857b1.netlify.app/home',
+    link: 'https://aesthetic-empanada-6857b1.netlify.app/',
     githubLink: 'https://github.com/ShadowDrake21/marvel-app',
     year: '2023',
   },
