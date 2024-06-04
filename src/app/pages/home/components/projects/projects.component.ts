@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ProjectItemComponent } from '@shared/components/project-item/project-item.component';
 import { StyledLinkComponent } from '@shared/components/styled-link/styled-link.component';
-import { allProjectsContent } from '@shared/content/projects.content';
+import { mainStackProjectsContent } from '@shared/content/projects.content';
 import { IProject } from '@shared/models/project.model';
 import { Observable, of } from 'rxjs';
 
@@ -14,17 +14,16 @@ import { Observable, of } from 'rxjs';
   styleUrl: './projects.component.css',
 })
 export class ProjectsComponent implements OnInit {
-  allProjectsContent = allProjectsContent;
+  mainStackProjectsContent = mainStackProjectsContent;
 
   public lastProjects$!: Observable<IProject[]>;
 
   ngOnInit(): void {
-    console.log('all projects content', allProjectsContent);
     this.lastProjects$ = of(
-      this.allProjectsContent
+      [...this.mainStackProjectsContent]
         .slice(
-          this.allProjectsContent.length - 4,
-          this.allProjectsContent.length
+          this.mainStackProjectsContent.length - 4,
+          this.mainStackProjectsContent.length
         )
         .reverse()
     );
