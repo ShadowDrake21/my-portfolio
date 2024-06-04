@@ -27,6 +27,10 @@ export const technologyStackContent: IStackItem[] = [
   { icon: '/assets/icons/technology-stack/stripe.svg', title: 'Stripe' },
 ];
 
+export const otherTechnologiesContent: IStackItem[] = [
+  { icon: '/assets/icons/technology-stack/other/react.svg', title: 'React' },
+];
+
 export const languageStackContent: IStackItem[] = [
   {
     icon: '/assets/icons/language-stack/england-flag.svg',
