@@ -1,0 +1,28 @@
+.projects__title {
+  padding-bottom: 10px;
+  font-size: 36px;
+  line-height: 40px;
+}
+
+.projects-tab__filtration {
+  display: flex;
+  gap: 15px;
+}
+
+.projects-tab__list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(auto-fit, minmax(100px, 1fr));
+  grid-column-gap: 12px;
+  grid-row-gap: 12px;
+}
+
+.projects-tab {
+  padding-top: 20px;
+}
+
+.project-tab__pagination {
+  display: flex;
+  justify-content: center;
+  padding-top: 25px;
+}
