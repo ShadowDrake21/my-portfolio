@@ -9,12 +9,27 @@
   gap: 15px;
 }
 
+.projects-tab__filtration-btn {
+  height: 100%;
+  padding: 15px 10px;
+}
+
 .projects-tab__list {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(auto-fit, minmax(100px, 1fr));
   grid-column-gap: 12px;
   grid-row-gap: 12px;
+}
+
+.projects-tab__list-noelements {
+  min-height: 400px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .projects-tab {

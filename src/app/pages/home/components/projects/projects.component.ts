@@ -20,7 +20,7 @@ export class ProjectsComponent implements OnInit {
 
   ngOnInit(): void {
     this.lastProjects$ = of(
-      this.mainStackProjectsContent
+      [...this.mainStackProjectsContent]
         .slice(
           this.mainStackProjectsContent.length - 4,
           this.mainStackProjectsContent.length

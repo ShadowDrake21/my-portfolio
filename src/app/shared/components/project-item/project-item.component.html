@@ -1,6 +1,6 @@
 <div class="project-item">
   <img
-    [src]="projectItem.image"
+    [src]="copiedProjectItem.image"
     alt="projectItem image"
     class="project-item__img"
   />
@@ -8,7 +8,7 @@
   <div class="project-item__content">
     <div class="project-item__technologies">
       <img
-        *ngFor="let image of projectItem.technologies"
+        *ngFor="let image of copiedProjectItem.technologies"
         [src]="image"
         class="project-item__technology"
         alt="project technology"
@@ -17,13 +17,13 @@
     <div class="project-item__links inter-medium">
       <a
         class="project-item__link main"
-        [href]="projectItem.link"
+        [href]="copiedProjectItem.link"
         target="_blank"
-        >{{ projectItem.title }}</a
+        >{{ copiedProjectItem.title }}</a
       >
       <a
         class="project-item__link github"
-        [href]="projectItem.githubLink"
+        [href]="copiedProjectItem.githubLink"
         target="_blank"
         >On GitHub</a
       >
