@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import {
   Component,
+  inject,
   Input,
   OnChanges,
   OnInit,
@@ -12,6 +13,9 @@ import { mainStackProjectsContent } from '@shared/content/projects.content';
 import { IProject } from '@shared/models/project.model';
 import { ThemeModeType } from '@shared/models/themeMode.model';
 import { Observable, of } from 'rxjs';
+import * as ApplicationSelectors from '@store/application/application.selectors';
+import { ApplicationState } from '@store/application/application.reducer';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-projects',
@@ -20,14 +24,15 @@ import { Observable, of } from 'rxjs';
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.css',
 })
-export class ProjectsComponent implements OnInit, OnChanges {
+export class ProjectsComponent implements OnInit {
   mainStackProjectsContent = mainStackProjectsContent;
+  private store = inject(Store<ApplicationState>);
 
-  @Input({ required: true }) themeMode: ThemeModeType = 'light';
-
-  public lastProjects$!: Observable<IProject[]>;
+  lastProjects$!: Observable<IProject[]>;
+  themeMode$!: Observable<ThemeModeType | null>;
 
   ngOnInit(): void {
+    this.themeMode$ = this.store.select(ApplicationSelectors.selectThemeMode);
     this.lastProjects$ = of(
       [...this.mainStackProjectsContent]
         .slice(
@@ -36,9 +41,5 @@ export class ProjectsComponent implements OnInit, OnChanges {
         )
         .reverse()
     );
-  }
-
-  ngOnChanges(changes: SimpleChanges): void {
-    this.themeMode = changes['themeMode'].currentValue;
   }
 }

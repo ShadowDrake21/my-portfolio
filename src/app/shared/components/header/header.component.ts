@@ -34,7 +34,7 @@ export class HeaderComponent implements OnInit {
 
   private store = inject(Store<ApplicationState>);
 
-  themeMode$!: Observable<ThemeModeType | null>;
+  themeMode$!: Observable<string | null>;
 
   ngOnInit(): void {
     this.themeMode$ = this.store.select(ApplicationSelectors.selectThemeMode);

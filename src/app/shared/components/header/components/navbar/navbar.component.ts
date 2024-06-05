@@ -4,7 +4,7 @@ import { ActivatedRoute, RouterModule } from '@angular/router';
 import { ThemeModeService } from '@core/services/themeMode.service';
 import { ThemeModeType } from '@shared/models/themeMode.model';
 import { retrieveFromLS, saveToLS } from '@shared/utils/localStorage.utils';
-import { filter, Observable, Subscription, switchMap } from 'rxjs';
+import { filter, map, Observable, of, Subscription, switchMap } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { ApplicationState } from '@store/application/application.reducer';
 import * as ApplicationActions from '@store/application/application.actions';
@@ -19,29 +19,38 @@ import * as ApplicationSelectors from '@store/application/application.selectors'
 })
 export class NavbarComponent implements OnInit, OnDestroy {
   private store = inject(Store<ApplicationState>);
-  private themeModeService = inject(ThemeModeService);
 
   themeMode$!: Observable<ThemeModeType | null>;
-  private subscription!: Subscription;
+  private currentThemeMode: ThemeModeType | null = null;
+  private subscription: Subscription = new Subscription();
 
   ngOnInit(): void {
-    this.themeMode$ = this.store.select(ApplicationSelectors.selectThemeMode);
+    this.initializeThemeMode();
   }
 
   onChangeTheme() {
-    this.themeMode$
-      .pipe(
-        filter((value) => !!value),
-        switchMap((themeMode) => (themeMode === 'light' ? 'dark' : 'lignt'))
-      )
-      .subscribe((updatedThemeMode) => {
-        if (updatedThemeMode === 'light' || updatedThemeMode === 'dark') {
-          console.log('updatedThemeMode', updatedThemeMode);
-          this.store.dispatch(
-            ApplicationActions.setThemeMode({ themeMode: updatedThemeMode })
-          );
-        }
-      });
+    if (this.currentThemeMode) {
+      const updatedThemeMode =
+        this.currentThemeMode === 'light'
+          ? ('dark' as ThemeModeType)
+          : ('light' as ThemeModeType);
+
+      if (updatedThemeMode !== this.currentThemeMode) {
+        console.log('onChangeTheme()', updatedThemeMode);
+        this.store.dispatch(
+          ApplicationActions.setThemeMode({ themeMode: updatedThemeMode })
+        );
+      }
+    }
+  }
+
+  initializeThemeMode() {
+    this.themeMode$ = this.store.select(ApplicationSelectors.selectThemeMode);
+    this.subscription.add(
+      this.themeMode$.subscribe((themeMode) => {
+        this.currentThemeMode = themeMode;
+      })
+    );
   }
 
   ngOnDestroy(): void {

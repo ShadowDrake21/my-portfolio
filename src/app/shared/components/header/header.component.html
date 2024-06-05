@@ -1,4 +1,9 @@
-<header class="header">
+<header
+  class="header"
+  [ngClass]="{
+    'dark-mode__header': (themeMode$ | async) === 'dark'
+  }"
+>
   <div class="container">
     <ul class="header__list">
       <li class="header-part">
