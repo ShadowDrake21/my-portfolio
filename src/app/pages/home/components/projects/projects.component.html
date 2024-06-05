@@ -1,4 +1,10 @@
-<section class="latest-projects section light-mode__section">
+<section
+  class="latest-projects section"
+  [ngClass]="{
+    'light-mode__section': themeMode === 'light',
+    'dark-mode__section': themeMode === 'dark'
+  }"
+>
   <div class="latest-projects__top">
     <h2 class="latest-project__title section-title">Last projects</h2>
     <helper-styled-link

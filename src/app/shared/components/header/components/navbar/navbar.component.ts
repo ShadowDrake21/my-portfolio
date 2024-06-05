@@ -1,9 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterModule } from '@angular/router';
+import { ThemeModeService } from '@core/services/themeMode.service';
+import { ThemeModeType } from '@shared/models/themeMode.model';
 import { retrieveFromLS, saveToLS } from '@shared/utils/localStorage.utils';
+import { Subscription } from 'rxjs';
 
-type themeModeType = 'light' | 'dark';
 @Component({
   selector: 'app-navbar',
   standalone: true,
@@ -11,21 +13,25 @@ type themeModeType = 'light' | 'dark';
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css',
 })
-export class NavbarComponent implements OnInit {
-  private activatedRoute = inject(ActivatedRoute);
-
-  themeMode: themeModeType = 'light';
+export class NavbarComponent implements OnInit, OnDestroy {
+  private themeModeService = inject(ThemeModeService);
+  themeMode: ThemeModeType = 'light';
+  private subscription: Subscription = new Subscription();
 
   ngOnInit(): void {
-    const themeModeStr: string | null = retrieveFromLS('themeMode');
-
-    if (themeModeStr) {
-      this.themeMode = JSON.parse(themeModeStr) as themeModeType;
-    }
+    this.subscription.add(
+      this.themeModeService.themeMode.subscribe((mode: ThemeModeType) => {
+        this.themeMode = mode;
+      })
+    );
   }
 
   onChangeTheme() {
     this.themeMode = this.themeMode === 'light' ? 'dark' : 'light';
-    saveToLS('themeMode', this.themeMode);
+    this.themeModeService.themeMode = this.themeMode;
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 }

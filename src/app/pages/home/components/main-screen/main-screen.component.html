@@ -1,4 +1,10 @@
-<section class="section light-mode__section main-screen first-screen">
+<section
+  class="section main-screen first-screen"
+  [ngClass]="{
+    'light-mode__section': themeMode === 'light',
+    'dark-mode__section': themeMode === 'dark'
+  }"
+>
   <div class="main-screen__top">
     <div class="main-screen__image-wrapper">
       <img
