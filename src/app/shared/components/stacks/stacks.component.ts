@@ -1,5 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import {
+  Component,
+  inject,
+  Input,
+  OnChanges,
+  OnInit,
+  SimpleChanges,
+} from '@angular/core';
 import { StackItemComponent } from './components/stack-item/stack-item.component';
 import {
   languageStackContent,
@@ -7,6 +14,10 @@ import {
   technologyStackContent,
 } from '@shared/content/stacks.content';
 import { ThemeModeType } from '@shared/models/themeMode.model';
+import { ApplicationState } from '@store/application/application.reducer';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import * as ApplicationSelectors from '@store/application/application.selectors';
 
 @Component({
   selector: 'app-stacks',
@@ -15,14 +26,16 @@ import { ThemeModeType } from '@shared/models/themeMode.model';
   templateUrl: './stacks.component.html',
   styleUrl: './stacks.component.css',
 })
-export class StacksComponent implements OnChanges {
+export class StacksComponent implements OnInit {
   technologyStackContent = technologyStackContent;
   otherTechnologiesContent = otherTechnologiesContent;
   languageStackContent = languageStackContent;
 
-  @Input({ required: true }) themeMode: ThemeModeType = 'light';
+  private store = inject(Store<ApplicationState>);
 
-  ngOnChanges(changes: SimpleChanges): void {
-    this.themeMode = changes['themeMode'].currentValue;
+  themeMode$!: Observable<ThemeModeType | null>;
+
+  ngOnInit(): void {
+    this.themeMode$ = this.store.select(ApplicationSelectors.selectThemeMode);
   }
 }

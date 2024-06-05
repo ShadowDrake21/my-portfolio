@@ -1,7 +1,18 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import {
+  Component,
+  inject,
+  Input,
+  OnChanges,
+  OnInit,
+  SimpleChanges,
+} from '@angular/core';
 import { myStoryContent } from './content/my-story.content';
 import { ThemeModeType } from '@shared/models/themeMode.model';
+import * as ApplicationSelectors from '@store/application/application.selectors';
+import { ApplicationState } from '@store/application/application.reducer';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-my-story',
@@ -10,12 +21,14 @@ import { ThemeModeType } from '@shared/models/themeMode.model';
   templateUrl: './my-story.component.html',
   styleUrl: './my-story.component.css',
 })
-export class MyStoryComponent implements OnChanges {
+export class MyStoryComponent implements OnInit {
   myStoryContent = myStoryContent;
 
-  @Input({ required: true }) themeMode: ThemeModeType = 'light';
+  private store = inject(Store<ApplicationState>);
 
-  ngOnChanges(changes: SimpleChanges): void {
-    this.themeMode = changes['themeMode'].currentValue;
+  themeMode$!: Observable<ThemeModeType | null>;
+
+  ngOnInit(): void {
+    this.themeMode$ = this.store.select(ApplicationSelectors.selectThemeMode);
   }
 }

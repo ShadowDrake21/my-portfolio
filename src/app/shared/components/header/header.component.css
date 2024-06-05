@@ -1,22 +1,35 @@
 .header {
   position: absolute;
-  top: 33px;
+  top: 63px;
   width: 100%;
 }
 
-.light-mode__header {
-}
-
 .dark-mode__header .work-available {
-  background-color: rgb(92, 227, 9);
+  background-color: rgb(180 243 141);
 }
 
-.dark-mode__section .work-available .work-available__text {
-  color: #006535;
+.dark-mode__header .work-available .work-available__text {
+  color: #000;
 }
 
-.dark-mode__section .work-available .work-available__text::before {
+.dark-mode__header .work-available .work-available__text::before {
   background-color: #006535;
+}
+
+.dark-mode__header .header-location {
+  color: #fff;
+}
+
+.dark-mode__header .header-location__span::before {
+  position: absolute;
+  left: 0;
+  content: url("/assets/icons/location.svg");
+  filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(351deg)
+    brightness(104%) contrast(102%);
+  width: 16px;
+  height: 16px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .header__list {

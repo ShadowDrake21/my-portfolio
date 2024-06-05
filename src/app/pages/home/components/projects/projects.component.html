@@ -1,8 +1,8 @@
 <section
   class="latest-projects section"
   [ngClass]="{
-    'light-mode__section': themeMode === 'light',
-    'dark-mode__section': themeMode === 'dark'
+    'light-mode__section': (themeMode$ | async) === 'light',
+    'dark-mode__section': (themeMode$ | async) === 'dark'
   }"
 >
   <div class="latest-projects__top">
@@ -10,6 +10,7 @@
     <helper-styled-link
       link="/projects"
       title="All projects"
+      [themeMode]="themeMode$"
     ></helper-styled-link>
   </div>
   <div
