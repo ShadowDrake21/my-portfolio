@@ -1,4 +1,9 @@
-<ul class="social-list">
+<ul
+  class="social-list"
+  [ngClass]="{
+    'dark-mode__socials': (themeMode$ | async) === 'dark'
+  }"
+>
   <li class="social-list__item">
     <a
       href="https://www.facebook.com/profile.php?id=100081115124854"

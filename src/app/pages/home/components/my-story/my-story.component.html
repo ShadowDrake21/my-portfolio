@@ -1,8 +1,8 @@
 <section
   class="section my-story"
   [ngClass]="{
-    'light-mode__section': themeMode === 'light',
-    'dark-mode__section': themeMode === 'dark'
+    'light-mode__section': (themeMode$ | async) === 'light',
+    'dark-mode__section': (themeMode$ | async) === 'dark'
   }"
 >
   <h2 class="section-title my-story__title">My story</h2>

@@ -36,13 +36,13 @@
     </li>
     <li
       class="navbar__list-item theme-mode"
-      [class]="themeMode === 'light' ? 'light-mode' : 'dark-mode'"
+      [class]="(themeMode$ | async) === 'light' ? 'light-mode' : 'dark-mode'"
     >
       <button class="navbar__item-btn" (click)="onChangeTheme()">
         <img
           class="navbar__item-link__img"
           [src]="
-            themeMode === 'light'
+            (themeMode$ | async) === 'light'
               ? '/assets/icons/navbar/light mode 1.svg'
               : '/assets/icons/navbar/dark mode.svg'
           "

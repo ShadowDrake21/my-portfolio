@@ -1,8 +1,8 @@
 <section
   class="section main-screen first-screen"
   [ngClass]="{
-    'light-mode__section': themeMode === 'light',
-    'dark-mode__section': themeMode === 'dark'
+    'light-mode__section': (themeMode$ | async) === 'light',
+    'dark-mode__section': (themeMode$ | async) === 'dark'
   }"
 >
   <div class="main-screen__top">
@@ -29,7 +29,11 @@
           Maecenas metus est, maximus et ipsum hendrerit, dictum porttitor ante.
         </p>
       </div>
-      <helper-styled-link link="/profile" title="More about Me" />
+      <helper-styled-link
+        link="/profile"
+        title="More about Me"
+        [themeMode]="themeMode$"
+      />
     </div>
   </div>
   <app-main-tasks></app-main-tasks>

@@ -40,8 +40,6 @@ body {
   margin: 0;
   font-size: 16px;
   line-height: 20px;
-  background-color: #f4f4f4;
-  padding: 30px;
 }
 
 ul,
@@ -108,6 +106,15 @@ a {
 
 .body-inner {
   position: relative;
+  padding: 30px 0 30px;
+}
+
+.body-light {
+  background-color: #f4f4f4;
+}
+
+.body-dark {
+  background-color: #141414;
 }
 
 .section-title {
