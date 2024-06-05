@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 import { LanguageSwitchComponent } from './components/language-switch/language-switch.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -17,4 +17,6 @@ import { SocialsComponent } from '../socials/socials.component';
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
 })
-export class HeaderComponent {}
+export class HeaderComponent {
+  @Input({ required: true }) isHeaderFull: boolean = true;
+}
