@@ -16,7 +16,7 @@
           <input
             matInput
             formControlName="name"
-            (blur)="updateNameErrorMessage()"
+            (blur)="updateErrorMessage('name')"
           />
           @if (contactForm.controls.name.invalid &&
           contactForm.controls.name.touched) {
@@ -28,7 +28,7 @@
           <input
             matInput
             formControlName="email"
-            (blur)="updateEmailErrorMessage()"
+            (blur)="updateErrorMessage('email')"
           />
           @if (contactForm.controls.email.invalid &&
           contactForm.controls.email.touched) {
@@ -41,7 +41,7 @@
             matInput
             style="resize: none; height: 180px"
             formControlName="message"
-            (blur)="updateTextareaErrorMessage()"
+            (blur)="updateErrorMessage('message')"
           ></textarea>
           @if (contactForm.controls.message.invalid &&
           contactForm.controls.message.touched) {
