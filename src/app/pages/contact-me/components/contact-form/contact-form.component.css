@@ -41,8 +41,14 @@
   line-height: 24px;
   color: #fff;
   background-color: #000;
-  padding: 8px 10px 9px;
+  padding: 11px 10px 12px;
   width: 100%;
+  outline: none;
+  border: none;
+}
+
+.contact-form__wrapper-btn:disabled {
+  background-color: #c4c4c4;
 }
 
 .contact-form__copyright {

@@ -10,11 +10,7 @@
       <div class="contact-form__socials">
         <app-socials></app-socials>
       </div>
-      <form
-        [formGroup]="contactForm"
-        class="contact-form__wrapper"
-        (ngSubmit)="onFormSubmit()"
-      >
+      <form class="contact-form__wrapper" [formGroup]="contactForm" #form>
         <mat-form-field>
           <mat-label>Name</mat-label>
           <input
@@ -22,7 +18,8 @@
             formControlName="name"
             (blur)="updateNameErrorMessage()"
           />
-          @if (contactForm.controls.name.invalid) {
+          @if (contactForm.controls.name.invalid &&
+          contactForm.controls.name.touched) {
           <mat-error>{{ nameErrorMessage }}</mat-error>
           }
         </mat-form-field>
@@ -33,15 +30,30 @@
             formControlName="email"
             (blur)="updateEmailErrorMessage()"
           />
-          @if (contactForm.controls.email.invalid) {
+          @if (contactForm.controls.email.invalid &&
+          contactForm.controls.email.touched) {
           <mat-error>{{ emailErrorMessage }}</mat-error>
           }
         </mat-form-field>
         <mat-form-field>
           <mat-label>Message</mat-label>
-          <textarea matInput style="resize: none"></textarea>
+          <textarea
+            matInput
+            style="resize: none; height: 180px"
+            formControlName="message"
+            (blur)="updateTextareaErrorMessage()"
+          ></textarea>
+          @if (contactForm.controls.message.invalid &&
+          contactForm.controls.message.touched) {
+          <mat-error>{{ messageErrorMessage }}</mat-error>
+          }
         </mat-form-field>
-        <button type="submit" class="contact-form__wrapper-btn">
+        <button
+          type="button"
+          class="contact-form__wrapper-btn"
+          (click)="onFormSubmit()"
+          [disabled]="contactForm.invalid"
+        >
           Send Message
         </button>
       </form>
