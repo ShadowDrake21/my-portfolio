@@ -4,7 +4,11 @@ import { ActivatedRoute, RouterModule } from '@angular/router';
 import { ThemeModeService } from '@core/services/themeMode.service';
 import { ThemeModeType } from '@shared/models/themeMode.model';
 import { retrieveFromLS, saveToLS } from '@shared/utils/localStorage.utils';
-import { Subscription } from 'rxjs';
+import { filter, Observable, Subscription, switchMap } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { ApplicationState } from '@store/application/application.reducer';
+import * as ApplicationActions from '@store/application/application.actions';
+import * as ApplicationSelectors from '@store/application/application.selectors';
 
 @Component({
   selector: 'app-navbar',
@@ -14,21 +18,30 @@ import { Subscription } from 'rxjs';
   styleUrl: './navbar.component.css',
 })
 export class NavbarComponent implements OnInit, OnDestroy {
+  private store = inject(Store<ApplicationState>);
   private themeModeService = inject(ThemeModeService);
-  themeMode: ThemeModeType = 'light';
-  private subscription: Subscription = new Subscription();
+
+  themeMode$!: Observable<ThemeModeType | null>;
+  private subscription!: Subscription;
 
   ngOnInit(): void {
-    this.subscription.add(
-      this.themeModeService.themeMode.subscribe((mode: ThemeModeType) => {
-        this.themeMode = mode;
-      })
-    );
+    this.themeMode$ = this.store.select(ApplicationSelectors.selectThemeMode);
   }
 
   onChangeTheme() {
-    this.themeMode = this.themeMode === 'light' ? 'dark' : 'light';
-    this.themeModeService.themeMode = this.themeMode;
+    this.themeMode$
+      .pipe(
+        filter((value) => !!value),
+        switchMap((themeMode) => (themeMode === 'light' ? 'dark' : 'lignt'))
+      )
+      .subscribe((updatedThemeMode) => {
+        if (updatedThemeMode === 'light' || updatedThemeMode === 'dark') {
+          console.log('updatedThemeMode', updatedThemeMode);
+          this.store.dispatch(
+            ApplicationActions.setThemeMode({ themeMode: updatedThemeMode })
+          );
+        }
+      });
   }
 
   ngOnDestroy(): void {

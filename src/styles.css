@@ -85,6 +85,19 @@ a {
 
 .dark-mode__section {
   background-color: #1a1a1a;
+  color: #fff;
+}
+
+.dark-mode__section .work-available {
+  background-color: rgb(92, 227, 9);
+}
+
+.dark-mode__section .work-available .work-available__text {
+  color: #006535;
+}
+
+.dark-mode__section .work-available .work-available__text::before {
+  background-color: #006535;
 }
 
 .container {

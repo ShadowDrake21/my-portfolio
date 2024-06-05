@@ -1,7 +1,7 @@
 import { Injectable, Input } from '@angular/core';
 import { ThemeModeType } from '@shared/models/themeMode.model';
 import { retrieveFromLS, saveToLS } from '@shared/utils/localStorage.utils';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class ThemeModeService {
@@ -12,15 +12,16 @@ export class ThemeModeService {
     this.loadThemeMode();
   }
 
-  loadThemeMode() {
+  loadThemeMode(): Observable<ThemeModeType | undefined> {
     const themeModeStr = retrieveFromLS('themeMode');
 
     if (themeModeStr) {
       const parsedThemeMode: string = JSON.parse(themeModeStr) as string;
       if (parsedThemeMode === 'light' || parsedThemeMode === 'dark') {
-        this._themeMode$$.next(parsedThemeMode);
+        return of(parsedThemeMode as ThemeModeType);
       }
     }
+    return of(undefined);
   }
 
   set themeMode(value: ThemeModeType) {

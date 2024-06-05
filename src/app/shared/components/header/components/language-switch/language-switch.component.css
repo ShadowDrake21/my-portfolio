@@ -43,6 +43,8 @@
 }
 
 .language-switch__dropdown {
+  position: relative;
+  z-index: 9;
   width: 170px;
   list-style: none;
   margin: 0;
