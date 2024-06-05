@@ -2,7 +2,7 @@
   <div class="container">
     <ul class="header__list">
       <li class="header-part">
-        <div class="header-socials__wrapper">
+        <div class="header-socials__wrapper" *ngIf="isHeaderFull">
           <app-socials></app-socials>
         </div>
         <div style="display: flex">
