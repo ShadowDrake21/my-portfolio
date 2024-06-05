@@ -1,4 +1,10 @@
-<section class="section light-mode__section stacks">
+<section
+  class="section stacks"
+  [ngClass]="{
+    'light-mode__section': themeMode === 'light',
+    'dark-mode__section': themeMode === 'dark'
+  }"
+>
   <div class="stacks-half">
     <h2 class="stacks-title section-title">Technology stack</h2>
     <div class="stacks-list technology-grid__list">
