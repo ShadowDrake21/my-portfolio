@@ -4,6 +4,21 @@
   width: 100%;
 }
 
+.light-mode__header {
+}
+
+.dark-mode__header .work-available {
+  background-color: rgb(92, 227, 9);
+}
+
+.dark-mode__section .work-available .work-available__text {
+  color: #006535;
+}
+
+.dark-mode__section .work-available .work-available__text::before {
+  background-color: #006535;
+}
+
 .header__list {
   display: flex;
   justify-content: space-between;
