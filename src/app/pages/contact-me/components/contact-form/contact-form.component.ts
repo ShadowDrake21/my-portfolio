@@ -55,26 +55,7 @@ export class ContactFormComponent implements OnInit {
   private subscriptions: Subscription[] = [];
 
   constructor() {
-    merge(
-      this.contactForm.controls.email.statusChanges,
-      this.contactForm.controls.email.valueChanges
-    )
-      .pipe(takeUntilDestroyed())
-      .subscribe(() => this.updateNameErrorMessage());
-
-    merge(
-      this.contactForm.controls.email.statusChanges,
-      this.contactForm.controls.email.valueChanges
-    )
-      .pipe(takeUntilDestroyed())
-      .subscribe(() => this.updateEmailErrorMessage());
-
-    merge(
-      this.contactForm.controls.message.statusChanges,
-      this.contactForm.controls.message.valueChanges
-    )
-      .pipe(takeUntilDestroyed())
-      .subscribe(() => this.updateTextareaErrorMessage());
+    this.setupErrorMessageHandlers();
   }
 
   ngOnInit(): void {}
@@ -82,12 +63,14 @@ export class ContactFormComponent implements OnInit {
   onFormSubmit() {
     emailjs.init('IGAxW1H-zizWj4l1c');
 
+    const { name, email, message } = this.contactForm.value;
+
     const submitSubscription = from(
       emailjs.send('service_ona0hct', 'template_b3srzms', {
-        from_name: this.contactForm.value.name,
+        from_name: name,
         to_name: 'Demetriusz',
-        from_email: this.contactForm.value.email,
-        message: this.contactForm.value.message,
+        from_email: email,
+        message: message,
       })
     ).subscribe({
       next: () => {
@@ -105,38 +88,41 @@ export class ContactFormComponent implements OnInit {
     this.subscriptions.push(submitSubscription);
   }
 
-  updateNameErrorMessage() {
-    if (this.contactForm.controls.name.hasError('required')) {
-      this.nameErrorMessage = 'You must enter a value';
-    } else if (this.contactForm.controls.name.hasError('minlength')) {
-      this.nameErrorMessage = 'Name is too short';
-    } else if (this.contactForm.controls.name.hasError('maxlength')) {
-      this.nameErrorMessage = 'Name is too long';
-    } else {
-      this.nameErrorMessage = '';
-    }
+  private setupErrorMessageHandlers() {
+    const controls = ['name', 'email', 'message'] as const;
+
+    controls.forEach((control) => {
+      merge(
+        this.contactForm.controls[control].statusChanges,
+        this.contactForm.controls[control].valueChanges
+      )
+        .pipe(takeUntilDestroyed())
+        .subscribe(() => this.updateErrorMessage(control));
+    });
   }
 
-  updateEmailErrorMessage() {
-    if (this.contactForm.controls.email.hasError('required')) {
-      this.emailErrorMessage = 'You must enter a value';
-    } else if (this.contactForm.controls.email.hasError('email')) {
+  updateErrorMessage(control: 'name' | 'email' | 'message') {
+    const controlErrors = this.contactForm.controls[control].errors;
+
+    if (controlErrors?.['required']) {
+      this[`${control}ErrorMessage`] = 'You must enter a value';
+    } else if (controlErrors?.['minlength']) {
+      this[`${control}ErrorMessage`] = `${this.capitalizeFirstLetter(
+        control
+      )} is too short`;
+    } else if (controlErrors?.['maxlength']) {
+      this[`${control}ErrorMessage`] = `${this.capitalizeFirstLetter(
+        control
+      )} is too long`;
+    } else if (control === 'email' && controlErrors?.['email']) {
       this.emailErrorMessage = 'Not a valid email';
     } else {
-      this.emailErrorMessage = '';
+      this[`${control}ErrorMessage`] = '';
     }
   }
 
-  updateTextareaErrorMessage() {
-    if (this.contactForm.controls.message.hasError('required')) {
-      this.messageErrorMessage = 'You must enter a value';
-    } else if (this.contactForm.controls.message.hasError('minlength')) {
-      this.messageErrorMessage = 'Message is too short';
-    } else if (this.contactForm.controls.message.hasError('maxlength')) {
-      this.messageErrorMessage = 'Message is too long';
-    } else {
-      this.messageErrorMessage = '';
-    }
+  private capitalizeFirstLetter(str: string) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
   }
 
   openSnackBar(message: string) {
