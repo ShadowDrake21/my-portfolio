@@ -1,4 +1,10 @@
-<section class="section light-mode__section first-screen contact-form">
+<section
+  class="section first-screen contact-form"
+  [ngClass]="{
+    'light-mode__section': (themeMode$ | async) === 'light',
+    'dark-mode__section': (themeMode$ | async) === 'dark'
+  }"
+>
   <div class="contact-form__inner">
     <div class="contact-form__second-inner">
       <h2 class="section-title contact-form__title inter-semibold">
@@ -50,7 +56,7 @@
         </mat-form-field>
         <button
           type="button"
-          class="contact-form__wrapper-btn"
+          class="contact-form__wrapper-btn inter-semibold"
           (click)="onFormSubmit()"
           [disabled]="contactForm.invalid"
         >
