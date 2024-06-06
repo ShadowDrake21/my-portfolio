@@ -16,7 +16,7 @@
 }
 
 .dark-mode__project-item .project-item__technology {
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: #fff;
   border-radius: 50%;
 }
 

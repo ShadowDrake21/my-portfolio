@@ -1,5 +1,11 @@
 <div class="page">
-  <section class="section light-mode__section first-screen projects">
+  <section
+    class="section first-screen projects"
+    [ngClass]="{
+      'light-mode__section': (themeMode$ | async) === 'light',
+      'dark-mode__section': (themeMode$ | async) === 'dark'
+    }"
+  >
     <h2 class="projects__title inter-semibold">My Projects</h2>
     <mat-tab-group
       animationDuration="0ms"
