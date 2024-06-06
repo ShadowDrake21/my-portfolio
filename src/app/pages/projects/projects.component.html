@@ -62,7 +62,10 @@
             @for (item of copiedMainStackProjectsContent | slice:
             (mainCurrentPage-1) * itemsPerPage : mainCurrentPage * itemsPerPage;
             track item) {
-            <app-project-item [item]="item"></app-project-item>
+            <app-project-item
+              [themeMode]="themeMode$"
+              [item]="item"
+            ></app-project-item>
             }
           </div>
           } @else {
@@ -91,7 +94,10 @@
             @for (item of copiedOtherProjectsContent | slice:
             (otherCurrentPage-1) * itemsPerPage : otherCurrentPage *
             itemsPerPage; track item) {
-            <app-project-item [item]="item"></app-project-item>
+            <app-project-item
+              [themeMode]="themeMode$"
+              [item]="item"
+            ></app-project-item>
             }
           </div>
 

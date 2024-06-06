@@ -97,3 +97,17 @@
 .my-github__profile-link:hover {
   transform: translateY(-2px);
 }
+
+.dark-mode__git-profile .my-github__profile-content__location {
+  color: #999999;
+}
+
+.dark-mode__git-profile .my-github__profile-content__location::before {
+  filter: invert(61%) sepia(0%) saturate(1%) hue-rotate(78deg) brightness(100%)
+    contrast(89%);
+}
+
+.dark-mode__git-profile .my-github__profile-link {
+  background-color: #fff;
+  color: #000000;
+}

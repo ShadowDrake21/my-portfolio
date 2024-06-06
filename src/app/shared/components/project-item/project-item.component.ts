@@ -12,6 +12,8 @@ import {
   technologyStackContent,
 } from '@shared/content/stacks.content';
 import { IProject } from '@shared/models/project.model';
+import { ThemeModeType } from '@shared/models/themeMode.model';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-project-item',
@@ -21,6 +23,8 @@ import { IProject } from '@shared/models/project.model';
   styleUrl: './project-item.component.css',
 })
 export class ProjectItemComponent implements OnInit, OnChanges {
+  @Input({ required: true, alias: 'themeMode' })
+  themeMode$!: Observable<ThemeModeType | null>;
   @Input({ required: true, alias: 'item' }) projectItem!: IProject;
   copiedProjectItem!: IProject;
 

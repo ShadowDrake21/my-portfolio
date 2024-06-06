@@ -4,11 +4,12 @@
   border: 1px solid var(--border-1);
   display: flex;
   align-items: center;
-
   gap: 15px;
 }
 
-.stack-item__icon-wrapper {
+.dark-mode__stack-item {
+  border-color: var(--dark-mode__color-1);
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 .stack-item__icon {
@@ -31,4 +32,8 @@
   font-size: 13px;
   line-height: 17px;
   color: #454545;
+}
+
+.dark-mode__stack-item .stack-item__level {
+  color: rgb(255, 255, 255);
 }

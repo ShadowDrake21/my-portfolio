@@ -1,4 +1,4 @@
-<nav class="navbar">
+<nav class="navbar" [class.dark-mode__navbar]="(themeMode$ | async) === 'dark'">
   <ul class="navbar__list">
     <li class="navbar__list-item" routerLinkActive="active">
       <a routerLink="/home" class="navbar__item-link">
