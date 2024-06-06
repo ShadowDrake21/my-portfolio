@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { IStackItem } from '@shared/models/stack.model';
+import { ThemeModeType } from '@shared/models/themeMode.model';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-stack-item',
@@ -11,4 +13,6 @@ import { IStackItem } from '@shared/models/stack.model';
 })
 export class StackItemComponent {
   @Input({ required: true, alias: 'item' }) stackItem!: IStackItem;
+  @Input({ required: true, alias: 'themeMode' })
+  themeMode$!: Observable<ThemeModeType | null>;
 }

@@ -1,4 +1,10 @@
-<footer class="footer light-mode__section">
+<footer
+  class="footer"
+  [ngClass]="{
+    'light-mode__section': (themeMode$ | async) === 'light',
+    'dark-mode__section': (themeMode$ | async) === 'dark'
+  }"
+>
   <div class="footer__inner">
     <h3 class="footer__title section-title inter-semibold">
       Want to communicate with me?
@@ -12,6 +18,7 @@
       <helper-styled-link
         link="/contact-me"
         title="Write to me"
+        [themeMode]="themeMode$"
       ></helper-styled-link>
     </div>
     <p class="footer__copyright">

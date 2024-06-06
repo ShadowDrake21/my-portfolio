@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, Input, OnInit } from '@angular/core';
 import { SocialsComponent } from '@shared/components/socials/socials.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -9,11 +9,12 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { from, merge, Subscription } from 'rxjs';
+import { from, merge, Observable, Subscription } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import emailjs, { type EmailJSResponseStatus } from '@emailjs/browser';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ContactMeSnackbarComponent } from '../contact-me-snackbar/contact-me-snackbar.component';
+import { ThemeModeType } from '@shared/models/themeMode.model';
 
 @Component({
   selector: 'app-contact-form',
@@ -30,6 +31,8 @@ import { ContactMeSnackbarComponent } from '../contact-me-snackbar/contact-me-sn
   styleUrl: './contact-form.component.css',
 })
 export class ContactFormComponent implements OnInit {
+  @Input({ required: true, alias: 'themeMode' })
+  themeMode$!: Observable<ThemeModeType | null>;
   private _snackBar = inject(MatSnackBar);
 
   private snackBarDurationInSeconds = 5;

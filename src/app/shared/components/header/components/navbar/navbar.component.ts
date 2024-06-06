@@ -1,9 +1,15 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterModule } from '@angular/router';
+import { ThemeModeService } from '@core/services/themeMode.service';
+import { ThemeModeType } from '@shared/models/themeMode.model';
 import { retrieveFromLS, saveToLS } from '@shared/utils/localStorage.utils';
+import { filter, map, Observable, of, Subscription, switchMap } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { ApplicationState } from '@store/application/application.reducer';
+import * as ApplicationActions from '@store/application/application.actions';
+import * as ApplicationSelectors from '@store/application/application.selectors';
 
-type themeModeType = 'light' | 'dark';
 @Component({
   selector: 'app-navbar',
   standalone: true,
@@ -11,21 +17,43 @@ type themeModeType = 'light' | 'dark';
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css',
 })
-export class NavbarComponent implements OnInit {
-  private activatedRoute = inject(ActivatedRoute);
+export class NavbarComponent implements OnInit, OnDestroy {
+  private store = inject(Store<ApplicationState>);
 
-  themeMode: themeModeType = 'light';
+  themeMode$!: Observable<ThemeModeType | null>;
+  private currentThemeMode: ThemeModeType | null = null;
+  private subscription: Subscription = new Subscription();
 
   ngOnInit(): void {
-    const themeModeStr: string | null = retrieveFromLS('themeMode');
-
-    if (themeModeStr) {
-      this.themeMode = JSON.parse(themeModeStr) as themeModeType;
-    }
+    this.initializeThemeMode();
   }
 
   onChangeTheme() {
-    this.themeMode = this.themeMode === 'light' ? 'dark' : 'light';
-    saveToLS('themeMode', this.themeMode);
+    if (this.currentThemeMode) {
+      const updatedThemeMode =
+        this.currentThemeMode === 'light'
+          ? ('dark' as ThemeModeType)
+          : ('light' as ThemeModeType);
+
+      if (updatedThemeMode !== this.currentThemeMode) {
+        console.log('onChangeTheme()', updatedThemeMode);
+        this.store.dispatch(
+          ApplicationActions.setThemeMode({ themeMode: updatedThemeMode })
+        );
+      }
+    }
+  }
+
+  initializeThemeMode() {
+    this.themeMode$ = this.store.select(ApplicationSelectors.selectThemeMode);
+    this.subscription.add(
+      this.themeMode$.subscribe((themeMode) => {
+        this.currentThemeMode = themeMode;
+      })
+    );
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 }

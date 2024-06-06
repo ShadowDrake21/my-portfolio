@@ -19,3 +19,13 @@
   right: 13px;
   z-index: 10;
 }
+
+.dark-mode__styled-link {
+  color: #fff;
+  border: 1px solid var(--dark-mode__color-1);
+}
+
+.dark-mode__styled-link::after {
+  filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(117deg)
+    brightness(108%) contrast(101%);
+}

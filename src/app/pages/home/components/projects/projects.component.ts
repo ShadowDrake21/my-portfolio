@@ -1,10 +1,21 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  inject,
+  Input,
+  OnChanges,
+  OnInit,
+  SimpleChanges,
+} from '@angular/core';
 import { ProjectItemComponent } from '@shared/components/project-item/project-item.component';
 import { StyledLinkComponent } from '@shared/components/styled-link/styled-link.component';
 import { mainStackProjectsContent } from '@shared/content/projects.content';
 import { IProject } from '@shared/models/project.model';
+import { ThemeModeType } from '@shared/models/themeMode.model';
 import { Observable, of } from 'rxjs';
+import * as ApplicationSelectors from '@store/application/application.selectors';
+import { ApplicationState } from '@store/application/application.reducer';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-projects',
@@ -15,10 +26,13 @@ import { Observable, of } from 'rxjs';
 })
 export class ProjectsComponent implements OnInit {
   mainStackProjectsContent = mainStackProjectsContent;
+  private store = inject(Store<ApplicationState>);
 
-  public lastProjects$!: Observable<IProject[]>;
+  lastProjects$!: Observable<IProject[]>;
+  themeMode$!: Observable<ThemeModeType | null>;
 
   ngOnInit(): void {
+    this.themeMode$ = this.store.select(ApplicationSelectors.selectThemeMode);
     this.lastProjects$ = of(
       [...this.mainStackProjectsContent]
         .slice(

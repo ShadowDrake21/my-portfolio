@@ -1,4 +1,10 @@
-<section class="section light-mode__section education">
+<section
+  class="section education"
+  [ngClass]="{
+    'light-mode__section': (themeMode$ | async) === 'light',
+    'dark-mode__section': (themeMode$ | async) === 'dark'
+  }"
+>
   <h2 class="section-title education__title">Education</h2>
   <div class="education__list">
     <div *ngFor="let item of educationContent" class="education__list-item">

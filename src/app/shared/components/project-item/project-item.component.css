@@ -3,6 +3,23 @@
   border: 1px solid var(--border-1);
 }
 
+.dark-mode__project-item {
+  border-color: var(--dark-mode__color-1);
+}
+
+.dark-mode__project-item .project-item__link.main {
+  color: #fff;
+}
+
+.dark-mode__project-item .project-item__link.github {
+  color: var(--dark-mode__color-1);
+}
+
+.dark-mode__project-item .project-item__technology {
+  background-color: #fff;
+  border-radius: 50%;
+}
+
 .project-item__img {
   width: 100%;
   object-fit: cover;

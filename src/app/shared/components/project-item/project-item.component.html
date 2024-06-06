@@ -1,4 +1,7 @@
-<div class="project-item">
+<div
+  class="project-item"
+  [class.dark-mode__project-item]="(themeMode$ | async) === 'dark'"
+>
   <img
     [src]="copiedProjectItem.image"
     alt="projectItem image"

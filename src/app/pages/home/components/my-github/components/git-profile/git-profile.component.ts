@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { IUser } from '@shared/models/github.model';
+import { ThemeModeType } from '@shared/models/themeMode.model';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -12,4 +13,6 @@ import { Observable } from 'rxjs';
 })
 export class GitProfileComponent {
   @Input({ required: true, alias: 'profile' }) profile$!: Observable<IUser>;
+  @Input({ alias: 'themeMode', required: true })
+  themeMode$!: Observable<ThemeModeType | null>;
 }

@@ -57,3 +57,17 @@
   color: #999999;
   text-align: center;
 }
+
+.dark-mode__section .contact-form__emailbox {
+  color: var(--dark-mode__color-1);
+}
+
+.dark-mode__section .contact-form__wrapper-btn {
+  background-color: #fff;
+  color: #000;
+}
+
+.dark-mode__section .contact-form__wrapper-btn:disabled {
+  color: #fff;
+  background-color: #c4c4c4;
+}
