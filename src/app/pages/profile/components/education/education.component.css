@@ -42,8 +42,8 @@
 }
 
 .education__list-item__text {
-  font-size: 12px;
-  line-height: 16px;
+  font-size: 14px;
+  line-height: 18px;
   color: #999999;
 }
 
@@ -67,4 +67,12 @@
 .education__list-item__right-text {
   font-size: 14px;
   line-height: 18px;
+}
+
+.dark-mode__section .education__list-item {
+  border-color: var(--dark-mode__color-1);
+}
+
+.dark-mode__section .education__list-item__title {
+  color: var(--dark-mode__color-2);
 }
