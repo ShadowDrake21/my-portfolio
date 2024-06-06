@@ -1,5 +1,10 @@
 <div class="repositories-list">
-  <h5 class="repositories-list__title inter-light">Latest repositories</h5>
+  <h5
+    class="repositories-list__title inter-light"
+    [class.dark-mode__text]="(themeMode$ | async) === 'dark'"
+  >
+    Latest repositories
+  </h5>
   <div
     *ngIf="repositories$ | async as repositories"
     class="repositories-list__container"
@@ -9,6 +14,7 @@
       [href]="repository.html_url"
       target="_blank"
       class="repositories-list__container-item inter-medium"
+      [class.dark-mode__repository]="(themeMode$ | async) === 'dark'"
     >
       <ng-container *ngIf="!repository.private">
         <div class="repositories-list__container-item__top">

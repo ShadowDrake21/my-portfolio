@@ -21,7 +21,10 @@
       class="latest-project__list-item__wrapper"
       *ngFor="let project of lastProjects"
     >
-      <app-project-item [item]="project"></app-project-item>
+      <app-project-item
+        [themeMode]="themeMode$"
+        [item]="project"
+      ></app-project-item>
     </div>
   </div>
 </section>

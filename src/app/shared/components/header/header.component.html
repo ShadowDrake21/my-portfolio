@@ -15,7 +15,10 @@
         </div>
       </li>
       <li class="header-part">
-        <div class="header-location">
+        <div
+          class="header-location"
+          [class.dark-mode__text]="(themeMode$ | async) === 'dark'"
+        >
           <span class="header-location__span">Chernihiv, Ukraine</span>
         </div>
         <div class="work-available">

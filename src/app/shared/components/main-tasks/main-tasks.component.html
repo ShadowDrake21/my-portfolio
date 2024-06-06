@@ -1,4 +1,4 @@
-<div class="tasks">
+<div class="tasks" [class.dark-mode__tasks]="(themeMode$ | async) === 'dark'">
   <p class="tasks-text">Some tasks I'm really good at:</p>
   <ul class="tasks-list">
     <li class="tasks-list__item">UI Design</li>

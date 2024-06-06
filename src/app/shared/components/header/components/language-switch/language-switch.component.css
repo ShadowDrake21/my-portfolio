@@ -4,6 +4,20 @@
   overflow-y: hidden;
 }
 
+.dark-mode__language-switch .language-switch__btn {
+  border: #929292;
+  background-color: #a1a1a1;
+  color: #fff;
+}
+
+.dark-mode__language-switch .language-switch__dropdown {
+  background-color: #9e9e9e;
+}
+
+.dark-mode__language-switch .language-switch__option {
+  background-color: #9e9e9e;
+}
+
 .language-switch__btn {
   cursor: pointer;
   position: relative;
