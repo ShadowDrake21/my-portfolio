@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { ProjectItemComponent } from '@shared/components/project-item/project-item.component';
 import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatTabChangeEvent, MatTabsModule } from '@angular/material/tabs';
@@ -17,6 +17,11 @@ import {
 } from './content/projects.content';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
+import { Store } from '@ngrx/store';
+import { ApplicationState } from '@store/application/application.reducer';
+import { ThemeModeType } from '@shared/models/themeMode.model';
+import { Observable } from 'rxjs';
+import * as ApplicationSelectors from '@store/application/application.selectors';
 
 @Component({
   selector: 'app-projects',
@@ -36,6 +41,8 @@ import { MatButtonModule } from '@angular/material/button';
   styleUrl: './projects.component.css',
 })
 export class ProjectsComponent implements OnInit {
+  private store = inject(Store<ApplicationState>);
+
   private initialMainStackProjectsContent: IProject[] = [];
   copiedMainStackProjectsContent: IProject[] = [];
   copiedOtherProjectsContent: IProject[] = [];
@@ -47,12 +54,16 @@ export class ProjectsComponent implements OnInit {
   mainCurrentPage: number = 1;
   otherCurrentPage: number = 1;
 
+  themeMode$!: Observable<ThemeModeType | null>;
+
   projectFiltrationForm = new FormGroup({
     technology: new FormControl(''),
     year: new FormControl(''),
   });
 
   ngOnInit(): void {
+    this.themeMode$ = this.store.select(ApplicationSelectors.selectThemeMode);
+
     this.initialMainStackProjectsContent = [
       ...mainStackProjectsContent,
     ].reverse();

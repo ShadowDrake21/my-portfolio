@@ -1,4 +1,10 @@
-<section class="section light-mode__section basic-info first-screen">
+<section
+  class="section basic-info first-screen"
+  [ngClass]="{
+    'light-mode__section': (themeMode$ | async) === 'light',
+    'dark-mode__section': (themeMode$ | async) === 'dark'
+  }"
+>
   <div class="basic-info__top">
     <img
       src="/assets/my-photos/profile-page.jpg"

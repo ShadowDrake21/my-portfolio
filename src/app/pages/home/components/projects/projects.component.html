@@ -1,9 +1,16 @@
-<section class="latest-projects section light-mode__section">
+<section
+  class="latest-projects section"
+  [ngClass]="{
+    'light-mode__section': (themeMode$ | async) === 'light',
+    'dark-mode__section': (themeMode$ | async) === 'dark'
+  }"
+>
   <div class="latest-projects__top">
     <h2 class="latest-project__title section-title">Last projects</h2>
     <helper-styled-link
       link="/projects"
       title="All projects"
+      [themeMode]="themeMode$"
     ></helper-styled-link>
   </div>
   <div
@@ -14,7 +21,10 @@
       class="latest-project__list-item__wrapper"
       *ngFor="let project of lastProjects"
     >
-      <app-project-item [item]="project"></app-project-item>
+      <app-project-item
+        [themeMode]="themeMode$"
+        [item]="project"
+      ></app-project-item>
     </div>
   </div>
 </section>

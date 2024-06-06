@@ -1,4 +1,10 @@
-<section class="section light-mode__section main-screen first-screen">
+<section
+  class="section main-screen first-screen"
+  [ngClass]="{
+    'light-mode__section': (themeMode$ | async) === 'light',
+    'dark-mode__section': (themeMode$ | async) === 'dark'
+  }"
+>
   <div class="main-screen__top">
     <div class="main-screen__image-wrapper">
       <img
@@ -12,7 +18,7 @@
         Hi!<br />I'm Dmytro (Dmitri) Krapyvianskiy.<br />Web && front-end
         developer.
       </h1>
-      <div>
+      <div [class.dark-mode__text]="(themeMode$ | async) === 'dark'">
         <p class="main-screen__content-text">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id
           feugiat eros. Nunc ut blandit velit. Nullam viverra orci eu nunc
@@ -23,7 +29,11 @@
           Maecenas metus est, maximus et ipsum hendrerit, dictum porttitor ante.
         </p>
       </div>
-      <helper-styled-link link="/profile" title="More about Me" />
+      <helper-styled-link
+        link="/profile"
+        title="More about Me"
+        [themeMode]="themeMode$"
+      />
     </div>
   </div>
   <app-main-tasks></app-main-tasks>

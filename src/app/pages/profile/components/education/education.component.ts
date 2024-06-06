@@ -1,6 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { educationContent } from './content/education.content';
+import * as ApplicationSelectors from '@store/application/application.selectors';
+import { ThemeModeType } from '@shared/models/themeMode.model';
+import { Observable } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { ApplicationState } from '@store/application/application.reducer';
 
 @Component({
   selector: 'app-education',
@@ -9,6 +14,13 @@ import { educationContent } from './content/education.content';
   templateUrl: './education.component.html',
   styleUrl: './education.component.css',
 })
-export class EducationComponent {
+export class EducationComponent implements OnInit {
   educationContent = educationContent;
+
+  private store = inject(Store<ApplicationState>);
+
+  themeMode$!: Observable<ThemeModeType | null>;
+  ngOnInit(): void {
+    this.themeMode$ = this.store.select(ApplicationSelectors.selectThemeMode);
+  }
 }

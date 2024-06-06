@@ -1,4 +1,10 @@
-<div class="entire-positioning">
+<div
+  class="body-inner"
+  [ngClass]="{
+    'body-light': (themeMode$ | async) === 'light',
+    'body-dark': (themeMode$ | async) === 'dark'
+  }"
+>
   <app-header [isHeaderFull]="isContactMePage"></app-header>
   <div class="container">
     <router-outlet></router-outlet>

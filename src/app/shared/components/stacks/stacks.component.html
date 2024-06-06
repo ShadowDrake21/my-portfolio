@@ -1,10 +1,17 @@
-<section class="section light-mode__section stacks">
+<section
+  class="section stacks"
+  [ngClass]="{
+    'light-mode__section': (themeMode$ | async) === 'light',
+    'dark-mode__section': (themeMode$ | async) === 'dark'
+  }"
+>
   <div class="stacks-half">
     <h2 class="stacks-title section-title">Technology stack</h2>
     <div class="stacks-list technology-grid__list">
       <app-stack-item
         *ngFor="let technology of technologyStackContent; let i = index"
         [item]="technology"
+        [themeMode]="themeMode$"
       ></app-stack-item>
     </div>
   </div>
@@ -16,6 +23,7 @@
       <app-stack-item
         *ngFor="let other of otherTechnologiesContent; let i = index"
         [item]="other"
+        [themeMode]="themeMode$"
       ></app-stack-item>
     </div>
   </div>
@@ -25,6 +33,7 @@
       <app-stack-item
         *ngFor="let language of languageStackContent; let i = index"
         [item]="language"
+        [themeMode]="themeMode$"
       ></app-stack-item>
     </div>
   </div>

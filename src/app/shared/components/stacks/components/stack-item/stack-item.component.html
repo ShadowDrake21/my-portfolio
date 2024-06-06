@@ -1,4 +1,7 @@
-<div class="stack-item">
+<div
+  class="stack-item"
+  [class.dark-mode__stack-item]="(themeMode$ | async) === 'dark'"
+>
   <div class="stack-item__icon-wrapper">
     <img [src]="stackItem.icon" class="stack-item__icon" alt="stack icon" />
   </div>

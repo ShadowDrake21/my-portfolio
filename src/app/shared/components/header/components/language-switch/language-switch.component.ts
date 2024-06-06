@@ -12,31 +12,42 @@ import { MatButtonModule } from '@angular/material/button';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { ClickOutsideDirective } from '@shared/directives/click-outside.directive';
 import { retrieveFromLS, saveToLS } from '@shared/utils/localStorage.utils';
+import { CommonModule } from '@angular/common';
+import { ApplicationState } from '@store/application/application.reducer';
+import { Store } from '@ngrx/store';
+import * as ApplicationSelectors from '@store/application/application.selectors';
+import { ThemeModeType } from '@shared/models/themeMode.model';
 
 type languageType = 'en' | 'pl' | 'ua';
 
 @Component({
   selector: 'app-language-switch',
   standalone: true,
-  imports: [MatMenuModule, MatButtonModule, ClickOutsideDirective],
+  imports: [
+    CommonModule,
+    MatMenuModule,
+    MatButtonModule,
+    ClickOutsideDirective,
+  ],
   templateUrl: './language-switch.component.html',
   styleUrl: './language-switch.component.css',
-  providers: [],
 })
 export class LanguageSwitchComponent implements OnInit, AfterViewInit {
-  private renderer = inject(Renderer2);
+  private store = inject(Store<ApplicationState>);
 
   @ViewChild('languageSwitchDropdown')
   languageSwitchDropdown!: ElementRef<HTMLUListElement>;
 
   private isListenerAttached = false;
 
+  themeMode$!: Observable<ThemeModeType | null>;
   currentLanguage$$: BehaviorSubject<languageType> =
     new BehaviorSubject<languageType>('en');
 
   currentLanguageImg!: string;
 
   ngOnInit(): void {
+    this.themeMode$ = this.store.select(ApplicationSelectors.selectThemeMode);
     const currentLanguageStr = retrieveFromLS('current_language');
     if (currentLanguageStr) {
       this.currentLanguage$$.next(
