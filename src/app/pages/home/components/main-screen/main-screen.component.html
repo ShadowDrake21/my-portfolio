@@ -18,7 +18,7 @@
         Hi!<br />I'm Dmytro (Dmitri) Krapyvianskiy.<br />Web && front-end
         developer.
       </h1>
-      <div>
+      <div [class.dark-mode__text]="(themeMode$ | async) === 'dark'">
         <p class="main-screen__content-text">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id
           feugiat eros. Nunc ut blandit velit. Nullam viverra orci eu nunc

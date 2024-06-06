@@ -24,6 +24,10 @@ export class ThemeModeService {
     return of(undefined);
   }
 
+  saveThemeMode(value: ThemeModeType): Observable<void> {
+    return of(saveToLS('themeMode', value));
+  }
+
   set themeMode(value: ThemeModeType) {
     console.log('setter themeMode', value);
     this._themeMode$$.next(value);

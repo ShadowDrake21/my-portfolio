@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { ThemeModeType } from '@shared/models/themeMode.model';
@@ -6,7 +7,7 @@ import { Observable } from 'rxjs';
 @Component({
   selector: 'helper-styled-link',
   standalone: true,
-  imports: [RouterLink],
+  imports: [CommonModule, RouterLink],
   templateUrl: './styled-link.component.html',
   styleUrl: './styled-link.component.css',
 })

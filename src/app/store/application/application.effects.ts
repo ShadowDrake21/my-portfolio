@@ -28,4 +28,16 @@ export class ApplicationEffects {
       )
     )
   );
+
+  setThemeMode = createEffect(() =>
+    this.actions$.pipe(
+      ofType(ApplicationActions.setThemeMode),
+      exhaustMap(({ themeMode }) =>
+        this.themeModeService.saveThemeMode(themeMode).pipe(
+          map(() => ApplicationActions.setThemeModeSuccess({ themeMode })),
+          catchError(() => of(ApplicationActions.setThemeModeFailure()))
+        )
+      )
+    )
+  );
 }

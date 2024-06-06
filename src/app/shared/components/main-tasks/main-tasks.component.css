@@ -8,6 +8,14 @@
   justify-content: space-between;
 }
 
+.dark-mode__tasks .tasks-list__item {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.dark-mode__tasks .tasks-list__item::before {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
 .tasks-list__item {
   color: #454545;
   position: relative;

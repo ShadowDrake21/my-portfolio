@@ -1,4 +1,9 @@
-<div class="language-switch" clickOutside (clickOutside)="clickedOutside()">
+<div
+  class="language-switch"
+  [class.dark-mode__language-switch]="(themeMode$ | async) === 'dark'"
+  clickOutside
+  (clickOutside)="clickedOutside()"
+>
   <div>
     <div class="language-switch__wrapper">
       <button

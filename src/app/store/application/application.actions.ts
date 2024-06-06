@@ -14,3 +14,10 @@ export const setThemeMode = createAction(
   '[Application] SetThemeMode',
   props<{ themeMode: ThemeModeType }>()
 );
+export const setThemeModeSuccess = createAction(
+  '[Application] setThemeModeSuccess',
+  props<{ themeMode: ThemeModeType }>()
+);
+export const setThemeModeFailure = createAction(
+  '[Application] setThemeModeSuccessFailure'
+);

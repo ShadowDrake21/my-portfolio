@@ -72,3 +72,19 @@
   transform: translateY(-50%);
   border-radius: 50%;
 }
+
+.dark-mode__repository {
+  color: var(--dark-mode__color-1);
+}
+
+.dark-mode__repository .repositories-list__container-item__name {
+  color: #1f7de9;
+}
+
+.dark-mode__repository .repositories-list__container-item__language::before {
+  background-color: #1f7de9;
+}
+
+.dark-mode__repository .repositories-list__container-item__type {
+  border-color: var(--dark-mode__color-1);
+}

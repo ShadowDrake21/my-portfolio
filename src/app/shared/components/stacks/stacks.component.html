@@ -11,6 +11,7 @@
       <app-stack-item
         *ngFor="let technology of technologyStackContent; let i = index"
         [item]="technology"
+        [themeMode]="themeMode$"
       ></app-stack-item>
     </div>
   </div>
@@ -22,6 +23,7 @@
       <app-stack-item
         *ngFor="let other of otherTechnologiesContent; let i = index"
         [item]="other"
+        [themeMode]="themeMode$"
       ></app-stack-item>
     </div>
   </div>
@@ -31,6 +33,7 @@
       <app-stack-item
         *ngFor="let language of languageStackContent; let i = index"
         [item]="language"
+        [themeMode]="themeMode$"
       ></app-stack-item>
     </div>
   </div>
