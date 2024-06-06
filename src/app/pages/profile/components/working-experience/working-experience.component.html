@@ -1,4 +1,10 @@
-<section class="section light-mode__section working-experience">
+<section
+  class="section working-experience"
+  [ngClass]="{
+    'light-mode__section': (themeMode$ | async) === 'light',
+    'dark-mode__section': (themeMode$ | async) === 'dark'
+  }"
+>
   <h2 class="section-title working-experience__title">Working experience</h2>
   <div
     *ngIf="workingExperienceContent.length; else noExperience"
@@ -11,7 +17,7 @@
       <h5 class="working-experience__list-item__title inter-medium">
         {{ item.positionName }}
       </h5>
-      <span class="working-experience__list-text">{{
+      <span class="working-experience__list-item__text">{{
         item.companyName + ", " + item.workYears
       }}</span>
     </div>

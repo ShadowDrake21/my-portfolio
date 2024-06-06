@@ -3,6 +3,7 @@
 :root {
   --border-1: rgba(0, 0, 0, 0.08);
   --dark-mode__color-1: rgba(255, 255, 255, 0.5);
+  --dark-mode__color-2: rgba(255, 255, 255, 0.8);
 }
 
 .inter-light,

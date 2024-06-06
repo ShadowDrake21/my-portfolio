@@ -26,8 +26,8 @@
 }
 
 .working-experience__list-item__text {
-  font-size: 12px;
-  line-height: 16px;
+  font-size: 14px;
+  line-height: 18px;
   color: #999999;
 }
 
@@ -48,4 +48,16 @@
   font-size: 24px;
   line-height: 28px;
   color: #666666;
+}
+
+.dark-mode__section .working-experience__list-item {
+  border-color: var(--dark-mode__color-1);
+}
+
+.dark-mode__section .working-experience__list-item__title {
+  color: var(--dark-mode__color-2);
+}
+
+.dark-mode__section .working-experience__noexperience {
+  color: var(--dark-mode__color-1);
 }
