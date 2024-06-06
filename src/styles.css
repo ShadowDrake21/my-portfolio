@@ -131,3 +131,33 @@ a {
 .first-screen {
   padding-top: 185px;
 }
+
+.dark-mode__section .mat-mdc-tab .mdc-tab-indicator__content--underline {
+  border-color: #fff !important;
+}
+
+.dark-mode__section
+  .mat-mdc-tab.mdc-tab--active:hover
+  .mdc-tab-indicator__content--underline {
+  border-color: #fff !important;
+}
+
+.dark-mode__section .mat-mdc-tab.mdc-tab--active:hover .mdc-tab__text-label {
+  color: #fff !important;
+}
+
+.dark-mode__section .mat-mdc-tab.mdc-tab--active:focus .mdc-tab__text-label {
+  color: #fff !important;
+}
+
+.dark-mode__section .mat-mdc-tab.mdc-tab--active .mdc-tab__text-label {
+  color: #fff !important;
+}
+
+.dark-mode__section .mat-mdc-tab .mdc-tab__text-label {
+  color: #999999 !important;
+}
+
+.dark-mode__section .mat-mdc-tab:hover .mdc-tab__text-label {
+  color: #999999 !important;
+}
