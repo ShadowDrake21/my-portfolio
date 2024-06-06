@@ -32,12 +32,24 @@
 }
 
 .navbar__list-item.active {
-  background-color: #efeff0;
+  background-color: #f0f0f0;
+}
+
+.dark-mode__navbar .navbar__list-item.active {
+  background-color: #000000;
 }
 
 .navbar__item-btn {
   outline: none;
   background-color: transparent;
+}
+
+.dark-mode__navbar
+  .navbar__list-item.active
+  .navbar__item-link
+  .navbar__item-link__img {
+  filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(117deg)
+    brightness(108%) contrast(101%);
 }
 
 .theme-mode.light-mode .navbar__item-btn {
@@ -71,7 +83,7 @@
   height: 100%;
   background-color: #f4f5f5;
   border: 1px solid var(--border-1);
-  font-size: 12px;
-  line-height: 16px;
+  font-size: 14px;
+  line-height: 18px;
   color: #666666;
 }
