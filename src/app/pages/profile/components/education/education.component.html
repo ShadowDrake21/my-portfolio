@@ -5,19 +5,32 @@
     'dark-mode__section': (themeMode$ | async) === 'dark'
   }"
 >
-  <h2 class="section-title education__title">Education</h2>
+  <h2 class="section-title education__title" i18n="@@profileEducationTitle">
+    Education
+  </h2>
   <div class="education__list">
-    <div *ngFor="let item of educationContent" class="education__list-item">
+    <div
+      *ngFor="let item of educationContent; let i = index"
+      class="education__list-item"
+    >
       <div class="education__list-item__left">
-        <h5 class="education__list-item__title inter-medium">
+        <h5
+          class="education__list-item__title inter-medium"
+          [attr.i18n]="'@@profileEducationItemTitle' + (i + 1)"
+        >
           {{ item.studyName }}
         </h5>
-        <span class="education__list-item__text">{{
-          item.universityName + ", " + item.studyYears
-        }}</span>
+        <span
+          class="education__list-item__text"
+          [attr.i18n]="'@@profileEducationItemText' + (i + 1)"
+          >{{ item.universityName + ", " + item.studyYears }}</span
+        >
       </div>
       <div *ngIf="item.yearsToFinish" class="education__list-item__right">
-        <p class="education__list-item__right-text">
+        <p
+          class="education__list-item__right-text"
+          [attr.i18n]="'@@profileEducationItemYearsText' + (i + 1)"
+        >
           {{ item.yearsToFinish }}
           {{ item.yearsToFinish! > 1 ? "years" : "year" }} to finish
         </p>

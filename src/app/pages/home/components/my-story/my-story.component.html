@@ -5,13 +5,19 @@
     'dark-mode__section': (themeMode$ | async) === 'dark'
   }"
 >
-  <h2 class="section-title my-story__title">My story</h2>
-  <div *ngFor="let item of myStoryContent" class="my-story__content-item">
-    <h3 class="my-story__content-item__title">{{ item.title }}</h3>
+  <h2 class="section-title my-story__title" i18n="@@myStoryTitle">My story</h2>
+  <div
+    *ngFor="let item of myStoryContent; let i = index"
+    class="my-story__content-item"
+  >
+    <h3 class="my-story__content-item__title" [attr.i18n]="'myStoryItemTitle'">
+      {{ item.title }}
+    </h3>
     <p
-      *ngFor="let paragraph of item.text"
+      *ngFor="let paragraph of item.text; let i1 = index"
       class="my-story__content-item__text"
       [class.dark-mode__text]="(themeMode$ | async) === 'dark'"
+      [attr.i18n]="'myStoryItemText-' + i1"
     >
       {{ paragraph }}
     </p>

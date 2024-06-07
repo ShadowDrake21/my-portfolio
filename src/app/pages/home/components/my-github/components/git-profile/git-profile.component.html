@@ -27,10 +27,14 @@
       <span>he/him</span>
     </div>
     <p class="my-github__profile-text inter-light">{{ profile.bio }}</p>
-    <p class="my-github__profile-text inter-light">
+    <p class="my-github__profile-text inter-light" i18n="@@myGithubNumberRepos">
       Number of public repositories: {{ profile.public_repos }}
     </p>
-    <a [href]="profile.html_url" target="_blank" class="my-github__profile-link"
+    <a
+      [href]="profile.html_url"
+      target="_blank"
+      class="my-github__profile-link"
+      i18n="@@myGithubLink"
       >Go to GitHub</a
     >
   </div>
