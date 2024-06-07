@@ -8,14 +8,14 @@
   <div class="stack-item__content">
     <h4 class="stack-item__title inter-medium">
       <ng-container *ngIf="stackItem.level; else technology">
-        <span [attr.i18n]="'@@languageTitle' + stackItem.title | lowercase">{{
-          stackItem.title
+        <span>{{
+          "language_" + preprocessTitle(stackItem.title) | translate
         }}</span>
       </ng-container>
       <ng-template #technology>{{ stackItem.title }}</ng-template>
     </h4>
     <span *ngIf="stackItem.level" class="stack-item__level inter-light">{{
-      stackItem.level
+      "languageLevel_" + preprocessTitle(stackItem.title) | translate
     }}</span>
   </div>
 </div>

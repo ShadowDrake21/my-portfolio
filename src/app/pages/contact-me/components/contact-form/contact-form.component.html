@@ -7,18 +7,21 @@
 >
   <div class="contact-form__inner">
     <div class="contact-form__second-inner">
-      <h2 class="section-title contact-form__title inter-semibold">
+      <h2
+        class="section-title contact-form__title inter-semibold"
+        i18n="@@contactFormTitle"
+      >
         Let's collaborate!
       </h2>
       <div class="contact-form__emailbox">
-        <span>dimka670020040&#64;gmail.com</span>
+        <span i18n="@@contactFormEmail">dimka670020040&#64;gmail.com</span>
       </div>
       <div class="contact-form__socials">
         <app-socials></app-socials>
       </div>
       <form class="contact-form__wrapper" [formGroup]="contactForm" #form>
         <mat-form-field>
-          <mat-label>Name</mat-label>
+          <mat-label i18n="@@contactFormNameLabel">Name</mat-label>
           <input
             matInput
             formControlName="name"
@@ -30,7 +33,7 @@
           }
         </mat-form-field>
         <mat-form-field>
-          <mat-label>Email</mat-label>
+          <mat-label i18n="@@contactFormEmailLabel">Email</mat-label>
           <input
             matInput
             formControlName="email"
@@ -42,7 +45,7 @@
           }
         </mat-form-field>
         <mat-form-field>
-          <mat-label>Message</mat-label>
+          <mat-label i18n="@@contactFormMessageLabel">Message</mat-label>
           <textarea
             matInput
             style="resize: none; height: 180px"
@@ -59,6 +62,7 @@
           class="contact-form__wrapper-btn inter-semibold"
           (click)="onFormSubmit()"
           [disabled]="contactForm.invalid"
+          i18n="@@contactFormBtn"
         >
           Send Message
         </button>
