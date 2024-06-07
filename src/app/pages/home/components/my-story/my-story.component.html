@@ -5,30 +5,28 @@
     'dark-mode__section': (themeMode$ | async) === 'dark'
   }"
 >
-  <h2 class="section-title my-story__title" i18n="@@myStoryTitle">My story</h2>
+  <h2 class="section-title my-story__title">My story</h2>
   <div class="my-story__content-item">
-    <h5 class="my-story__content-item__title" i18n="@@myStoryItemTitle_1">
+    <h5 class="my-story__content-item__title">
       I am a 4th-year Software Engineering student at Chernihiv Polytechnic
       University.
     </h5>
     <p
       [class.dark-mode__text]="(themeMode$ | async) === 'dark'"
       class="my-story__content-item__text"
-      i18n="@@myStoryItemText_1_1"
     >
       I've always enjoyed programming, and when I created my first web
       application, I realized this is the field I want to pursue professionally.
     </p>
   </div>
   <div class="my-story__content-item">
-    <h5 class="my-story__content-item__title" i18n="@@myStoryItemTitle_2">
+    <h5 class="my-story__content-item__title">
       Even though I haven't had any formal work experience yet, I've spent a lot
       of time working on various projects for practice.
     </h5>
     <p
       [class.dark-mode__text]="(themeMode$ | async) === 'dark'"
       class="my-story__content-item__text"
-      i18n="@@myStoryItemText_2_1"
     >
       I've tackled different types of projects on my own, dealing with different
       technologies and levels of difficulty.
@@ -36,7 +34,6 @@
     <p
       [class.dark-mode__text]="(themeMode$ | async) === 'dark'"
       class="my-story__content-item__text"
-      i18n="@@myStoryItemText_2_2"
     >
       These projects have given me hands-on experience and allowed me to explore
       many aspects of web development. Whether it's a small project or a large
