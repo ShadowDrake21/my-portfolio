@@ -14,24 +14,32 @@
       />
     </div>
     <div class="main-screen__content">
-      <h1 class="main-screen__content-title">
+      <h1 class="main-screen__content-title" i18n="@@mainScreenTitle">
         Hi!<br />I'm Dmytro (Dmitri) Krapyvianskiy.<br />Web && front-end
         developer.
       </h1>
       <div [class.dark-mode__text]="(themeMode$ | async) === 'dark'">
-        <p class="main-screen__content-text">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id
-          feugiat eros. Nunc ut blandit velit. Nullam viverra orci eu nunc
-          luctus, ut mattis lacus euismod. Maecenas metus est, maximus et ipsum
-          hendrerit, dictum porttitor ante.
+        <p class="main-screen__content-text" i18n="@@mainScreenContentText1">
+          I'm excited to bring my passion for web development to your projects.
         </p>
-        <p class="main-screen__content-text">
-          Maecenas metus est, maximus et ipsum hendrerit, dictum porttitor ante.
+        <p class="main-screen__content-text" i18n="@@mainScreenContentText2">
+          While I'm just starting my career, I've got a strong grasp of Angular,
+          JavaScript, TypeScript and other useful tools.
+        </p>
+        <p class="main-screen__content-text" i18n="@@mainScreenContentText3">
+          My commitment to learning and growing as a professional is unwavering,
+          and I’m also passionate about creating dynamic, responsive and
+          user-friendly web applications.
+        </p>
+        <p class="main-screen__content-text" i18n="@@mainScreenContentText4">
+          What do you think about teaming up and creating something great
+          together?
         </p>
       </div>
       <helper-styled-link
         link="/profile"
         title="More about Me"
+        i18n-title="@@mainScreenLink"
         [themeMode]="themeMode$"
       />
     </div>
