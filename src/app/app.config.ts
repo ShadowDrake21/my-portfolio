@@ -8,6 +8,7 @@ import { provideEffects } from '@ngrx/effects';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { applicationReducer } from './store/application/application.reducer';
 import { ApplicationEffects } from './store/application/application.effects';
+import '@angular/localize/init';
 
 export const appConfig: ApplicationConfig = {
   providers: [

@@ -25,11 +25,14 @@
     "@ngrx/effects": "^17.2.0",
     "@ngrx/store": "^17.2.0",
     "@ngrx/store-devtools": "^17.2.0",
+    "@ngx-translate/core": "^15.0.0",
+    "@ngx-translate/http-loader": "^8.0.0",
     "@octokit/rest": "^20.1.1",
     "@popperjs/core": "^2.11.8",
     "bootstrap": "^5.3.2",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
+    "xliff": "^6.2.1",
     "zone.js": "~0.14.2"
   },
   "devDependencies": {

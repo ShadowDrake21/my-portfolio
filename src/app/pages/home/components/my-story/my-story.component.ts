@@ -31,4 +31,12 @@ export class MyStoryComponent implements OnInit {
   ngOnInit(): void {
     this.themeMode$ = this.store.select(ApplicationSelectors.selectThemeMode);
   }
+
+  getItemTitleTranslationId(index: number): string {
+    return `myStoryItemTitle_${index}`;
+  }
+
+  getItemTextTranslationId(itemIndex: number, paragraphIndex: number): string {
+    return `myStoryItemText_${itemIndex}_${paragraphIndex}`;
+  }
 }
