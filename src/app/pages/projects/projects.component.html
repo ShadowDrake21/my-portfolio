@@ -6,19 +6,23 @@
       'dark-mode__section': (themeMode$ | async) === 'dark'
     }"
   >
-    <h2 class="projects__title inter-semibold">My Projects</h2>
+    <h2 class="projects__title inter-semibold">
+      {{ "projects.title" | translate }}
+    </h2>
     <mat-tab-group
       animationDuration="0ms"
       (selectedTabChange)="onTabChanged($event)"
     >
-      <mat-tab label="Main stack">
+      <mat-tab [label]="'projects.tabs.first' | translate">
         <div class="projects-tab">
           <form
             [formGroup]="projectFiltrationForm"
             class="projects-tab__filtration"
           >
             <mat-form-field>
-              <mat-label>Technology</mat-label>
+              <mat-label>
+                {{ "projects.filtration.technologyLabel" | translate }}
+              </mat-label>
               <mat-select
                 (selectionChange)="onFormChange()"
                 formControlName="technology"
@@ -31,7 +35,9 @@
               </mat-select>
             </mat-form-field>
             <mat-form-field>
-              <mat-label>Year</mat-label>
+              <mat-label>
+                {{ "projects.filtration.yearLabel" | translate }}
+              </mat-label>
               <mat-select
                 (selectionChange)="onFormChange()"
                 formControlName="year"
@@ -50,7 +56,7 @@
               class="projects-tab__filtration-btn"
               type="reset"
             >
-              Reset
+              {{ "projects.filtration.resetBnt" | translate }}
             </button>
             <button
               *ngIf="!checkIfDataChanged()"
@@ -60,7 +66,7 @@
               class="projects-tab__filtration-btn"
               (click)="loadAllProjects()"
             >
-              Load all projects
+              {{ "projects.filtration.loadBtn" | translate }}
             </button>
           </form>
           @if (copiedMainStackProjectsContent.length) {
@@ -77,7 +83,7 @@
           } @else {
           <div class="projects-tab__list-noelements">
             <h4 class="inter-medium">
-              There is no project that satisfy that criteria
+              {{ "projects.filtration.errorMessage" | translate }}
             </h4>
           </div>
           }
@@ -94,7 +100,7 @@
           />
         </div>
       </mat-tab>
-      <mat-tab label="Other">
+      <mat-tab [label]="'projects.tabs.second' | translate">
         <div class="projects-tab">
           <div class="projects-tab__list">
             @for (item of copiedOtherProjectsContent | slice:

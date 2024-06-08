@@ -5,24 +5,25 @@
     'dark-mode__section': (themeMode$ | async) === 'dark'
   }"
 >
-  <h2 class="section-title education__title">Education</h2>
+  <h2 class="section-title education__title">
+    {{ "education.title" | translate }}
+  </h2>
   <div class="education__list">
     <div
-      *ngFor="let item of educationContent; let i = index"
       class="education__list-item"
+      *ngFor="let item of educationContent; let i = index"
     >
       <div class="education__list-item__left">
         <h5 class="education__list-item__title inter-medium">
-          {{ item.studyName }}
+          {{ "education.item-1.title" | translate }}
         </h5>
-        <span class="education__list-item__text">{{
-          item.universityName + ", " + item.studyYears
-        }}</span>
+        <span class="education__list-item__text">
+          {{ "education.item-1.subtitle" | translate }}
+        </span>
       </div>
       <div *ngIf="item.yearsToFinish" class="education__list-item__right">
         <p class="education__list-item__right-text">
-          {{ item.yearsToFinish }}
-          {{ item.yearsToFinish! > 1 ? "years" : "year" }} to finish
+          {{ "education.item-1.remainder" | translate }}
         </p>
       </div>
     </div>

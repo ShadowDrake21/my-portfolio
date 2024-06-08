@@ -1,0 +1,16 @@
+{
+  "projects": {
+    "title": "Moje projekty",
+    "tabs": {
+      "first": "Główny stos",
+      "second": "Inne"
+    },
+    "filtration": {
+      "technologyLabel": "Technologia",
+      "yearLabel": "Rok",
+      "resetBnt": "Resetować",
+      "loadBtn": "Załadować wszystkie projekty",
+      "errorMessage": "Nie ma projektu spełniającego dane cryterium"
+    }
+  }
+}
