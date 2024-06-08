@@ -15,6 +15,7 @@ import { Store } from '@ngrx/store';
 import { ApplicationState } from 'src/app/store/application/application.reducer';
 import { Observable } from 'rxjs';
 import * as ApplicationSelectors from '@store/application/application.selectors';
+import { TranslateModule, TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-header',
@@ -24,6 +25,7 @@ import * as ApplicationSelectors from '@store/application/application.selectors'
     LanguageSwitchComponent,
     NavbarComponent,
     SocialsComponent,
+    TranslateModule,
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',

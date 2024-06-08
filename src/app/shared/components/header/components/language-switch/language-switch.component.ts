@@ -16,7 +16,7 @@ import { CommonModule } from '@angular/common';
 import { ApplicationState } from '@store/application/application.reducer';
 import { Store } from '@ngrx/store';
 import * as ApplicationSelectors from '@store/application/application.selectors';
-import { TranslateService } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { languageType, ThemeModeType } from '@shared/models/types.model';
 
 @Component({
@@ -27,6 +27,7 @@ import { languageType, ThemeModeType } from '@shared/models/types.model';
     MatMenuModule,
     MatButtonModule,
     ClickOutsideDirective,
+    TranslateModule,
   ],
   templateUrl: './language-switch.component.html',
   styleUrl: './language-switch.component.css',

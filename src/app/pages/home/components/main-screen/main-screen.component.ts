@@ -9,6 +9,7 @@ import {
 } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Store } from '@ngrx/store';
+import { TranslateModule } from '@ngx-translate/core';
 import { MainTasksComponent } from '@shared/components/main-tasks/main-tasks.component';
 import { StyledLinkComponent } from '@shared/components/styled-link/styled-link.component';
 import { ThemeModeType } from '@shared/models/types.model';
@@ -19,7 +20,13 @@ import { Observable } from 'rxjs';
 @Component({
   selector: 'app-main-screen',
   standalone: true,
-  imports: [CommonModule, RouterLink, StyledLinkComponent, MainTasksComponent],
+  imports: [
+    CommonModule,
+    RouterLink,
+    StyledLinkComponent,
+    MainTasksComponent,
+    TranslateModule,
+  ],
   templateUrl: './main-screen.component.html',
   styleUrl: './main-screen.component.css',
 })
