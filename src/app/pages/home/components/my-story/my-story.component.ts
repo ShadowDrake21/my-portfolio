@@ -13,11 +13,12 @@ import { ApplicationState } from '@store/application/application.reducer';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { ThemeModeType } from '@shared/models/types.model';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-my-story',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TranslateModule],
   templateUrl: './my-story.component.html',
   styleUrl: './my-story.component.css',
 })

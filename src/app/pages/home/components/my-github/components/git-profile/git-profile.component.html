@@ -30,8 +30,12 @@
     <p class="my-github__profile-text inter-light">
       Number of public repositories: {{ profile.public_repos }}
     </p>
-    <a [href]="profile.html_url" target="_blank" class="my-github__profile-link"
-      >Go to GitHub</a
+    <a
+      [href]="profile.html_url"
+      target="_blank"
+      class="my-github__profile-link"
+    >
+      {{ "myGitHub.link" | translate }}</a
     >
   </div>
 </div>

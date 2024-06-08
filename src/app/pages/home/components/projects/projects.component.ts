@@ -16,11 +16,17 @@ import * as ApplicationSelectors from '@store/application/application.selectors'
 import { ApplicationState } from '@store/application/application.reducer';
 import { Store } from '@ngrx/store';
 import { ThemeModeType } from '@shared/models/types.model';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-projects',
   standalone: true,
-  imports: [CommonModule, ProjectItemComponent, StyledLinkComponent],
+  imports: [
+    CommonModule,
+    ProjectItemComponent,
+    StyledLinkComponent,
+    TranslateModule,
+  ],
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.css',
 })

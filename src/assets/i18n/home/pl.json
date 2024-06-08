@@ -21,5 +21,30 @@
         "task-8": "Dokumentowanie"
       }
     }
+  },
+  "myStory": {
+    "title": "Moja historia",
+    "part-1": {
+      "title": "Jestem studentem 4. roku kierunku Inżyneria Oprogramowania na Politechnice Chernihowskiej.",
+      "paragraphs": {
+        "1": "Zawsze lubiłem programować i gdy stworzyłem swoją pierwszą aplikację internetową, zdałem sobie sprawę, że jest to dziedzina, którą chcę się zajmować zawodowo."
+      }
+    },
+    "part-2": {
+      "title": "Mimo, że nie mam jeszcze żadnego doświadczenia zawodowego, spędziłem mnóstwo czasu pracując nad przeróżnymi projektami w ramach praktyki.",
+      "paragraphs": {
+        "1": "Samodzielnie podejmowałem się różnych typów projektów, radząc sobie z różnymi technologiami i poziomami trudności.",
+        "2": "Te projekty dały mi praktyczne doświadczenie i pozwoliły mi poznać wiele aspektów tworzenia stron internetowych. Niezależnie od tego, czy jest to mały projekt, czy duży, mierzyłem się z wieloma trudnościami, co po drodze pomogło mi udoskonalić swoje umiejętności."
+      }
+    }
+  },
+  "myGitHub": {
+    "title": "Mój GitHub",
+    "subtitle": "Najnowsze repozytoria",
+    "link": "Przejść do konta"
+  },
+  "latestProjects": {
+    "title": "Najnowsze projekty",
+    "link": "Wszystkie projekty"
   }
 }

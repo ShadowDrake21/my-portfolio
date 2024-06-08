@@ -33,6 +33,9 @@
       }
     }
   },
+  "singleProject": {
+    "github-link": "На GitHub"
+  },
   "footer": {
     "title": "Бажаєте написати до мене?",
     "socials-text": "Ви можете знайти мене на таких платформах:",

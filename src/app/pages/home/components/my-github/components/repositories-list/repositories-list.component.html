@@ -3,7 +3,7 @@
     class="repositories-list__title inter-light"
     [class.dark-mode__text]="(themeMode$ | async) === 'dark'"
   >
-    Latest repositories
+    {{ "myGitHub.subtitle" | translate }}
   </h5>
   <div
     *ngIf="repositories$ | async as repositories"

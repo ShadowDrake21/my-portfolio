@@ -5,40 +5,35 @@
     'dark-mode__section': (themeMode$ | async) === 'dark'
   }"
 >
-  <h2 class="section-title my-story__title">My story</h2>
+  <h2 class="section-title my-story__title">
+    {{ "myStory.title" | translate }}
+  </h2>
   <div class="my-story__content-item">
     <h5 class="my-story__content-item__title">
-      I am a 4th-year Software Engineering student at Chernihiv Polytechnic
-      University.
+      {{ "myStory.part-1.title" | translate }}
     </h5>
     <p
-      [class.dark-mode__text]="(themeMode$ | async) === 'dark'"
       class="my-story__content-item__text"
+      [class.dark-mode__text]="(themeMode$ | async) === 'dark'"
     >
-      I've always enjoyed programming, and when I created my first web
-      application, I realized this is the field I want to pursue professionally.
+      {{ "myStory.part-1.paragraphs.1" | translate }}
     </p>
   </div>
   <div class="my-story__content-item">
     <h5 class="my-story__content-item__title">
-      Even though I haven't had any formal work experience yet, I've spent a lot
-      of time working on various projects for practice.
+      {{ "myStory.part-2.title" | translate }}
     </h5>
     <p
-      [class.dark-mode__text]="(themeMode$ | async) === 'dark'"
       class="my-story__content-item__text"
+      [class.dark-mode__text]="(themeMode$ | async) === 'dark'"
     >
-      I've tackled different types of projects on my own, dealing with different
-      technologies and levels of difficulty.
+      {{ "myStory.part-2.paragraphs.1" | translate }}
     </p>
     <p
-      [class.dark-mode__text]="(themeMode$ | async) === 'dark'"
       class="my-story__content-item__text"
+      [class.dark-mode__text]="(themeMode$ | async) === 'dark'"
     >
-      These projects have given me hands-on experience and allowed me to explore
-      many aspects of web development. Whether it's a small project or a large
-      one, I've faced various challenges, which helped me sharpen my skills
-      along the way.
+      {{ "myStory.part-2.paragraphs.2" | translate }}
     </p>
   </div>
 </section>

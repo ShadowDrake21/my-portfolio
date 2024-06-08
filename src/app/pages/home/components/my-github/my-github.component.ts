@@ -16,11 +16,17 @@ import * as ApplicationSelectors from '@store/application/application.selectors'
 import { ApplicationState } from '@store/application/application.reducer';
 import { Store } from '@ngrx/store';
 import { ThemeModeType } from '@shared/models/types.model';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-my-github',
   standalone: true,
-  imports: [CommonModule, GitProfileComponent, RepositoriesListComponent],
+  imports: [
+    CommonModule,
+    GitProfileComponent,
+    RepositoriesListComponent,
+    TranslateModule,
+  ],
   templateUrl: './my-github.component.html',
   styleUrl: './my-github.component.css',
 })
