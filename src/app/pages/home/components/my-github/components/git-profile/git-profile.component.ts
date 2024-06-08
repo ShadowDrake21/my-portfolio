@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { IUser } from '@shared/models/github.model';
-import { ThemeModeType } from '@shared/models/themeMode.model';
+import { ThemeModeType } from '@shared/models/types.model';
 import { Observable } from 'rxjs';
 
 @Component({

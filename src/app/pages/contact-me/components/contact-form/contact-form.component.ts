@@ -14,7 +14,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import emailjs, { type EmailJSResponseStatus } from '@emailjs/browser';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ContactMeSnackbarComponent } from '../contact-me-snackbar/contact-me-snackbar.component';
-import { ThemeModeType } from '@shared/models/themeMode.model';
+import { ThemeModeType } from '@shared/models/types.model';
 
 @Component({
   selector: 'app-contact-form',

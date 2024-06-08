@@ -12,7 +12,7 @@ import {
   technologyStackContent,
 } from '@shared/content/stacks.content';
 import { IProject } from '@shared/models/project.model';
-import { ThemeModeType } from '@shared/models/themeMode.model';
+import { ThemeModeType } from '@shared/models/types.model';
 import { Observable } from 'rxjs';
 
 @Component({

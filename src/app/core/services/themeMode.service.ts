@@ -1,5 +1,5 @@
 import { Injectable, Input } from '@angular/core';
-import { ThemeModeType } from '@shared/models/themeMode.model';
+import { ThemeModeType } from '@shared/models/types.model';
 import { retrieveFromLS, saveToLS } from '@shared/utils/localStorage.utils';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 

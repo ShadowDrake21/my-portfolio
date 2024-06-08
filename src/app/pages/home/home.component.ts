@@ -16,8 +16,8 @@ import { MyStoryComponent } from './components/my-story/my-story.component';
 import { FooterComponent } from '@shared/components/footer/footer.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { ThemeModeService } from '@core/services/themeMode.service';
-import { ThemeModeType } from '@shared/models/themeMode.model';
 import { Subscription } from 'rxjs';
+import { ThemeModeType } from '@shared/models/types.model';
 
 @Component({
   selector: 'app-home',

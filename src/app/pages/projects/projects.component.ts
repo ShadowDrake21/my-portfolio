@@ -19,9 +19,9 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { Store } from '@ngrx/store';
 import { ApplicationState } from '@store/application/application.reducer';
-import { ThemeModeType } from '@shared/models/themeMode.model';
 import { Observable } from 'rxjs';
 import * as ApplicationSelectors from '@store/application/application.selectors';
+import { ThemeModeType } from '@shared/models/types.model';
 
 @Component({
   selector: 'app-projects',
