@@ -5,7 +5,9 @@
     'dark-mode__section': (themeMode$ | async) === 'dark'
   }"
 >
-  <h2 class="section-title working-experience__title">Working experience</h2>
+  <h2 class="section-title working-experience__title">
+    {{ "workingExperience.title" | translate }}
+  </h2>
   <div
     *ngIf="workingExperienceContent.length; else noExperience"
     class="working-experience__list"
@@ -25,7 +27,7 @@
   <ng-template #noExperience>
     <div class="working-experience__noexperience-wrapper">
       <p class="working-experience__noexperience inter-medium">
-        For now I don’t have any experience, but I’m looking forward to get it!
+        {{ "workingExperience.noExperience" | translate }}
       </p>
     </div>
   </ng-template>

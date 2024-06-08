@@ -1,0 +1,27 @@
+{
+  "basicInfo": {
+    "title": "Dmytro (Dmitrii) Krapyvianskiy",
+    "top-content": {
+      "text-1": "I am an enthusiastic web developer dedicated to creating stunning and user-friendly web-applications.",
+      "text-2": "The main advantage of Angular is its dynamic nature.",
+      "text-3": "I worship the flexibility and power of JavaScript, and the robustness of TypeScript."
+    },
+    "bottom-content": {
+      "text-1": "I'm a web developer who thrives on working with top-notch web technologies like Angular, JavaScript, and TypeScript, along with other tools. My passion for creating user-friendly web applications grows stronger every day. By combining my expertise in web development with a deep understanding of user needs, I create web applications that not only achieve business objectives but also leave every user delighted.",
+      "text-2": "I've worked with a variety of technologies like Angular, RxJS, NgRX, JavaScript, TypeScript, Firebase, TailwindCSS, Bootstrap 5, Angular Material, Stripe, and React. I also have a deep understanding of internet protocols such as HTTP/HTTPS and practical knowledge of back-end programming, for example, in NodeJS.",
+      "text-3": "This broad experience enables me to handle various development tasks efficiently and effectively."
+    }
+  },
+  "workingExperience": {
+    "title": "Working experience",
+    "noExperience": "For now, I don’t have any experience, but I’m looking forward to get it!"
+  },
+  "education": {
+    "title": "Education ",
+    "item-1": {
+      "title": "Bachelor's Degree in Software Engineering",
+      "subtitle": "Chernihiv Polytechnic National University, 2021 – 2025",
+      "remainder": "1 year to complete"
+    }
+  }
+}

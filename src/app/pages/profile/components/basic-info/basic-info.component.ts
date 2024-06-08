@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { TranslateModule } from '@ngx-translate/core';
 import { MainTasksComponent } from '@shared/components/main-tasks/main-tasks.component';
 import { ThemeModeType } from '@shared/models/types.model';
 import { ApplicationState } from '@store/application/application.reducer';
@@ -9,7 +10,7 @@ import { Observable } from 'rxjs';
 @Component({
   selector: 'app-basic-info',
   standalone: true,
-  imports: [CommonModule, MainTasksComponent],
+  imports: [CommonModule, MainTasksComponent, TranslateModule],
   templateUrl: './basic-info.component.html',
   styleUrl: './basic-info.component.css',
 })
