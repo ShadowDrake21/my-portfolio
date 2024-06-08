@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
+import { TranslateModule } from '@ngx-translate/core';
 import { IUser } from '@shared/models/github.model';
 import { ThemeModeType } from '@shared/models/types.model';
 import { Observable } from 'rxjs';
@@ -7,7 +8,7 @@ import { Observable } from 'rxjs';
 @Component({
   selector: 'app-git-profile',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TranslateModule],
   templateUrl: './git-profile.component.html',
   styleUrl: './git-profile.component.css',
 })

@@ -33,6 +33,9 @@
       }
     }
   },
+  "singleProject": {
+    "github-link": "Na GitHubie"
+  },
   "footer": {
     "title": "Chce Państwo się ze mną skomunikować?",
     "socials-text": "Znajdzie mnie Państwo na następnych platformach:",

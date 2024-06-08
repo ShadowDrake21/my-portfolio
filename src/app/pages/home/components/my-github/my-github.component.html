@@ -5,7 +5,9 @@
     'dark-mode__section': (themeMode$ | async) === 'dark'
   }"
 >
-  <h2 class="my-github__title section-title">My GitHub</h2>
+  <h2 class="my-github__title section-title">
+    {{ "myGitHub.title" | translate }}
+  </h2>
   <div class="my-github__inner">
     <div class="my-github__left">
       <app-git-profile

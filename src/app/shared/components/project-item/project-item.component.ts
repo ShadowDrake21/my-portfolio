@@ -7,6 +7,7 @@ import {
   OnInit,
   SimpleChanges,
 } from '@angular/core';
+import { TranslateModule } from '@ngx-translate/core';
 import {
   otherTechnologiesContent,
   technologyStackContent,
@@ -18,7 +19,7 @@ import { Observable } from 'rxjs';
 @Component({
   selector: 'app-project-item',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TranslateModule],
   templateUrl: './project-item.component.html',
   styleUrl: './project-item.component.css',
 })

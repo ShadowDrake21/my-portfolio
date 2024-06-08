@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, Input, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { TranslateModule } from '@ngx-translate/core';
 import { IRepo } from '@shared/models/github.model';
 import { ThemeModeType } from '@shared/models/types.model';
 import { TruncateTextPipe } from '@shared/pipes/truncate-text.pipe';
@@ -9,7 +10,7 @@ import { Observable } from 'rxjs';
 @Component({
   selector: 'app-repositories-list',
   standalone: true,
-  imports: [CommonModule, TruncateTextPipe],
+  imports: [CommonModule, TruncateTextPipe, TranslateModule],
   templateUrl: './repositories-list.component.html',
   styleUrl: './repositories-list.component.css',
 })
