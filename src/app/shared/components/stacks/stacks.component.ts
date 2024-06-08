@@ -13,11 +13,11 @@ import {
   otherTechnologiesContent,
   technologyStackContent,
 } from '@shared/content/stacks.content';
-import { ThemeModeType } from '@shared/models/themeMode.model';
 import { ApplicationState } from '@store/application/application.reducer';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import * as ApplicationSelectors from '@store/application/application.selectors';
+import { ThemeModeType } from '@shared/models/types.model';
 
 @Component({
   selector: 'app-stacks',

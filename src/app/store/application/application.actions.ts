@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { ThemeModeType } from '@shared/models/themeMode.model';
+import { ThemeModeType } from '@shared/models/types.model';
 
 export const loadThemeMode = createAction('[Application] LoadThemeMode');
 export const loadThemeModeSuccess = createAction(

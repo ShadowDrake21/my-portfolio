@@ -15,18 +15,18 @@ import {
   tap,
 } from 'rxjs';
 import { ThemeModeService } from '@core/services/themeMode.service';
-import { ThemeModeType } from '@shared/models/themeMode.model';
 import { Store } from '@ngrx/store';
 import { ApplicationState } from './store/application/application.reducer';
 import * as ApplicationActions from '../app/store/application/application.actions';
 import * as ApplicationSelectors from '../app/store/application/application.selectors';
 import { HttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { TranslateLoader, TranslateService } from '@ngx-translate/core';
-
-export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
-}
+import {
+  TranslateLoader,
+  TranslateModule,
+  TranslateService,
+} from '@ngx-translate/core';
+import { ThemeModeType } from '@shared/models/types.model';
 
 @Component({
   selector: 'app-root',
@@ -34,13 +34,7 @@ export function HttpLoaderFactory(http: HttpClient) {
   imports: [CommonModule, RouterOutlet, HeaderComponent, FooterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
-  providers: [
-    {
-      provide: TranslateLoader,
-      useFactory: HttpLoaderFactory,
-      deps: [HttpClient],
-    },
-  ],
+  providers: [TranslateService],
 })
 export class AppComponent implements OnInit, OnDestroy {
   private router = inject(Router);

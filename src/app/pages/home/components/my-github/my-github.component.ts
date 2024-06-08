@@ -12,10 +12,10 @@ import { map, Observable } from 'rxjs';
 import { GithubService } from 'src/app/core/services/github.service';
 import { GitProfileComponent } from './components/git-profile/git-profile.component';
 import { RepositoriesListComponent } from './components/repositories-list/repositories-list.component';
-import { ThemeModeType } from '@shared/models/themeMode.model';
 import * as ApplicationSelectors from '@store/application/application.selectors';
 import { ApplicationState } from '@store/application/application.reducer';
 import { Store } from '@ngrx/store';
+import { ThemeModeType } from '@shared/models/types.model';
 
 @Component({
   selector: 'app-my-github',

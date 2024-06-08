@@ -11,7 +11,6 @@ import {
 import { LanguageSwitchComponent } from './components/language-switch/language-switch.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SocialsComponent } from '../socials/socials.component';
-import { ThemeModeType } from '@shared/models/themeMode.model';
 import { Store } from '@ngrx/store';
 import { ApplicationState } from 'src/app/store/application/application.reducer';
 import { Observable } from 'rxjs';
