@@ -59,7 +59,7 @@ export class MultiTranslateHttpLoader implements TranslateLoader {
 
     if (this.withCommon) {
       resources = [
-        { prefix: 'src/assets/i18n/common/', suffix: '.json' },
+        { prefix: '../assets/i18n/common/', suffix: '.json' },
         ...resources,
       ];
     }

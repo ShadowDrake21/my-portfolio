@@ -15,10 +15,7 @@ import { ApplicationEffects } from './store/application/application.effects';
 import '@angular/localize/init';
 import { HttpClient, provideHttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
-import {
-  HttpLoaderFactory,
-  MultiTranslateHttpLoader,
-} from '@shared/utils/translate.utils';
+import { MultiTranslateHttpLoader } from '@shared/utils/translate.utils';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -35,10 +32,10 @@ export const appConfig: ApplicationConfig = {
           useFactory: (http: HttpClient): MultiTranslateHttpLoader => {
             return new MultiTranslateHttpLoader(http, {
               resources: [
-                { prefix: 'src/assets/i18n/home', suffix: '.json' },
-                { prefix: 'src/assets/i18n/profile', suffix: '.json' },
-                { prefix: 'src/assets/i18n/projects', suffix: '.json' },
-                { prefix: 'src/assets/i18n/contact-me', suffix: '.json' },
+                { prefix: '../assets/i18n/home/', suffix: '.json' },
+                { prefix: '../assets/i18n/profile/', suffix: '.json' },
+                { prefix: '../assets/i18n/projects/', suffix: '.json' },
+                { prefix: '../assets/i18n/contact-me/', suffix: '.json' },
               ],
             });
           },

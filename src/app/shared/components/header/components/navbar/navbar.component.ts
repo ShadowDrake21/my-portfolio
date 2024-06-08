@@ -7,11 +7,12 @@ import { ApplicationState } from '@store/application/application.reducer';
 import * as ApplicationActions from '@store/application/application.actions';
 import * as ApplicationSelectors from '@store/application/application.selectors';
 import { ThemeModeType } from '@shared/models/types.model';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, TranslateModule],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css',
 })

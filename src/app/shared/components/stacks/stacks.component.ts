@@ -18,11 +18,12 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import * as ApplicationSelectors from '@store/application/application.selectors';
 import { ThemeModeType } from '@shared/models/types.model';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-stacks',
   standalone: true,
-  imports: [CommonModule, StackItemComponent],
+  imports: [CommonModule, StackItemComponent, TranslateModule],
   templateUrl: './stacks.component.html',
   styleUrl: './stacks.component.css',
 })

@@ -1,0 +1,43 @@
+{
+  "header": {
+    "languageSwitcher": "Język",
+    "location": "Czernihów, Ukraina",
+    "workAvailability": "Jestem dostępny do pracy",
+    "navbar": {
+      "downloadCV": "Pobrać CV"
+    }
+  },
+  "stacks": {
+    "technologyStackTitle": "Stos technologii",
+    "otherTechnologiesTitle": "Inne technologie z którymi pracowałem",
+    "languageStackTitle": "Stos językowy",
+    "languageStack": {
+      "levelSubtitle": "poziom",
+      "list": {
+        "english": {
+          "title": "Język angielski",
+          "level": "średno zaawansowany"
+        },
+        "polish": {
+          "title": "Język polski",
+          "level": "b2"
+        },
+        "ukrainian": {
+          "title": "Język ukraiński",
+          "level": "rdzenny mówca"
+        },
+        "russian": {
+          "title": "Język rosyjski",
+          "level": "rdzenny mówca"
+        }
+      }
+    }
+  },
+  "footer": {
+    "title": "Chce Państwo się ze mną skomunikować?",
+    "socials-text": "Znajdzie mnie Państwo na następnych platformach:",
+    "email-text": "Także może Państwo wysłać do mnie maila:",
+    "email-btn": "Napisz do mnie",
+    "copyright": "© 2024 Dmytro (Dmitrij) Krapyvianskij a.k.a Drake21 | Wszelkie prawa zastrzeżone"
+  }
+}

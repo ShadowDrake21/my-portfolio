@@ -19,10 +19,14 @@
           class="header-location"
           [class.dark-mode__text]="(themeMode$ | async) === 'dark'"
         >
-          <span class="header-location__span">Chernihiv, Ukraine</span>
+          <span class="header-location__span">{{
+            "header.location" | translate
+          }}</span>
         </div>
         <div class="work-available">
-          <span class="work-available__text">I am available for work</span>
+          <span class="work-available__text">{{
+            "header.workAvailability" | translate
+          }}</span>
         </div>
       </li>
     </ul>

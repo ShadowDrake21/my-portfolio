@@ -1,13 +1,11 @@
 <div class="tasks" [class.dark-mode__tasks]="(themeMode$ | async) === 'dark'">
-  <p class="tasks-text">Some tasks I'm really good at:</p>
+  <p class="tasks-text">{{ "mainScreen.mainTasks.text" | translate }}</p>
   <ul class="tasks-list">
-    <li class="tasks-list__item">UI Design</li>
-    <li class="tasks-list__item">Development</li>
-    <li class="tasks-list__item">Coding</li>
-    <li class="tasks-list__item">Testing</li>
-    <li class="tasks-list__item">Debugging</li>
-    <li class="tasks-list__item">Optimization</li>
-    <li class="tasks-list__item">Maintenance</li>
-    <li class="tasks-list__item">Testing</li>
+    <li
+      class="tasks-list__item"
+      *ngFor="let task of mainTasksContent; let i = index"
+    >
+      {{ "mainScreen.mainTasks.list.task-" + (i + 1) | translate }}
+    </li>
   </ul>
 </div>

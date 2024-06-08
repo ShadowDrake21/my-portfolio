@@ -1,0 +1,35 @@
+{
+  "mainScreen": {
+    "title": "Hi!<br>I'm Dmytro (Dmitri) Krapyvianskiy.<br>Web && front-end developer.",
+    "text": {
+      "paragraph-1": "I'm excited to bring my passion for web development to your projects.",
+      "paragraph-2": "While I'm just starting my career, I've got a strong grasp of Angular, JavaScript, TypeScript and other useful tools.",
+      "paragraph-3": "My commitment to learning and growing as a professional is unwavering, and I’m also passionate about creating dynamic, responsive and user-friendly web applications.",
+      "paragraph-4": "What do you think about teaming up and creating something great together?"
+    },
+    "link": "More about me",
+    "mainTasks": {
+      "text": "Some tasks I'm really good at:",
+      "list": {
+        "task-1": "UI Design",
+        "task-2": "Development",
+        "task-3": "Coding",
+        "task-4": "Testing",
+        "task-5": "Debugging",
+        "task-6": "Optimization",
+        "task-7": "Maintenance",
+        "task-8": "Documenting"
+      }
+    }
+  },
+  "myStory": {
+    "part-1": {
+      "title": "",
+      "paragraphs": [""]
+    },
+    "part-2": {
+      "title": "",
+      "paragraphs": ["", ""]
+    }
+  }
+}

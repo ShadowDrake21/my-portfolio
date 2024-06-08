@@ -1,0 +1,25 @@
+{
+  "mainScreen": {
+    "title": "Cześć!<br>Nazywam się Dmytro (Dmitrij) Krapywianskij.<br>Jestem web && fron-end programistą. ",
+    "text": {
+      "paragraph-1": "Jestem podekscytowany możliwością zastosowania mojej pasji do tworzenia stron internetowych do Państwa projektów.",
+      "paragraph-2": "Choć dopiero tylko zaczynam swoją karierę, mogę zapewnić, że dobrze znam się na Angularze, JavaScripcie, TypeScripcie i na innych użytecznych narzędziach.",
+      "paragraph-3": "Moje zaangażowanie w naukę i rozwój zawodowy jest niezachwiane. Pasjonuję także tworzeniem dynamicznych, elastycznych i przyjaznych dla użytkownika aplikacji internetowych.",
+      "paragraph-4": "Co Państwo myśli o połączeniu sił i stworzeniu razem czegoś wspaniałego?"
+    },
+    "link": "Więcej o Mnie",
+    "mainTasks": {
+      "text": "Niektóre zadania w których jestem naprawdę dobry:",
+      "list": {
+        "task-1": "Projektowanie interfejsu użytkownika",
+        "task-2": "Opracowywanie",
+        "task-3": "Kodowanie",
+        "task-4": "Testowanie",
+        "task-5": "Debugowanie",
+        "task-6": "Optymalizacja ",
+        "task-7": "Podtrzymywanie",
+        "task-8": "Dokumentowanie"
+      }
+    }
+  }
+}
