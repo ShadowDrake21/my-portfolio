@@ -1,0 +1,50 @@
+{
+  "mainScreen": {
+    "title": "Hi!<br>I'm Dmytro (Dmitri) Krapyvianskiy.<br>Web && front-end developer.",
+    "text": {
+      "paragraph-1": "I'm excited to bring my passion for web development to your projects.",
+      "paragraph-2": "While I'm just starting my career, I've got a strong grasp of Angular, JavaScript, TypeScript and other useful tools.",
+      "paragraph-3": "My commitment to learning and growing as a professional is unwavering, and I’m also passionate about creating dynamic, responsive and user-friendly web applications.",
+      "paragraph-4": "What do you think about teaming up and creating something great together?"
+    },
+    "link": "More about me",
+    "mainTasks": {
+      "text": "Some tasks I'm really good at:",
+      "list": {
+        "task-1": "UI Design",
+        "task-2": "Development",
+        "task-3": "Coding",
+        "task-4": "Testing",
+        "task-5": "Debugging",
+        "task-6": "Optimization",
+        "task-7": "Maintenance",
+        "task-8": "Documenting"
+      }
+    }
+  },
+  "myStory": {
+    "title": "My story",
+    "part-1": {
+      "title": "I am a 4th-year Software Engineering student at Chernihiv Polytechnic University.",
+      "paragraphs": {
+        "1": "I've always enjoyed programming, and when I created my first web application, I realized this is the field I want to pursue professionally."
+      }
+    },
+    "part-2": {
+      "title": "Even though I haven't had any formal work experience yet, I've spent a lot of time working on various projects for practice.",
+      "paragraphs": {
+        "1": "I've tackled different types of projects on my own, dealing with different technologies and levels of difficulty.",
+        "2": "These projects have given me hands-on experience and allowed me to explore many aspects of web development. Whether it's a small project or a large one, I've faced various challenges, which helped me sharpen my skills along the way."
+      }
+    }
+  },
+  "myGitHub": {
+    "title": "My GitHub",
+    "subtitle": "Latest repositories",
+    "link": "Go to account"
+  },
+  "latestProjects": {
+    "title": "Latest projects",
+    "link": "Wszystkie projekty"
+  }
+}

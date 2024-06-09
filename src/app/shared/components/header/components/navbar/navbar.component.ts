@@ -1,19 +1,18 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterModule } from '@angular/router';
-import { ThemeModeService } from '@core/services/themeMode.service';
-import { ThemeModeType } from '@shared/models/themeMode.model';
-import { retrieveFromLS, saveToLS } from '@shared/utils/localStorage.utils';
 import { filter, map, Observable, of, Subscription, switchMap } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { ApplicationState } from '@store/application/application.reducer';
 import * as ApplicationActions from '@store/application/application.actions';
 import * as ApplicationSelectors from '@store/application/application.selectors';
+import { ThemeModeType } from '@shared/models/types.model';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, TranslateModule],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css',
 })

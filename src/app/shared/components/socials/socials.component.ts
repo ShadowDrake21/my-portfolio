@@ -7,7 +7,6 @@ import {
   SimpleChanges,
 } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { ThemeModeType } from '@shared/models/themeMode.model';
 import { ApplicationState } from '@store/application/application.reducer';
 import * as ApplicationSelectors from '@store/application/application.selectors';
 import { Observable } from 'rxjs';

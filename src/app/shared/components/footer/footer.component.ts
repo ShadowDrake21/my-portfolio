@@ -6,12 +6,18 @@ import * as ApplicationSelectors from '@store/application/application.selectors'
 import { Store } from '@ngrx/store';
 import { ApplicationState } from '@store/application/application.reducer';
 import { Observable } from 'rxjs';
-import { ThemeModeType } from '@shared/models/themeMode.model';
+import { ThemeModeType } from '@shared/models/types.model';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-footer',
   standalone: true,
-  imports: [CommonModule, StyledLinkComponent, SocialsComponent],
+  imports: [
+    CommonModule,
+    StyledLinkComponent,
+    SocialsComponent,
+    TranslateModule,
+  ],
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.css',
 })

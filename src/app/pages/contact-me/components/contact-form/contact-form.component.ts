@@ -14,7 +14,8 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import emailjs, { type EmailJSResponseStatus } from '@emailjs/browser';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ContactMeSnackbarComponent } from '../contact-me-snackbar/contact-me-snackbar.component';
-import { ThemeModeType } from '@shared/models/themeMode.model';
+import { ThemeModeType } from '@shared/models/types.model';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-contact-form',
@@ -26,14 +27,18 @@ import { ThemeModeType } from '@shared/models/themeMode.model';
     MatFormFieldModule,
     ReactiveFormsModule,
     ContactMeSnackbarComponent,
+    TranslateModule,
   ],
   templateUrl: './contact-form.component.html',
   styleUrl: './contact-form.component.css',
+  providers: [TranslateService],
 })
 export class ContactFormComponent implements OnInit {
   @Input({ required: true, alias: 'themeMode' })
   themeMode$!: Observable<ThemeModeType | null>;
+
   private _snackBar = inject(MatSnackBar);
+  private translate = inject(TranslateService);
 
   private snackBarDurationInSeconds = 5;
 
@@ -68,6 +73,8 @@ export class ContactFormComponent implements OnInit {
 
     const { name, email, message } = this.contactForm.value;
 
+    const currentLang = this.translate.currentLang;
+
     const submitSubscription = from(
       emailjs.send('service_ona0hct', 'template_b3srzms', {
         from_name: name,
@@ -77,14 +84,23 @@ export class ContactFormComponent implements OnInit {
       })
     ).subscribe({
       next: () => {
-        this.openSnackBar('Message successfully send!');
+        this.openSnackBar(
+          currentLang === 'en'
+            ? 'Message successfully sent!'
+            : currentLang === 'pl'
+            ? 'Wiadomość pomyślnie wysłana!'
+            : 'Повідомлення успішно відправлено!'
+        );
         this.contactForm.reset();
       },
       error: (error) =>
         this.openSnackBar(
-          `Error during message sending: ${
-            (error as EmailJSResponseStatus).text
-          }`
+          (currentLang === 'en'
+            ? 'Error during message sending: '
+            : currentLang === 'pl'
+            ? 'Wystąpił błąd podczas wysyłania wiadomości: '
+            : 'Помилка під час відправлення повідомлення: ') +
+            ` ${(error as EmailJSResponseStatus).text}`
         ),
     });
 
@@ -106,26 +122,39 @@ export class ContactFormComponent implements OnInit {
 
   updateErrorMessage(control: 'name' | 'email' | 'message') {
     const controlErrors = this.contactForm.controls[control].errors;
+    const currentLang = this.translate.currentLang;
 
     if (controlErrors?.['required']) {
-      this[`${control}ErrorMessage`] = 'You must enter a value';
+      this[`${control}ErrorMessage`] =
+        currentLang === 'en'
+          ? 'You must enter a value'
+          : currentLang === 'pl'
+          ? 'Musi Państwo wprowadzić znaczenie'
+          : 'Ви повинні ввести значення';
     } else if (controlErrors?.['minlength']) {
-      this[`${control}ErrorMessage`] = `${this.capitalizeFirstLetter(
-        control
-      )} is too short`;
+      this[`${control}ErrorMessage`] =
+        currentLang === 'en'
+          ? 'String is too short'
+          : currentLang === 'pl'
+          ? 'Wiersz jest bardzo krótki'
+          : 'Значення є дуже коротке';
     } else if (controlErrors?.['maxlength']) {
-      this[`${control}ErrorMessage`] = `${this.capitalizeFirstLetter(
-        control
-      )} is too long`;
+      this[`${control}ErrorMessage`] =
+        currentLang === 'en'
+          ? 'String is too long'
+          : currentLang === 'pl'
+          ? 'Wiersz jest bardzo długi'
+          : 'Значення є дуже довге';
     } else if (control === 'email' && controlErrors?.['email']) {
-      this.emailErrorMessage = 'Not a valid email';
+      this.emailErrorMessage =
+        currentLang === 'en'
+          ? 'Not a valid e-mail'
+          : currentLang === 'pl'
+          ? 'To nie jest ważny e-mail'
+          : 'Недійсна електронна адреса';
     } else {
       this[`${control}ErrorMessage`] = '';
     }
-  }
-
-  private capitalizeFirstLetter(str: string) {
-    return str.charAt(0).toUpperCase() + str.slice(1);
   }
 
   openSnackBar(message: string) {

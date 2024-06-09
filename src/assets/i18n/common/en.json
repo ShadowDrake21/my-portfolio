@@ -1,0 +1,46 @@
+{
+  "header": {
+    "languageSwitcher": "Language",
+    "location": "Chernihiv, Ukraine",
+    "workAvailability": "I am available for work",
+    "navbar": {
+      "downloadCV": "Download CV"
+    }
+  },
+  "stacks": {
+    "technologyStackTitle": "Technology stack",
+    "otherTechnologiesTitle": "Other technologies I’ve worked with",
+    "languageStackTitle": "Language stack",
+    "languageStack": {
+      "levelSubtitle": "level",
+      "list": {
+        "english": {
+          "title": "English",
+          "level": "intermediate"
+        },
+        "polish": {
+          "title": "Polish",
+          "level": "b2"
+        },
+        "ukrainian": {
+          "title": "Ukrainian",
+          "level": "native"
+        },
+        "russian": {
+          "title": "Russian",
+          "level": "native"
+        }
+      }
+    }
+  },
+  "singleProject": {
+    "github-link": "On GitHub"
+  },
+  "footer": {
+    "title": "Want to communicate with me?",
+    "socials-text": "You can find me on such platforms:",
+    "email-text": "Also you can send me an email:",
+    "email-btn": "Write to me",
+    "copyright": "© 2024 Dmytro (Dmitrii) Krapyvianskiy a.k.a Drake21 | All rights reserved"
+  }
+}

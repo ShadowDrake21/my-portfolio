@@ -5,15 +5,35 @@
     'dark-mode__section': (themeMode$ | async) === 'dark'
   }"
 >
-  <h2 class="section-title my-story__title">My story</h2>
-  <div *ngFor="let item of myStoryContent" class="my-story__content-item">
-    <h3 class="my-story__content-item__title">{{ item.title }}</h3>
+  <h2 class="section-title my-story__title">
+    {{ "myStory.title" | translate }}
+  </h2>
+  <div class="my-story__content-item">
+    <h5 class="my-story__content-item__title">
+      {{ "myStory.part-1.title" | translate }}
+    </h5>
     <p
-      *ngFor="let paragraph of item.text"
       class="my-story__content-item__text"
       [class.dark-mode__text]="(themeMode$ | async) === 'dark'"
     >
-      {{ paragraph }}
+      {{ "myStory.part-1.paragraphs.1" | translate }}
+    </p>
+  </div>
+  <div class="my-story__content-item">
+    <h5 class="my-story__content-item__title">
+      {{ "myStory.part-2.title" | translate }}
+    </h5>
+    <p
+      class="my-story__content-item__text"
+      [class.dark-mode__text]="(themeMode$ | async) === 'dark'"
+    >
+      {{ "myStory.part-2.paragraphs.1" | translate }}
+    </p>
+    <p
+      class="my-story__content-item__text"
+      [class.dark-mode__text]="(themeMode$ | async) === 'dark'"
+    >
+      {{ "myStory.part-2.paragraphs.2" | translate }}
     </p>
   </div>
 </section>

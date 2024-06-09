@@ -15,11 +15,18 @@ import {
   tap,
 } from 'rxjs';
 import { ThemeModeService } from '@core/services/themeMode.service';
-import { ThemeModeType } from '@shared/models/themeMode.model';
 import { Store } from '@ngrx/store';
 import { ApplicationState } from './store/application/application.reducer';
 import * as ApplicationActions from '../app/store/application/application.actions';
 import * as ApplicationSelectors from '../app/store/application/application.selectors';
+import { HttpClient } from '@angular/common/http';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import {
+  TranslateLoader,
+  TranslateModule,
+  TranslateService,
+} from '@ngx-translate/core';
+import { ThemeModeType } from '@shared/models/types.model';
 
 @Component({
   selector: 'app-root',
@@ -27,9 +34,11 @@ import * as ApplicationSelectors from '../app/store/application/application.sele
   imports: [CommonModule, RouterOutlet, HeaderComponent, FooterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
+  providers: [TranslateService],
 })
 export class AppComponent implements OnInit, OnDestroy {
   private router = inject(Router);
+  private translate = inject(TranslateService);
   private store = inject(Store<ApplicationState>);
 
   isContactMePage: boolean = true;
@@ -39,6 +48,7 @@ export class AppComponent implements OnInit, OnDestroy {
   private subscription: Subscription = new Subscription();
 
   ngOnInit(): void {
+    this.translate.setDefaultLang('en');
     this.themeMode$ = this.store.select(ApplicationSelectors.selectThemeMode);
 
     this.subscription.add(
@@ -56,6 +66,8 @@ export class AppComponent implements OnInit, OnDestroy {
         if (event instanceof NavigationEnd) {
           if (this.router.url === '/contact-me') {
             this.isContactMePage = false;
+          } else {
+            this.isContactMePage = true;
           }
         }
       });

@@ -6,10 +6,12 @@
   }"
 >
   <div class="latest-projects__top">
-    <h2 class="latest-project__title section-title">Last projects</h2>
+    <h2 class="latest-project__title section-title">
+      {{ "latestProjects.title" | translate }}
+    </h2>
     <helper-styled-link
       link="/projects"
-      title="All projects"
+      [title]="'latestProjects.link' | translate"
       [themeMode]="themeMode$"
     ></helper-styled-link>
   </div>

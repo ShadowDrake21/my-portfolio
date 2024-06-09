@@ -1,0 +1,46 @@
+{
+  "header": {
+    "languageSwitcher": "Мова",
+    "location": "Чернігів, Україна",
+    "workAvailability": "Я доступний для роботи",
+    "navbar": {
+      "downloadCV": "Завантажити CV"
+    }
+  },
+  "stacks": {
+    "technologyStackTitle": "Стек технологій",
+    "otherTechnologiesTitle": "Інші технології з якими працював",
+    "languageStackTitle": "Стек мов",
+    "languageStack": {
+      "levelSubtitle": "рівень",
+      "list": {
+        "english": {
+          "title": "Англійська мова",
+          "level": "середній"
+        },
+        "polish": {
+          "title": "Польська мова",
+          "level": "b2"
+        },
+        "ukrainian": {
+          "title": "Українська мова",
+          "level": "рідномовець"
+        },
+        "russian": {
+          "title": "Російська мова",
+          "level": "рідномовець"
+        }
+      }
+    }
+  },
+  "singleProject": {
+    "github-link": "На GitHub"
+  },
+  "footer": {
+    "title": "Бажаєте написати до мене?",
+    "socials-text": "Ви можете знайти мене на таких платформах:",
+    "email-text": "Також можете надіслати мені електронний лист:",
+    "email-btn": "Написати до мене",
+    "copyright": "© 2024 Дмитро Крапив'янський a.k.a Drake21 | Всі права захищені"
+  }
+}

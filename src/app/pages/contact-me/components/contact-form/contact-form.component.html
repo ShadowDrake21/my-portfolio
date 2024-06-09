@@ -8,7 +8,7 @@
   <div class="contact-form__inner">
     <div class="contact-form__second-inner">
       <h2 class="section-title contact-form__title inter-semibold">
-        Let's collaborate!
+        {{ "contactForm.title" | translate }}
       </h2>
       <div class="contact-form__emailbox">
         <span>dimka670020040&#64;gmail.com</span>
@@ -18,7 +18,7 @@
       </div>
       <form class="contact-form__wrapper" [formGroup]="contactForm" #form>
         <mat-form-field>
-          <mat-label>Name</mat-label>
+          <mat-label> {{ "contactForm.labels.name" | translate }}</mat-label>
           <input
             matInput
             formControlName="name"
@@ -30,7 +30,7 @@
           }
         </mat-form-field>
         <mat-form-field>
-          <mat-label>Email</mat-label>
+          <mat-label>{{ "contactForm.labels.email" | translate }}</mat-label>
           <input
             matInput
             formControlName="email"
@@ -42,7 +42,7 @@
           }
         </mat-form-field>
         <mat-form-field>
-          <mat-label>Message</mat-label>
+          <mat-label>{{ "contactForm.labels.message" | translate }}</mat-label>
           <textarea
             matInput
             style="resize: none; height: 180px"
@@ -60,12 +60,12 @@
           (click)="onFormSubmit()"
           [disabled]="contactForm.invalid"
         >
-          Send Message
+          {{ "contactForm.btn" | translate }}
         </button>
       </form>
     </div>
   </div>
   <p class="contact-form__copyright">
-    © 2024 Dmytro (Dmitrii) Krapyvianskiy a.k.a Drake21 | All rights reserved
+    {{ "footer.copyright" | translate }}
   </p>
 </section>
