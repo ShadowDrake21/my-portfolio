@@ -47,6 +47,7 @@
   }
 
   .tasks-list__item {
+    padding-left: 0;
     text-decoration: underline;
   }
 
