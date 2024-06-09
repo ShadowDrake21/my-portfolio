@@ -2,17 +2,17 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-bottom: 25px;
+  padding-bottom: var(--spacing-25);
 }
 
 .latest-project__list {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
-  grid-column-gap: 12px;
-  grid-row-gap: 12px;
+  grid-column-gap: var(--spacing-12);
+  grid-row-gap: var(--spacing-12);
 }
 
 .latest-project__list-item__wrapper {
-  width: 100%;
+  width: var(--full-spacing);
 }

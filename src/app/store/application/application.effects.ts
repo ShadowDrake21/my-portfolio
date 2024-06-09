@@ -1,12 +1,13 @@
+// angular stuff
 import { inject, Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { Store } from '@ngrx/store';
-import { ApplicationState } from './application.reducer';
-
-import * as ApplicationActions from './application.actions';
 import { catchError, exhaustMap, map, of } from 'rxjs';
-import { retrieveFromLS } from '@shared/utils/localStorage.utils';
+
+// services
 import { ThemeModeService } from '@core/services/themeMode.service';
+
+// created ngrx stuff
+import * as ApplicationActions from './application.actions';
 
 @Injectable()
 export class ApplicationEffects {

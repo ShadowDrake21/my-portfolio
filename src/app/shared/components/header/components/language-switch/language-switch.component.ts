@@ -1,23 +1,31 @@
+// angular stuff
 import {
   AfterViewInit,
   Component,
   ElementRef,
   inject,
   OnInit,
-  Renderer2,
   ViewChild,
 } from '@angular/core';
-import { MatMenu, MatMenuItem, MatMenuModule } from '@angular/material/menu';
+import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
-import { BehaviorSubject, Observable, of } from 'rxjs';
-import { ClickOutsideDirective } from '@shared/directives/click-outside.directive';
-import { retrieveFromLS, saveToLS } from '@shared/utils/localStorage.utils';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';
-import { ApplicationState } from '@store/application/application.reducer';
 import { Store } from '@ngrx/store';
-import * as ApplicationSelectors from '@store/application/application.selectors';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
+
+// directives
+import { ClickOutsideDirective } from '@shared/directives/click-outside.directive';
+
+// utils
+import { retrieveFromLS, saveToLS } from '@shared/utils/localStorage.utils';
+
+// interfaces and types
 import { languageType, ThemeModeType } from '@shared/models/types.model';
+
+// created ngrx stuff
+import { ApplicationState } from '@store/application/application.reducer';
+import * as ApplicationSelectors from '@store/application/application.selectors';
 
 @Component({
   selector: 'app-language-switch',

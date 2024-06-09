@@ -1,3 +1,4 @@
+// angular stuff
 import { Component, Inject, inject } from '@angular/core';
 import {
   MAT_SNACK_BAR_DATA,

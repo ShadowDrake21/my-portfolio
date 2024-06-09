@@ -1,3 +1,4 @@
+// angular stuff
 import { DOCUMENT } from '@angular/common';
 import {
   AfterViewInit,
@@ -5,7 +6,6 @@ import {
   ElementRef,
   EventEmitter,
   Inject,
-  inject,
   OnDestroy,
   Output,
 } from '@angular/core';

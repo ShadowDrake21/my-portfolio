@@ -1,35 +1,35 @@
 .tasks-text {
-  padding-bottom: 15px;
+  padding-bottom: var(--spacing-15);
 }
 
 .tasks-list {
   display: flex;
-  gap: 15px;
+  gap: var(--spacing-15);
   justify-content: space-between;
 }
 
 .dark-mode__tasks .tasks-list__item {
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--dark-mode__color-3);
 }
 
 .dark-mode__tasks .tasks-list__item::before {
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: var(--dark-mode__color-3);
 }
 
 .tasks-list__item {
-  color: #454545;
+  color: var(--main-color-3);
   position: relative;
-  padding-left: 20px;
+  padding-left: var(--spacing-20);
 }
 
 .tasks-list__item::before {
   position: absolute;
   content: "";
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background-color: #666666;
-  top: 50%;
-  transform: translateY(-50%);
-  left: 0;
+  width: var(--spacing-14);
+  height: var(--spacing-14);
+  border-radius: var(--half-spacing);
+  background-color: var(--main-color-2);
+  top: var(--half-spacing);
+  transform: translateY(var(--negative-half-spacing));
+  left: var(--zero-spacing);
 }

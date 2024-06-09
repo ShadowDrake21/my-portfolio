@@ -1,8 +1,11 @@
+// angular stuff
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { RouterLink } from '@angular/router';
-import { ThemeModeType } from '@shared/models/types.model';
 import { Observable } from 'rxjs';
+import { RouterLink } from '@angular/router';
+
+// interfaces and types
+import { ThemeModeType } from '@shared/models/types.model';
 
 @Component({
   selector: 'helper-styled-link',

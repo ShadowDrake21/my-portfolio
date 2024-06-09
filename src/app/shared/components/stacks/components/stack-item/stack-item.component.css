@@ -1,10 +1,10 @@
 .stack-item {
-  padding: 12px 15px;
+  padding: var(--spacing-12) var(--spacing-15);
   height: 80px;
-  border: 1px solid var(--border-1);
+  border: var(--spacing-1) solid var(--border-1);
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: var(--spacing-15);
 }
 
 .dark-mode__stack-item {
@@ -24,16 +24,16 @@
 }
 
 .stack-item__title {
-  font-size: 18px;
-  line-height: 24px;
+  font-size: var(--spacing-18);
+  line-height: var(--spacing-24);
 }
 
 .stack-item__level {
   font-size: 13px;
-  line-height: 17px;
-  color: #454545;
+  line-height: var(--spacing-17);
+  color: var(--main-color-3);
 }
 
 .dark-mode__stack-item .stack-item__level {
-  color: rgb(255, 255, 255);
+  color: var(--white-color);
 }

@@ -1,21 +1,21 @@
+// angular stuff
+import { Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';
-import {
-  Component,
-  inject,
-  Input,
-  OnChanges,
-  OnInit,
-  SimpleChanges,
-} from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { TranslateModule } from '@ngx-translate/core';
+
+// components
 import { MainTasksComponent } from '@shared/components/main-tasks/main-tasks.component';
 import { StyledLinkComponent } from '@shared/components/styled-link/styled-link.component';
+
+// interfaces and types
 import { ThemeModeType } from '@shared/models/types.model';
+
+// created ngrx stuff
 import { ApplicationState } from '@store/application/application.reducer';
 import * as ApplicationSelectors from '@store/application/application.selectors';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-main-screen',
