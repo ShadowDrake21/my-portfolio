@@ -9,18 +9,6 @@
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
-      "i18n": {
-        "sourceLocale": {
-          "code": "en",
-          "baseHref": "/en/"
-        },
-        "locales": {
-          "pl": {
-            "translation": "src/locale/messages.pl.xlf",
-            "baseHref": "/pl/"
-          }
-        }
-      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:application",
@@ -57,7 +45,6 @@
               "outputHashing": "all"
             },
             "development": {
-              "localize": false,
               "optimization": false,
               "extractLicenses": false,
               "sourceMap": true,
@@ -67,15 +54,6 @@
                   "with": "src/environments/environment.development.ts"
                 }
               ]
-            },
-            "en": {
-              "localize": ["en"]
-            },
-            "pl": {
-              "localize": ["pl"]
-            },
-            "ua": {
-              "localize": ["ua"]
             }
           },
           "defaultConfiguration": "production"
@@ -88,26 +66,9 @@
             },
             "development": {
               "buildTarget": "portfolio:build:development"
-            },
-            "en": {
-              "buildTarget": "portfolio:build:development,en"
-            },
-            "pl": {
-              "buildTarget": "portfolio:build:development,pl"
-            },
-            "ua": {
-              "buildTarget": "portfolio:build:development,ua"
             }
           },
           "defaultConfiguration": "development"
-        },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "buildTarget": "portfolio:build",
-            "format": "xlf",
-            "outputPath": "src/locale"
-          }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
