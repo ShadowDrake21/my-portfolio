@@ -299,6 +299,11 @@ a {
     line-height: 30px;
     padding-bottom: 13px !important;
   }
+
+  .page {
+    gap: 18px;
+    padding-bottom: 18px;
+  }
 }
 
 @media (max-width: 500px) {
