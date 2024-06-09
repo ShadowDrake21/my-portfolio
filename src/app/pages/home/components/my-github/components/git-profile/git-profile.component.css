@@ -111,3 +111,36 @@
   background-color: var(--white-color);
   color: var(--black-color);
 }
+
+@media (max-width: 1100px) {
+  .my-github__profile {
+    gap: 25px;
+    display: flex;
+    align-items: center;
+  }
+}
+
+@media (max-width: 800px) {
+  .my-github__profile-img {
+    width: 250px;
+    height: 250px;
+  }
+
+  .my-github__profile-link {
+    padding: 12px 20px 14px;
+  }
+}
+
+@media (max-width: 700px) {
+  .my-github__profile-login {
+    font-size: 16px;
+    line-height: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .my-github__profile {
+    flex-direction: column;
+    gap: 10px;
+  }
+}

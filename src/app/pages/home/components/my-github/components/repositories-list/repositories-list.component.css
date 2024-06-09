@@ -88,3 +88,26 @@
 .dark-mode__repository .repositories-list__container-item__type {
   border-color: var(--dark-mode__color-1);
 }
+
+@media (max-width: 1100px) {
+  .repositories-list__title {
+    text-align: center;
+  }
+}
+
+@media (max-width: 700px) {
+  .repositories-list__container {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .repositories-list__title {
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  .repositories-list__container-item {
+    width: 100%;
+    max-width: 100%;
+  }
+}
