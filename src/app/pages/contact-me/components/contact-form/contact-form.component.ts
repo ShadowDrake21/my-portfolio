@@ -1,6 +1,7 @@
+// angular stuff
 import { CommonModule } from '@angular/common';
 import { Component, inject, Input, OnInit } from '@angular/core';
-import { SocialsComponent } from '@shared/components/socials/socials.component';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {
@@ -13,9 +14,13 @@ import { from, merge, Observable, Subscription } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import emailjs, { type EmailJSResponseStatus } from '@emailjs/browser';
 import { MatSnackBar } from '@angular/material/snack-bar';
+
+// components
 import { ContactMeSnackbarComponent } from '../contact-me-snackbar/contact-me-snackbar.component';
+import { SocialsComponent } from '@shared/components/socials/socials.component';
+
+// interfaces and types
 import { ThemeModeType } from '@shared/models/types.model';
-import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-contact-form',

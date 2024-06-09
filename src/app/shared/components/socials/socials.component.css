@@ -2,8 +2,8 @@
   display: flex;
   gap: 26px;
   list-style: none;
-  margin: 0;
-  padding: 0;
+  margin: var(--zero-spacing);
+  padding: var(--zero-spacing);
 }
 
 .social-list.dark-mode__socials

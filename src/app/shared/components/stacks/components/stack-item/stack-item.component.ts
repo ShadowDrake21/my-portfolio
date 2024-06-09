@@ -1,9 +1,12 @@
+// angular stuff
 import { CommonModule } from '@angular/common';
-import { Component, inject, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
+import { Observable } from 'rxjs';
+
+// interfaces and types
 import { IStackItem } from '@shared/models/stack.model';
 import { ThemeModeType } from '@shared/models/types.model';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-stack-item',

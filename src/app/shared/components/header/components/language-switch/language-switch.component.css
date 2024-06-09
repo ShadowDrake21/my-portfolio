@@ -1,21 +1,21 @@
 .language-switch {
   display: flex;
-  gap: 20px;
+  gap: var(--spacing-20);
   overflow-y: hidden;
 }
 
 .dark-mode__language-switch .language-switch__btn {
   border: #929292;
   background-color: #a1a1a1;
-  color: #fff;
+  color: var(--white-color);
 }
 
 .dark-mode__language-switch .language-switch__dropdown {
-  background-color: #9e9e9e;
+  background-color: var(--secondary-color-1);
 }
 
 .dark-mode__language-switch .language-switch__option {
-  background-color: #9e9e9e;
+  background-color: var(--secondary-color-1);
 }
 
 .language-switch__btn {
@@ -23,16 +23,16 @@
   position: relative;
   z-index: 10;
   width: 170px;
-  padding: 11px 17px;
-  border: #454545;
-  background-color: #666666;
-  color: #fff;
-  font-size: 16px;
-  line-height: 20px;
+  padding: 11px var(--spacing-17);
+  border: var(--main-color-3);
+  background-color: var(--main-color-2);
+  color: var(--white-color);
+  font-size: var(--spacing-16);
+  line-height: var(--spacing-20);
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: var(--spacing-10);
   font-family: "Inter", sans-serif;
   font-weight: 400;
 }
@@ -40,7 +40,7 @@
 .language-switch__icon {
   width: 23px;
   height: 23px;
-  color: #fff;
+  color: var(--white-color);
 
   filter: invert(100%) sepia(0%) saturate(7457%) hue-rotate(28deg)
     brightness(99%) contrast(113%);
@@ -48,7 +48,7 @@
 
 .language-switch__item-icon {
   width: 42px;
-  height: 25px;
+  height: var(--spacing-25);
   object-fit: cover;
 }
 
@@ -61,28 +61,28 @@
   z-index: 9;
   width: 170px;
   list-style: none;
-  margin: 0;
-  padding: 10px 5px;
-  background-color: #999999;
+  margin: var(--zero-spacing);
+  padding: var(--spacing-10) 5px;
+  background-color: var(--main-color-1);
   pointer-events: none;
   transform: translateY(-150%);
   transition: transform 0.5s, opacity 0.5s;
 }
 
 .language-switch__dropdown.show {
-  transform: translateY(0);
+  transform: translateY(var(--zero-spacing));
   pointer-events: all;
 }
 
 .language-switch__option {
   display: flex;
-  width: 100%;
-  background-color: #999999;
-  color: #fff;
+  width: var(--full-spacing);
+  background-color: var(--main-color-1);
+  color: var(--white-color);
   border: none;
   outline: none;
-  font-size: 16px;
-  line-height: 20px;
+  font-size: var(--spacing-16);
+  line-height: var(--spacing-20);
   padding: 3px;
   margin-bottom: 5px;
   align-items: center;
@@ -94,10 +94,10 @@
 }
 
 .language-switch__option-span {
-  width: 100%;
+  width: var(--full-spacing);
   text-align: center;
 }
 
 .current-language__icon {
-  border: 1px solid #6666;
+  border: var(--spacing-1) solid var(--main-color-2);
 }

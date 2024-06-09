@@ -1,12 +1,19 @@
+// angular stuff
 import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { ApplicationState } from '@store/application/application.reducer';
 import { Observable } from 'rxjs';
-import * as ApplicationSelectors from '@store/application/application.selectors';
-import { ThemeModeType } from '@shared/models/types.model';
 import { TranslateModule } from '@ngx-translate/core';
+
+// content
 import { mainTasksContent } from './content/mainTasks.content';
+
+// interfaces and types
+import { ThemeModeType } from '@shared/models/types.model';
+
+// created ngrx stuff
+import { ApplicationState } from '@store/application/application.reducer';
+import * as ApplicationSelectors from '@store/application/application.selectors';
 
 @Component({
   selector: 'app-main-tasks',

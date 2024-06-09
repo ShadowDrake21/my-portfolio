@@ -1,20 +1,24 @@
+// angular stuff
 import { CommonModule } from '@angular/common';
 import {
   Component,
   Input,
   OnChanges,
-  OnDestroy,
   OnInit,
   SimpleChanges,
 } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
+import { Observable } from 'rxjs';
+
+// content
 import {
   otherTechnologiesContent,
   technologyStackContent,
 } from '@shared/content/stacks.content';
+
+// interfaces and types
 import { IProject } from '@shared/models/project.model';
 import { ThemeModeType } from '@shared/models/types.model';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-project-item',

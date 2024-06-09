@@ -1,10 +1,10 @@
 .my-github__title {
-  padding-bottom: 15px;
+  padding-bottom: var(--spacing-15);
 }
 
 .my-github__inner {
   display: flex;
-  gap: 40px;
+  gap: var(--spacing-40);
 }
 
 .my-github__left {
