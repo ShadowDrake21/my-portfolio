@@ -11,11 +11,17 @@
         (click)="onToggleLanguageSwitch($event)"
       >
         <img
+          class="current-language__icon language-switch__btn-responsive"
+          [src]="currentLanguageImg"
+          alt="current language"
+        />
+
+        <img
           class="language-switch__icon"
           src="/assets/icons/language-switcher/world-icon.svg"
           alt="languages"
         />
-        <span class="inter-regular">{{
+        <span class="inter-regular language-switch__span">{{
           "header.languageSwitcher" | translate
         }}</span>
       </button>

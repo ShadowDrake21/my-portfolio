@@ -10,3 +10,20 @@
 .my-github__left {
   width: 400px;
 }
+
+@media (max-width: 1100px) {
+  .my-github__inner {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .my-github__left {
+    width: 100%;
+  }
+}
+
+@media (max-width: 700px) {
+  .my-github__inner {
+    gap: 20px;
+  }
+}

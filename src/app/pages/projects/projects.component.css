@@ -9,6 +9,11 @@
   gap: var(--spacing-15);
 }
 
+.projects-tab__filtration-inner {
+  display: flex;
+  gap: var(--spacing-15);
+}
+
 .projects-tab__filtration-btn {
   height: var(--full-spacing);
   padding: var(--spacing-15) var(--spacing-10);
@@ -40,4 +45,34 @@
   display: flex;
   justify-content: center;
   padding-top: var(--spacing-25);
+}
+
+@media (max-width: 1100px) {
+  .projects-tab__list {
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+  }
+}
+
+@media (max-width: 900px) {
+  .projects-tab__filtration-inner {
+    width: 100%;
+  }
+
+  .projects-tab__filtration {
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    padding-bottom: 10px;
+  }
+
+  .projects-tab__filtration-field {
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .project-tab__pagination {
+    padding-top: 15px;
+  }
 }

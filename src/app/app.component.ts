@@ -61,6 +61,7 @@ export class AppComponent implements OnInit, OnDestroy {
       .pipe(takeUntil(this.destroy$$))
       .subscribe((event: any) => {
         if (event instanceof NavigationEnd) {
+          window.scrollTo(0, 0);
           if (this.router.url === '/contact-me') {
             this.isContactMePage = false;
           } else {

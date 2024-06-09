@@ -37,3 +37,35 @@
 .dark-mode__stack-item .stack-item__level {
   color: var(--white-color);
 }
+
+@media (max-width: 700px) {
+  .stack-item {
+    padding: 10px 12px;
+  }
+}
+
+@media (max-width: 500px) {
+  .stack-item {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .stack-item {
+    padding: 8px 10px;
+  }
+
+  .stack-item__title {
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  .stack-item__icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .stack-item__level {
+    font-size: 12px;
+    line-height: 15px;
+  }
+}

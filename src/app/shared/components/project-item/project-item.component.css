@@ -31,6 +31,7 @@
   padding: var(--spacing-20) var(--zero-spacing);
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   gap: var(--spacing-15);
 }
 
@@ -54,4 +55,31 @@
 
 .project-item__link.github {
   color: var(--main-color-2);
+}
+
+@media (max-width: 600px) {
+  .project-item {
+    padding: 15px;
+  }
+
+  .project-item__technologies {
+    padding: 10px 0;
+  }
+
+  .project-item__technology {
+    width: 25px;
+    height: 25px;
+  }
+
+  .project-item__links {
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .project-item__link.main {
+    font-size: 16px;
+    line-height: 22px;
+  }
 }

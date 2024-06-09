@@ -6,7 +6,7 @@
       'dark-mode__section': (themeMode$ | async) === 'dark'
     }"
   >
-    <h2 class="projects__title inter-semibold">
+    <h2 class="section-title inter-semibold">
       {{ "projects.title" | translate }}
     </h2>
     <mat-tab-group
@@ -19,36 +19,38 @@
             [formGroup]="projectFiltrationForm"
             class="projects-tab__filtration"
           >
-            <mat-form-field>
-              <mat-label>
-                {{ "projects.filtration.technologyLabel" | translate }}
-              </mat-label>
-              <mat-select
-                (selectionChange)="onFormChange()"
-                formControlName="technology"
-              >
-                <mat-option
-                  *ngFor="let technology of technologyFilterContent"
-                  [value]="technology"
-                  >{{ technology }}</mat-option
+            <div class="projects-tab__filtration-inner">
+              <mat-form-field class="projects-tab__filtration-field">
+                <mat-label>
+                  {{ "projects.filtration.technologyLabel" | translate }}
+                </mat-label>
+                <mat-select
+                  (selectionChange)="onFormChange()"
+                  formControlName="technology"
                 >
-              </mat-select>
-            </mat-form-field>
-            <mat-form-field>
-              <mat-label>
-                {{ "projects.filtration.yearLabel" | translate }}
-              </mat-label>
-              <mat-select
-                (selectionChange)="onFormChange()"
-                formControlName="year"
-              >
-                <mat-option
-                  *ngFor="let year of yearFilterContent"
-                  [value]="year"
-                  >{{ year }}</mat-option
+                  <mat-option
+                    *ngFor="let technology of technologyFilterContent"
+                    [value]="technology"
+                    >{{ technology }}</mat-option
+                  >
+                </mat-select>
+              </mat-form-field>
+              <mat-form-field class="projects-tab__filtration-field">
+                <mat-label>
+                  {{ "projects.filtration.yearLabel" | translate }}
+                </mat-label>
+                <mat-select
+                  (selectionChange)="onFormChange()"
+                  formControlName="year"
                 >
-              </mat-select>
-            </mat-form-field>
+                  <mat-option
+                    *ngFor="let year of yearFilterContent"
+                    [value]="year"
+                    >{{ year }}</mat-option
+                  >
+                </mat-select>
+              </mat-form-field>
+            </div>
             <button
               *ngIf="projectFiltrationForm.touched"
               mat-flat-button

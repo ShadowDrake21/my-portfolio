@@ -14,3 +14,30 @@
   text-align: end;
   padding-bottom: var(--spacing-10);
 }
+
+@media (max-width: 900px) {
+  .my-story__content-item__title {
+    font-size: 18px;
+    line-height: 24px;
+    padding-bottom: 10px;
+  }
+}
+
+@media (max-width: 500px) {
+  .my-story__content-item__title {
+    text-align: center;
+  }
+
+  .my-story__content-item__text {
+    text-align: center;
+    padding-bottom: 5px;
+  }
+}
+
+@media (max-width: 400px) {
+  .my-story__content-item__title {
+    font-size: 16px;
+    line-height: 22px;
+    padding-bottom: 5px;
+  }
+}

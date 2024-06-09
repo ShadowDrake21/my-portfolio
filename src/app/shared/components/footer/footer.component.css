@@ -35,3 +35,13 @@
   font-size: var(--spacing-12);
   line-height: var(--spacing-16);
 }
+
+@media (max-width: 600px) {
+  .footer__socials {
+    padding-bottom: 20px;
+  }
+
+  .footer__send-email {
+    padding-bottom: 15px;
+  }
+}

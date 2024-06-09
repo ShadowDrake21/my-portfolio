@@ -19,3 +19,16 @@
   height: 35px;
   object-fit: cover;
 }
+
+@media (max-width: 1000px) {
+  .social-list {
+    gap: 15px;
+  }
+}
+
+@media (max-width: 400px) {
+  .social-item__link-icon {
+    width: 30px;
+    height: 30px;
+  }
+}
