@@ -1,28 +1,37 @@
+// angular stuff
 import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
-import { ProjectItemComponent } from '@shared/components/project-item/project-item.component';
-import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
+import { TranslateModule } from '@ngx-translate/core';
 import { MatTabChangeEvent, MatTabsModule } from '@angular/material/tabs';
+import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
+import { MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+
+// components
+import { ProjectItemComponent } from '@shared/components/project-item/project-item.component';
+
+// content
 import {
   mainStackProjectsContent,
   otherProjectsContent,
 } from '@shared/content/projects.content';
-import { IProject } from '@shared/models/project.model';
-import { MatInputModule } from '@angular/material/input';
-import { MatSelectModule } from '@angular/material/select';
-import { MatFormFieldModule } from '@angular/material/form-field';
 import {
   technologyFilterContent,
   yearFilterContent,
 } from './content/projects.content';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { MatButtonModule } from '@angular/material/button';
-import { Store } from '@ngrx/store';
-import { ApplicationState } from '@store/application/application.reducer';
-import { Observable } from 'rxjs';
-import * as ApplicationSelectors from '@store/application/application.selectors';
+
+// interfaces and types
+import { IProject } from '@shared/models/project.model';
 import { ThemeModeType } from '@shared/models/types.model';
-import { TranslateModule } from '@ngx-translate/core';
+
+// created ngrx stuff
+import { ApplicationState } from '@store/application/application.reducer';
+import * as ApplicationSelectors from '@store/application/application.selectors';
 
 @Component({
   selector: 'app-projects',

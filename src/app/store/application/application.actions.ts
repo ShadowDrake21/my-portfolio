@@ -1,4 +1,7 @@
+// angular stuff
 import { createAction, props } from '@ngrx/store';
+
+// interfaces and types
 import { ThemeModeType } from '@shared/models/types.model';
 
 export const loadThemeMode = createAction('[Application] LoadThemeMode');

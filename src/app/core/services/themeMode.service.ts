@@ -1,7 +1,12 @@
-import { Injectable, Input } from '@angular/core';
-import { ThemeModeType } from '@shared/models/types.model';
-import { retrieveFromLS, saveToLS } from '@shared/utils/localStorage.utils';
+// angular stuff
+import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, of } from 'rxjs';
+
+// utils
+import { retrieveFromLS, saveToLS } from '@shared/utils/localStorage.utils';
+
+// interfaces and types
+import { ThemeModeType } from '@shared/models/types.model';
 
 @Injectable({ providedIn: 'root' })
 export class ThemeModeService {

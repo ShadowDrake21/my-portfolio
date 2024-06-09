@@ -1,31 +1,31 @@
 .projects__title {
-  padding-bottom: 10px;
+  padding-bottom: var(--spacing-10);
   font-size: 36px;
-  line-height: 40px;
+  line-height: var(--spacing-40);
 }
 
 .projects-tab__filtration {
   display: flex;
-  gap: 15px;
+  gap: var(--spacing-15);
 }
 
 .projects-tab__filtration-btn {
-  height: 100%;
-  padding: 15px 10px;
+  height: var(--full-spacing);
+  padding: var(--spacing-15) var(--spacing-10);
 }
 
 .projects-tab__list {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(auto-fit, minmax(100px, 1fr));
-  grid-column-gap: 12px;
-  grid-row-gap: 12px;
+  grid-column-gap: var(--spacing-12);
+  grid-row-gap: var(--spacing-12);
 }
 
 .projects-tab__list-noelements {
   min-height: 400px;
-  width: 100%;
-  height: 100%;
+  width: var(--full-spacing);
+  height: var(--full-spacing);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -33,11 +33,11 @@
 }
 
 .projects-tab {
-  padding-top: 20px;
+  padding-top: var(--spacing-20);
 }
 
 .project-tab__pagination {
   display: flex;
   justify-content: center;
-  padding-top: 25px;
+  padding-top: var(--spacing-25);
 }

@@ -1,7 +1,7 @@
 .header {
   position: absolute;
   top: 63px;
-  width: 100%;
+  width: var(--full-spacing);
 }
 
 .dark-mode__header .work-available {
@@ -9,7 +9,7 @@
 }
 
 .dark-mode__header .work-available .work-available__text {
-  color: #000;
+  color: var(--black-color);
 }
 
 .dark-mode__header .work-available .work-available__text::before {
@@ -17,29 +17,29 @@
 }
 
 .dark-mode__header .header-location {
-  color: #fff;
+  color: var(--white-color);
 }
 
 .dark-mode__header .header-location__span::before {
   position: absolute;
-  left: 0;
+  left: var(--zero-spacing);
   content: url("/assets/icons/location.svg");
   filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(351deg)
     brightness(104%) contrast(102%);
-  width: 16px;
-  height: 16px;
-  top: 50%;
-  transform: translateY(-50%);
+  width: var(--spacing-16);
+  height: var(--spacing-16);
+  top: var(--half-spacing);
+  transform: translateY(var(--negative-half-spacing));
 }
 
 .header__list {
   display: flex;
   justify-content: space-between;
   list-style: none;
-  margin: 0;
+  margin: var(--zero-spacing);
   height: 45px;
-  padding: 0 24px;
-  margin-bottom: 10px;
+  padding: var(--zero-spacing) var(--spacing-24);
+  margin-bottom: var(--spacing-10);
 }
 
 .header-part {
@@ -54,17 +54,17 @@
 
 .work-available {
   background-color: rgba(92, 227, 9, 0.16);
-  border-radius: 24px;
+  border-radius: var(--spacing-24);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 15px;
+  padding: var(--zero-spacing) var(--spacing-15);
 }
 
 .work-available__text {
   position: relative;
-  font-size: 14px;
-  line-height: 18px;
+  font-size: var(--spacing-14);
+  line-height: var(--spacing-18);
   color: #50876d;
   padding-left: 13px;
 }
@@ -76,15 +76,15 @@
   height: 6px;
   background-color: #088046;
   border-radius: 99px;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
+  top: var(--half-spacing);
+  left: var(--zero-spacing);
+  transform: translateY(var(--negative-half-spacing));
 }
 
 .header__navbar {
   display: flex;
   justify-content: center;
-  padding-top: 10px;
+  padding-top: var(--spacing-10);
 }
 
 .header-location {
@@ -99,10 +99,10 @@
 
 .header-location__span::before {
   position: absolute;
-  left: 0;
+  left: var(--zero-spacing);
   content: url("/assets/icons/location.svg");
-  width: 16px;
-  height: 16px;
-  top: 50%;
-  transform: translateY(-50%);
+  width: var(--spacing-16);
+  height: var(--spacing-16);
+  top: var(--half-spacing);
+  transform: translateY(var(--negative-half-spacing));
 }

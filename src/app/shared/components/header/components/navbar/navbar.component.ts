@@ -1,13 +1,18 @@
+// angular stuff
 import { CommonModule } from '@angular/common';
 import { Component, inject, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute, RouterModule } from '@angular/router';
-import { filter, map, Observable, of, Subscription, switchMap } from 'rxjs';
+import { RouterModule } from '@angular/router';
+import { Observable, Subscription } from 'rxjs';
 import { Store } from '@ngrx/store';
-import { ApplicationState } from '@store/application/application.reducer';
-import * as ApplicationActions from '@store/application/application.actions';
-import * as ApplicationSelectors from '@store/application/application.selectors';
-import { ThemeModeType } from '@shared/models/types.model';
 import { TranslateModule } from '@ngx-translate/core';
+
+// created ngrx stuff
+import { ApplicationState } from '@store/application/application.reducer';
+import * as ApplicationSelectors from '@store/application/application.selectors';
+import * as ApplicationActions from '@store/application/application.actions';
+
+// interfaces and types
+import { ThemeModeType } from '@shared/models/types.model';
 
 @Component({
   selector: 'app-navbar',

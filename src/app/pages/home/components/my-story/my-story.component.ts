@@ -1,19 +1,16 @@
+// angular stuff
 import { CommonModule } from '@angular/common';
-import {
-  Component,
-  inject,
-  Input,
-  OnChanges,
-  OnInit,
-  SimpleChanges,
-} from '@angular/core';
-import { myStoryContent } from './content/my-story.content';
-import * as ApplicationSelectors from '@store/application/application.selectors';
-import { ApplicationState } from '@store/application/application.reducer';
+import { Component, inject, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { ThemeModeType } from '@shared/models/types.model';
 import { TranslateModule } from '@ngx-translate/core';
+
+// interfaces and types
+import { ThemeModeType } from '@shared/models/types.model';
+
+// created ngrx stuff
+import * as ApplicationSelectors from '@store/application/application.selectors';
+import { ApplicationState } from '@store/application/application.reducer';
 
 @Component({
   selector: 'app-my-story',
@@ -23,8 +20,6 @@ import { TranslateModule } from '@ngx-translate/core';
   styleUrl: './my-story.component.css',
 })
 export class MyStoryComponent implements OnInit {
-  myStoryContent = myStoryContent;
-
   private store = inject(Store<ApplicationState>);
 
   themeMode$!: Observable<ThemeModeType | null>;

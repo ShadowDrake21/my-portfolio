@@ -1,21 +1,18 @@
+// angular stuff
 import { CommonModule } from '@angular/common';
-import {
-  Component,
-  inject,
-  Input,
-  OnChanges,
-  OnInit,
-  SimpleChanges,
-} from '@angular/core';
+import { Component, inject, Input, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { TranslateModule } from '@ngx-translate/core';
 
+// components
 import { LanguageSwitchComponent } from './components/language-switch/language-switch.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SocialsComponent } from '../socials/socials.component';
-import { Store } from '@ngrx/store';
+
+// created ngrx stuff
 import { ApplicationState } from 'src/app/store/application/application.reducer';
-import { Observable } from 'rxjs';
 import * as ApplicationSelectors from '@store/application/application.selectors';
-import { TranslateModule, TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-header',

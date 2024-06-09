@@ -1,7 +1,12 @@
+// angular stuff
 import { Injectable } from '@angular/core';
 import { Octokit } from '@octokit/rest';
-import { IRepo, IUser } from '@shared/models/github.model';
 import { from, map, Observable } from 'rxjs';
+
+// interfaces and types
+import { IRepo, IUser } from '@shared/models/github.model';
+
+// environment
 import { environment } from 'src/environments/environment.development';
 
 @Injectable({

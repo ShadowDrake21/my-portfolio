@@ -1,22 +1,24 @@
+// angular stuff
 import { CommonModule } from '@angular/common';
-import {
-  Component,
-  inject,
-  Input,
-  OnChanges,
-  OnInit,
-  SimpleChanges,
-} from '@angular/core';
-import { IRepo, IUser } from '@shared/models/github.model';
+import { Component, inject, OnInit } from '@angular/core';
 import { map, Observable } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { TranslateModule } from '@ngx-translate/core';
+
+// services
 import { GithubService } from 'src/app/core/services/github.service';
+
+// components
 import { GitProfileComponent } from './components/git-profile/git-profile.component';
 import { RepositoriesListComponent } from './components/repositories-list/repositories-list.component';
-import * as ApplicationSelectors from '@store/application/application.selectors';
-import { ApplicationState } from '@store/application/application.reducer';
-import { Store } from '@ngrx/store';
+
+// interfaces and types
 import { ThemeModeType } from '@shared/models/types.model';
-import { TranslateModule } from '@ngx-translate/core';
+import { IRepo, IUser } from '@shared/models/github.model';
+
+// created ngrx stuff
+import { ApplicationState } from '@store/application/application.reducer';
+import * as ApplicationSelectors from '@store/application/application.selectors';
 
 @Component({
   selector: 'app-my-github',
