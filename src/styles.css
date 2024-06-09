@@ -193,3 +193,102 @@ a {
 .dark-mode__section .mat-mdc-tab:hover .mdc-tab__text-label {
   color: var(--main-color-1) !important;
 }
+
+.dark-mode__header .work-available {
+  background-color: rgb(180 243 141);
+}
+
+.dark-mode__header .work-available .work-available__text {
+  color: var(--black-color);
+}
+
+.dark-mode__header .work-available .work-available__text::before {
+  background-color: #006535;
+}
+
+.dark-mode__header .header-location {
+  color: var(--white-color);
+}
+
+.dark-mode__header .header-location__span::before {
+  position: absolute;
+  left: var(--zero-spacing);
+  content: url("/assets/icons/location.svg");
+  filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(351deg)
+    brightness(104%) contrast(102%);
+  width: var(--spacing-16);
+  height: var(--spacing-16);
+  top: var(--half-spacing);
+  transform: translateY(var(--negative-half-spacing));
+}
+
+.header-socials__wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.work-available {
+  background-color: rgba(92, 227, 9, 0.16);
+  border-radius: var(--spacing-24);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--zero-spacing) var(--spacing-15);
+}
+
+.work-available__text {
+  position: relative;
+  font-size: var(--spacing-14);
+  line-height: var(--spacing-18);
+  color: #50876d;
+  padding-left: 13px;
+}
+
+.work-available__text::before {
+  content: "";
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background-color: #088046;
+  border-radius: 99px;
+  top: var(--half-spacing);
+  left: var(--zero-spacing);
+  transform: translateY(var(--negative-half-spacing));
+}
+
+.header-location {
+  display: flex;
+  align-items: center;
+}
+
+.header-location__span {
+  padding-left: 22px;
+  position: relative;
+}
+
+.header-location__span::before {
+  position: absolute;
+  left: var(--zero-spacing);
+  content: url("/assets/icons/location.svg");
+  width: var(--spacing-16);
+  height: var(--spacing-16);
+  top: var(--half-spacing);
+  transform: translateY(var(--negative-half-spacing));
+}
+
+@media (max-width: 700px) {
+  .first-screen {
+    padding-top: 230px;
+  }
+
+  .section {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+@media (max-width: 500px) {
+  .first-screen {
+    padding-top: 290px;
+  }
+}

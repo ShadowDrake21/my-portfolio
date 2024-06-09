@@ -4,8 +4,9 @@
 
 .tasks-list {
   display: flex;
-  gap: var(--spacing-15);
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--spacing-15);
 }
 
 .dark-mode__tasks .tasks-list__item {
@@ -32,4 +33,24 @@
   top: var(--half-spacing);
   transform: translateY(var(--negative-half-spacing));
   left: var(--zero-spacing);
+}
+
+@media (max-width: 500px) {
+  .tasks-text {
+    text-align: center;
+  }
+
+  .tasks-list {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .tasks-list__item {
+    text-decoration: underline;
+  }
+
+  .tasks-list__item::before {
+    display: none;
+  }
 }
