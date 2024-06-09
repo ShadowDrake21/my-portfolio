@@ -6,9 +6,31 @@
     <img [src]="stackItem.icon" class="stack-item__icon" alt="stack icon" />
   </div>
   <div class="stack-item__content">
-    <h4 class="stack-item__title inter-medium">{{ stackItem.title }}</h4>
-    <span *ngIf="stackItem.level" class="stack-item__level inter-light">{{
-      stackItem.level
-    }}</span>
+    <h4
+      class="stack-item__title inter-medium"
+      *ngIf="stackItem.level; else technology"
+    >
+      {{
+        "stacks.languageStack.list." + (stackItem.title | lowercase) + ".title"
+          | translate
+      }}
+    </h4>
+    <ng-template #technology>
+      <h4 class="stack-item__title inter-medium">
+        {{ stackItem.title }}
+      </h4></ng-template
+    >
+    <div *ngIf="stackItem.level">
+      <span class="stack-item__level inter-light"
+        >{{ "stacks.languageStack.levelSubtitle" | translate | titlecase }}:
+        {{
+          "stacks.languageStack.list." +
+            (stackItem.title | lowercase) +
+            ".level"
+            | translate
+            | titlecase
+        }}</span
+      >
+    </div>
   </div>
 </div>

@@ -9,21 +9,29 @@
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
+      "i18n": {
+        "sourceLocale": {
+          "code": "en",
+          "baseHref": "/en/"
+        },
+        "locales": {
+          "pl": {
+            "translation": "src/locale/messages.pl.xlf",
+            "baseHref": "/pl/"
+          }
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
+            "i18nMissingTranslation": "error",
             "outputPath": "dist/portfolio",
             "index": "src/index.html",
             "browser": "src/main.ts",
-            "polyfills": [
-              "zone.js"
-            ],
+            "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
+            "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "@angular/material/prebuilt-themes/indigo-pink.css",
@@ -33,6 +41,7 @@
           },
           "configurations": {
             "production": {
+              "localize": true,
               "budgets": [
                 {
                   "type": "initial",
@@ -48,6 +57,7 @@
               "outputHashing": "all"
             },
             "development": {
+              "localize": false,
               "optimization": false,
               "extractLicenses": false,
               "sourceMap": true,
@@ -57,6 +67,15 @@
                   "with": "src/environments/environment.development.ts"
                 }
               ]
+            },
+            "en": {
+              "localize": ["en"]
+            },
+            "pl": {
+              "localize": ["pl"]
+            },
+            "ua": {
+              "localize": ["ua"]
             }
           },
           "defaultConfiguration": "production"
@@ -69,6 +88,15 @@
             },
             "development": {
               "buildTarget": "portfolio:build:development"
+            },
+            "en": {
+              "buildTarget": "portfolio:build:development,en"
+            },
+            "pl": {
+              "buildTarget": "portfolio:build:development,pl"
+            },
+            "ua": {
+              "buildTarget": "portfolio:build:development,ua"
             }
           },
           "defaultConfiguration": "development"
@@ -76,21 +104,17 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "portfolio:build"
+            "buildTarget": "portfolio:build",
+            "format": "xlf",
+            "outputPath": "src/locale"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ],
+            "polyfills": ["zone.js", "zone.js/testing"],
             "tsConfig": "tsconfig.spec.json",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
+            "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
               "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css"

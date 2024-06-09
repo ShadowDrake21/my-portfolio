@@ -19,9 +19,10 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { Store } from '@ngrx/store';
 import { ApplicationState } from '@store/application/application.reducer';
-import { ThemeModeType } from '@shared/models/themeMode.model';
 import { Observable } from 'rxjs';
 import * as ApplicationSelectors from '@store/application/application.selectors';
+import { ThemeModeType } from '@shared/models/types.model';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-projects',
@@ -36,6 +37,7 @@ import * as ApplicationSelectors from '@store/application/application.selectors'
     MatFormFieldModule,
     ReactiveFormsModule,
     MatButtonModule,
+    TranslateModule,
   ],
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.css',

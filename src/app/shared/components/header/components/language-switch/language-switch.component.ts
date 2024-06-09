@@ -16,9 +16,8 @@ import { CommonModule } from '@angular/common';
 import { ApplicationState } from '@store/application/application.reducer';
 import { Store } from '@ngrx/store';
 import * as ApplicationSelectors from '@store/application/application.selectors';
-import { ThemeModeType } from '@shared/models/themeMode.model';
-
-type languageType = 'en' | 'pl' | 'ua';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { languageType, ThemeModeType } from '@shared/models/types.model';
 
 @Component({
   selector: 'app-language-switch',
@@ -28,12 +27,14 @@ type languageType = 'en' | 'pl' | 'ua';
     MatMenuModule,
     MatButtonModule,
     ClickOutsideDirective,
+    TranslateModule,
   ],
   templateUrl: './language-switch.component.html',
   styleUrl: './language-switch.component.css',
 })
 export class LanguageSwitchComponent implements OnInit, AfterViewInit {
   private store = inject(Store<ApplicationState>);
+  private translate = inject(TranslateService);
 
   @ViewChild('languageSwitchDropdown')
   languageSwitchDropdown!: ElementRef<HTMLUListElement>;
@@ -50,9 +51,13 @@ export class LanguageSwitchComponent implements OnInit, AfterViewInit {
     this.themeMode$ = this.store.select(ApplicationSelectors.selectThemeMode);
     const currentLanguageStr = retrieveFromLS('current_language');
     if (currentLanguageStr) {
-      this.currentLanguage$$.next(
-        JSON.parse(currentLanguageStr) as languageType
-      );
+      const currentLanguageCode = JSON.parse(
+        currentLanguageStr
+      ) as languageType;
+      this.currentLanguage$$.next(currentLanguageCode);
+
+      this.translate.use(currentLanguageCode);
+      console.log('loadedLanguage', this.translate.currentLang);
     }
     this.currentLanguage$$.subscribe((language) => {
       this.updateLanguageImage(language);
@@ -100,6 +105,8 @@ export class LanguageSwitchComponent implements OnInit, AfterViewInit {
 
             saveToLS('current_language', choosenLanguage);
             this.currentLanguage$$.next(choosenLanguage as languageType);
+            this.translate.use(choosenLanguage);
+            console.log('currentLanguage', this.translate.currentLang);
           }
         }
       });

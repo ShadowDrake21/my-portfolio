@@ -14,24 +14,27 @@
       />
     </div>
     <div class="main-screen__content">
-      <h1 class="main-screen__content-title">
-        Hi!<br />I'm Dmytro (Dmitri) Krapyvianskiy.<br />Web && front-end
-        developer.
-      </h1>
+      <h1
+        class="main-screen__content-title"
+        [innerHTML]="'mainScreen.title' | translate"
+      ></h1>
       <div [class.dark-mode__text]="(themeMode$ | async) === 'dark'">
         <p class="main-screen__content-text">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id
-          feugiat eros. Nunc ut blandit velit. Nullam viverra orci eu nunc
-          luctus, ut mattis lacus euismod. Maecenas metus est, maximus et ipsum
-          hendrerit, dictum porttitor ante.
+          {{ "mainScreen.text.paragraph-1" | translate }}
         </p>
         <p class="main-screen__content-text">
-          Maecenas metus est, maximus et ipsum hendrerit, dictum porttitor ante.
+          {{ "mainScreen.text.paragraph-2" | translate }}
+        </p>
+        <p class="main-screen__content-text">
+          {{ "mainScreen.text.paragraph-3" | translate }}
+        </p>
+        <p class="main-screen__content-text">
+          {{ "mainScreen.text.paragraph-4" | translate }}
         </p>
       </div>
       <helper-styled-link
         link="/profile"
-        title="More about Me"
+        [title]="'mainScreen.link' | translate"
         [themeMode]="themeMode$"
       />
     </div>

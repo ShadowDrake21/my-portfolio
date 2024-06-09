@@ -1,6 +1,6 @@
 import { createReducer, on } from '@ngrx/store';
 import * as ApplicationActions from './application.actions';
-import { ThemeModeType } from '@shared/models/themeMode.model';
+import { ThemeModeType } from '@shared/models/types.model';
 
 export interface ApplicationState {
   themeMode: ThemeModeType | null;

@@ -1,0 +1,27 @@
+{
+  "basicInfo": {
+    "title": "Dmytro (Dmitrij) Krapywianskij",
+    "top-content": {
+      "text-1": "I am an enthusiastic web developer dedicated to creating stunning and user-friendly web-applications.",
+      "text-2": "Główną zaletą Angulara jest jego dynamiczny charakter.",
+      "text-3": "Wielbię elastyczność i moc JavaScriptu, oraz solidność TypeScriptu."
+    },
+    "bottom-content": {
+      "text-1": "Jestem programistą stron internetowych, który lubi pracować z technologiami  internetowymi najwyższej klasy, jak na przykład Angular, JavaScript lub TypeScript, wraz z innymi przyrządami. Moja pasja tworzenia przyjaznych dla użytkownika  aplikacji internetowych rośnie z każdym dniem. Łącząc swoją wiedzę z dziedziny tworzenia stron internetowych z głębokim zrozumieniem potrzeb użytkowników, tworzę aplikacji internetowe, które nie tylko realizują cele biznesowe, ale także zachwycają każdego użytkownika.",
+      "text-2": "Miałem styczność z szeregem technologii , takimi jak Angular, RxJS, NgRX, JavaScript, TypeScript, Firebase, TailwindCSS, Bootstrap 5, Angular Material, Stripe i React. Posiadam również głębokie rozumienie protokołów internetowych, takich jak HTTP/HTTPS, oraz praktyczną wiedzę z programowania back-end, na przykład w NodeJS.",
+      "text-3": "To nabyte doświadczenie pozwala mi sprawnie i efektywnie wykonywać różne zadania dotyczące programowania stron internetowych i nie tylko."
+    }
+  },
+  "workingExperience": {
+    "title": "Doświadczenie zawodowe",
+    "noExperience": "Na razie nie mam żadnego doświadczenia, ale nie mogę się doczekać, żeby je zdobyć!"
+  },
+  "education": {
+    "title": "Edukacja",
+    "item-1": {
+      "title": "Licencjat z Inżynerii Oprogramowania",
+      "subtitle": "Czernihowski Narodowy Uniwersytet Technologiczny, 2021 – 2025",
+      "remainder": "1 rok do zakończenia"
+    }
+  }
+}

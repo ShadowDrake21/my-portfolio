@@ -7,18 +7,19 @@ import {
   OnInit,
   SimpleChanges,
 } from '@angular/core';
+import { TranslateModule } from '@ngx-translate/core';
 import {
   otherTechnologiesContent,
   technologyStackContent,
 } from '@shared/content/stacks.content';
 import { IProject } from '@shared/models/project.model';
-import { ThemeModeType } from '@shared/models/themeMode.model';
+import { ThemeModeType } from '@shared/models/types.model';
 import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-project-item',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TranslateModule],
   templateUrl: './project-item.component.html',
   styleUrl: './project-item.component.css',
 })

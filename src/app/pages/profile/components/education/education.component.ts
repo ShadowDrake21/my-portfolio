@@ -2,15 +2,16 @@ import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { educationContent } from './content/education.content';
 import * as ApplicationSelectors from '@store/application/application.selectors';
-import { ThemeModeType } from '@shared/models/themeMode.model';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { ApplicationState } from '@store/application/application.reducer';
+import { ThemeModeType } from '@shared/models/types.model';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-education',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TranslateModule],
   templateUrl: './education.component.html',
   styleUrl: './education.component.css',
 })
