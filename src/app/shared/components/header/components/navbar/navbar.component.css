@@ -107,10 +107,6 @@
     width: 30px;
   }
 }
-
-@media (max-width: 1000px) {
-}
-
 @media (max-width: 700px) {
   .navbar-responsible__add {
     display: flex;
@@ -141,5 +137,14 @@
 
   .download-cv__btn-responsible .download-cv__btn {
     width: 100%;
+  }
+
+  .navbar__list-item {
+    width: 40px;
+    height: 40px;
+  }
+
+  .navbar__item-link__img {
+    width: 25px;
   }
 }

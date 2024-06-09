@@ -76,3 +76,27 @@
 .dark-mode__section .education__list-item__title {
   color: var(--dark-mode__color-2);
 }
+
+@media (max-width: 700px) {
+  .education__list-item {
+    align-items: start;
+    gap: 15px;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 500px) {
+  .education__list-item {
+    gap: 10px;
+  }
+  .education__list-item__title {
+    font-size: 16px;
+    line-height: 22px;
+    padding-bottom: 5px;
+  }
+
+  .education__list-item__text {
+    font-size: 12px;
+    line-height: 16px;
+  }
+}

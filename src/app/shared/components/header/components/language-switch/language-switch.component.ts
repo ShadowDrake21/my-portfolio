@@ -65,7 +65,6 @@ export class LanguageSwitchComponent implements OnInit, AfterViewInit {
       this.currentLanguage$$.next(currentLanguageCode);
 
       this.translate.use(currentLanguageCode);
-      console.log('loadedLanguage', this.translate.currentLang);
     }
     this.currentLanguage$$.subscribe((language) => {
       this.updateLanguageImage(language);
@@ -114,7 +113,7 @@ export class LanguageSwitchComponent implements OnInit, AfterViewInit {
             saveToLS('current_language', choosenLanguage);
             this.currentLanguage$$.next(choosenLanguage as languageType);
             this.translate.use(choosenLanguage);
-            console.log('currentLanguage', this.translate.currentLang);
+            sociaListEl.classList.remove('show');
           }
         }
       });

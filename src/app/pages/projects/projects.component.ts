@@ -133,6 +133,7 @@ export class ProjectsComponent implements OnInit {
     criteria_type: 'technology' | 'year',
     criteria_value: string
   ): IProject[] {
+    this.mainCurrentPage = 1;
     let returnArray: IProject[] = [];
     if (criteria_type === 'technology') {
       returnArray = array.filter((project) =>
