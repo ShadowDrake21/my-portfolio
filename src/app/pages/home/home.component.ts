@@ -1,36 +1,31 @@
+// angular stuff
 import { CommonModule } from '@angular/common';
-import {
-  Component,
-  inject,
-  OnChanges,
-  OnDestroy,
-  OnInit,
-  SimpleChanges,
-} from '@angular/core';
-import { HeaderComponent } from '@shared/components/header/header.component';
-import { MainScreenComponent } from './components/main-screen/main-screen.component';
+import { Component, inject, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+
+// services
+import { ThemeModeService } from '@core/services/themeMode.service';
+
+// interfaces and types
+import { ThemeModeType } from '@shared/models/types.model';
+
+// components
 import { StacksComponent } from '@shared/components/stacks/stacks.component';
 import { MyGithubComponent } from './components/my-github/my-github.component';
-import { MyStoryComponent } from './components/my-story/my-story.component';
-
-import { FooterComponent } from '@shared/components/footer/footer.component';
 import { ProjectsComponent } from './components/projects/projects.component';
-import { ThemeModeService } from '@core/services/themeMode.service';
-import { Subscription } from 'rxjs';
-import { ThemeModeType } from '@shared/models/types.model';
+import { MyStoryComponent } from './components/my-story/my-story.component';
+import { MainScreenComponent } from './components/main-screen/main-screen.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [
     CommonModule,
-    HeaderComponent,
     MainScreenComponent,
     StacksComponent,
     MyGithubComponent,
     MyStoryComponent,
     ProjectsComponent,
-    FooterComponent,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',

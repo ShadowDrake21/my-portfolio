@@ -1,24 +1,26 @@
+// angular stuff
 import { CommonModule } from '@angular/common';
-import {
-  Component,
-  inject,
-  Input,
-  OnChanges,
-  OnInit,
-  SimpleChanges,
-} from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { TranslateModule } from '@ngx-translate/core';
+
+// components
 import { StackItemComponent } from './components/stack-item/stack-item.component';
+
+// content
 import {
   languageStackContent,
   otherTechnologiesContent,
   technologyStackContent,
 } from '@shared/content/stacks.content';
-import { ApplicationState } from '@store/application/application.reducer';
-import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
-import * as ApplicationSelectors from '@store/application/application.selectors';
+
+// interfaces and types
 import { ThemeModeType } from '@shared/models/types.model';
-import { TranslateModule } from '@ngx-translate/core';
+
+// created ngrx stuff
+import { ApplicationState } from '@store/application/application.reducer';
+import * as ApplicationSelectors from '@store/application/application.selectors';
 
 @Component({
   selector: 'app-stacks',

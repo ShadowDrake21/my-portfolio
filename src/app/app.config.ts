@@ -1,21 +1,25 @@
+// angular stuff
 import {
   ApplicationConfig,
   importProvidersFrom,
   isDevMode,
 } from '@angular/core';
 import { provideRouter } from '@angular/router';
-
 import { routes } from './app.routes';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { provideStore } from '@ngrx/store';
 import { provideEffects } from '@ngrx/effects';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
-import { applicationReducer } from './store/application/application.reducer';
-import { ApplicationEffects } from './store/application/application.effects';
 import '@angular/localize/init';
 import { HttpClient, provideHttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+
+// utils
 import { MultiTranslateHttpLoader } from '@shared/utils/translate.utils';
+
+// created ngrx stuff
+import { applicationReducer } from './store/application/application.reducer';
+import { ApplicationEffects } from './store/application/application.effects';
 
 export const appConfig: ApplicationConfig = {
   providers: [

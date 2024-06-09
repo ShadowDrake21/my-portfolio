@@ -1,11 +1,11 @@
 .my-github__profile-content {
-  padding-top: 10px;
+  padding-top: var(--spacing-10);
 }
 
 .my-github__profile-img {
   width: 350px;
   height: 350px;
-  border-radius: 50%;
+  border-radius: var(--half-spacing);
 }
 
 .my-github__profile-content__top {
@@ -15,7 +15,7 @@
 }
 
 .my-github__profile-content__name {
-  font-size: 20px;
+  font-size: var(--spacing-20);
   line-height: 26px;
 }
 
@@ -24,30 +24,30 @@
   display: flex;
   align-items: center;
   padding-left: 22px;
-  font-size: 14px;
-  line-height: 18px;
-  color: #666666;
+  font-size: var(--spacing-14);
+  line-height: var(--spacing-18);
+  color: var(--main-color-2);
 }
 
 .my-github__profile-content__location::before {
   position: absolute;
   content: "";
-  width: 16px;
-  height: 16px;
+  width: var(--spacing-16);
+  height: var(--spacing-16);
   background-image: url("/assets/icons/location.svg");
   background-size: contain;
   background-repeat: no-repeat;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  left: var(--zero-spacing);
+  top: var(--half-spacing);
+  transform: translateY(var(--negative-half-spacing));
 }
 
 .my-github__profile-login {
   display: flex;
-  color: #999999;
-  font-size: 18px;
-  line-height: 24px;
-  padding-bottom: 10px;
+  color: var(--main-color-1);
+  font-size: var(--spacing-18);
+  line-height: var(--spacing-24);
+  padding-bottom: var(--spacing-10);
 }
 
 .my-github__profile-login span:first-child {
@@ -64,30 +64,30 @@
   content: "";
   width: 2px;
   height: 2px;
-  background-color: #999999;
-  border-radius: 50%;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  background-color: var(--main-color-1);
+  border-radius: var(--half-spacing);
+  right: var(--zero-spacing);
+  top: var(--half-spacing);
+  transform: translateY(var(--negative-half-spacing));
 }
 
 .my-github__profile-text {
-  font-size: 14px;
-  line-height: 18px;
-  padding-bottom: 10px;
+  font-size: var(--spacing-14);
+  line-height: var(--spacing-18);
+  padding-bottom: var(--spacing-10);
 }
 
 .my-github__profile-link {
-  width: 100%;
+  width: var(--full-spacing);
   display: inline-block;
-  outline: 0;
-  border: 0;
+  outline: var(--zero-spacing);
+  border: var(--zero-spacing);
   cursor: pointer;
-  background: #000000;
-  color: #ffffff;
+  background: var(--black-color);
+  color: var(--white-color);
   border-radius: 8px;
-  padding: 14px 24px 16px;
-  font-size: 16px;
+  padding: var(--spacing-14) var(--spacing-24) var(--spacing-16);
+  font-size: var(--spacing-16);
   font-weight: 700;
   line-height: 1;
   transition: transform 200ms, background 200ms;
@@ -99,7 +99,7 @@
 }
 
 .dark-mode__git-profile .my-github__profile-content__location {
-  color: #999999;
+  color: var(--main-color-1);
 }
 
 .dark-mode__git-profile .my-github__profile-content__location::before {
@@ -108,6 +108,6 @@
 }
 
 .dark-mode__git-profile .my-github__profile-link {
-  background-color: #fff;
-  color: #000000;
+  background-color: var(--white-color);
+  color: var(--black-color);
 }

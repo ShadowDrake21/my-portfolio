@@ -1,6 +1,6 @@
 .project-item {
-  padding: 25px;
-  border: 1px solid var(--border-1);
+  padding: var(--spacing-25);
+  border: var(--spacing-1) solid var(--border-1);
 }
 
 .dark-mode__project-item {
@@ -8,7 +8,7 @@
 }
 
 .dark-mode__project-item .project-item__link.main {
-  color: #fff;
+  color: var(--white-color);
 }
 
 .dark-mode__project-item .project-item__link.github {
@@ -16,22 +16,22 @@
 }
 
 .dark-mode__project-item .project-item__technology {
-  background-color: #fff;
-  border-radius: 50%;
+  background-color: var(--white-color);
+  border-radius: var(--half-spacing);
 }
 
 .project-item__img {
-  width: 100%;
+  width: var(--full-spacing);
   object-fit: cover;
   border-radius: 6px;
-  border: 1px solid var(--border-1);
+  border: var(--spacing-1) solid var(--border-1);
 }
 
 .project-item__technologies {
-  padding: 20px 0;
+  padding: var(--spacing-20) var(--zero-spacing);
   display: flex;
   justify-content: center;
-  gap: 15px;
+  gap: var(--spacing-15);
 }
 
 .project-item__technology {
@@ -42,16 +42,16 @@
 .project-item__links {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: var(--spacing-20);
 }
 
 .project-item__link.main {
-  font-size: 18px;
-  line-height: 24px;
+  font-size: var(--spacing-18);
+  line-height: var(--spacing-24);
   text-decoration: underline;
-  color: #000;
+  color: var(--black-color);
 }
 
 .project-item__link.github {
-  color: #666666;
+  color: var(--main-color-2);
 }

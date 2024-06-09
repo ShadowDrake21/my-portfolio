@@ -1,9 +1,9 @@
 .styled-link {
-  padding: 16px 48px 16px 28px;
-  border: 1px solid var(--border-1);
+  padding: var(--spacing-16) 48px var(--spacing-16) var(--spacing-40);
+  border: var(--spacing-1) solid var(--border-1);
   position: relative;
   text-decoration: none;
-  color: #000;
+  color: var(--black-color);
 }
 
 .styled-link::after {
@@ -12,17 +12,17 @@
   position: absolute;
   background-image: url("/assets/icons/arrow-right.svg");
   background-size: contain;
-  width: 24px;
-  height: 24px;
-  top: 50%;
-  transform: translateY(-50%);
+  width: var(--spacing-24);
+  height: var(--spacing-24);
+  top: var(--half-spacing);
+  transform: translateY(var(--negative-half-spacing));
   right: 13px;
   z-index: 10;
 }
 
 .dark-mode__styled-link {
-  color: #fff;
-  border: 1px solid var(--dark-mode__color-1);
+  color: var(--white-color);
+  border: var(--spacing-1) solid var(--dark-mode__color-1);
 }
 
 .dark-mode__styled-link::after {

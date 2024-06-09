@@ -6,17 +6,17 @@
 .education__list {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: var(--spacing-15);
 }
 
 .education__title {
-  padding-bottom: 15px;
+  padding-bottom: var(--spacing-15);
 }
 
 .education__list-item {
   position: relative;
-  padding: 17px 17px 17px 50px;
-  border: 1px solid var(--border-1);
+  padding: var(--spacing-17) var(--spacing-17) var(--spacing-17) 50px;
+  border: var(--spacing-1) solid var(--border-1);
   display: flex;
   align-items: center;
   gap: 45px;
@@ -25,48 +25,48 @@
 .education__list-item::before {
   position: absolute;
   content: "";
-  width: 20px;
-  height: 20px;
+  width: var(--spacing-20);
+  height: var(--spacing-20);
   background-image: url("/assets/icons/education/bachelor-hat.svg");
   background-repeat: no-repeat;
   background-size: contain;
-  top: 20px;
-  left: 16px;
+  top: var(--spacing-20);
+  left: var(--spacing-16);
 }
 
 .education__list-item__title {
-  padding-bottom: 12px;
-  font-size: 18px;
-  line-height: 24px;
-  color: #454545;
+  padding-bottom: var(--spacing-12);
+  font-size: var(--spacing-18);
+  line-height: var(--spacing-24);
+  color: var(--main-color-3);
 }
 
 .education__list-item__text {
-  font-size: 14px;
-  line-height: 18px;
-  color: #999999;
+  font-size: var(--spacing-14);
+  line-height: var(--spacing-18);
+  color: var(--main-color-1);
 }
 
 .education__list-item__right {
   position: relative;
-  padding-left: 10px;
+  padding-left: var(--spacing-10);
 }
 
 .education__list-item__right::before {
   position: absolute;
   content: "";
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
+  top: var(--half-spacing);
+  left: var(--zero-spacing);
+  transform: translateY(var(--negative-half-spacing));
   width: 4px;
   height: 4px;
-  background-color: #000;
-  border-radius: 50%;
+  background-color: var(--black-color);
+  border-radius: var(--half-spacing);
 }
 
 .education__list-item__right-text {
-  font-size: 14px;
-  line-height: 18px;
+  font-size: var(--spacing-14);
+  line-height: var(--spacing-18);
 }
 
 .dark-mode__section .education__list-item {

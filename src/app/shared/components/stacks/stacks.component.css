@@ -1,5 +1,5 @@
 .stacks-title {
-  padding-bottom: 20px;
+  padding-bottom: var(--spacing-20);
 }
 
 .stacks-half:first-child,
@@ -11,13 +11,13 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(3, 1fr);
-  grid-column-gap: 20px;
-  grid-row-gap: 20px;
+  grid-column-gap: var(--spacing-20);
+  grid-row-gap: var(--spacing-20);
 }
 
 .language-grid__list {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(1, 1fr);
-  grid-column-gap: 20px;
+  grid-column-gap: var(--spacing-20);
 }
