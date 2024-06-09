@@ -73,6 +73,10 @@
   border-color: var(--dark-mode__color-1);
 }
 
+.dark-mode__section .education__list-item__right::before {
+  background-color: var(--white-color);
+}
+
 .dark-mode__section .education__list-item__title {
   color: var(--dark-mode__color-2);
 }
