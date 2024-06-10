@@ -53,7 +53,7 @@ export const mainStackProjectsContent: IProject[] = [
     image: '/assets/images/projects/main/portfolio-thumbnail.jpg',
     technologies: ['Angular', 'RxJS'],
     title: 'My portfolio',
-    link: '',
+    link: 'https://drake21-portfolio.netlify.app/',
     githubLink: 'https://github.com/ShadowDrake21/my-portfolio',
     year: '2024',
   },
