@@ -1,5 +1,5 @@
 const { writeFileSync } = require("fs");
-const targetPath = "./src/environment.development.ts";
+const targetPath = "./src/environments/environment.development.ts";
 
 const envConfigFile = `
 export const environment = {
