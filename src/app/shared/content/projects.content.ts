@@ -57,6 +57,31 @@ export const mainStackProjectsContent: IProject[] = [
     githubLink: 'https://github.com/ShadowDrake21/my-portfolio',
     year: '2024',
   },
+  {
+    image: '/assets/images/projects/main/genius-js-application.jpg',
+    technologies: ['JavaScript'],
+    title: 'Genius music plication in JS',
+    link: 'https://drake21-music-documentation-app.netlify.app/',
+    githubLink: 'https://github.com/ShadowDrake21/genius-js-application',
+    year: '2024',
+  },
+  {
+    image: '/assets/images/projects/main/typescripti-task-management-app.jpg',
+    technologies: ['JavaScript'],
+    title: 'TypeScript Task management app',
+    link: 'https://drake21-ts-task-management-app.netlify.app/',
+    githubLink:
+      'https://github.com/ShadowDrake21/typescript-task-management-app',
+    year: '2024',
+  },
+  {
+    image: '/assets/images/projects/main/ng-signals-pexels-app.jpg',
+    technologies: ['Angular', 'RxJS', 'Angular Material'],
+    title: 'Pexels application with Angular Signals',
+    link: 'https://drake21-signals-pexels-app.netlify.app/',
+    githubLink: 'https://github.com/ShadowDrake21/ng-signals-pexels-app',
+    year: '2024',
+  },
 ];
 
 export const otherProjectsContent: IProject[] = [
