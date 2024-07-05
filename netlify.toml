@@ -5,4 +5,4 @@
 
 [build]
   publish = "dist/portfolio"
-  command = "npm run build"
+  command = "mkdir -p src/environments &&  echo -e "export const environment = {};" > src/environments/environment.ts && echo -e "export const environment = {};" > src/environments/environment.development.ts && npm run build"
