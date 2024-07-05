@@ -67,7 +67,7 @@ export const mainStackProjectsContent: IProject[] = [
   },
   {
     image: '/assets/images/projects/main/typescripti-task-management-app.jpg',
-    technologies: ['JavaScript'],
+    technologies: ['TypeScript'],
     title: 'TypeScript Task management app',
     link: 'https://drake21-ts-task-management-app.netlify.app/',
     githubLink:
