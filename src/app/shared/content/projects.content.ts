@@ -84,7 +84,7 @@ export const mainStackProjectsContent: IProject[] = [
   },
   {
     image: '/assets/images/projects/main/onpush-ssr-app.jpg',
-    technologies: ['Angular', 'RxJS', 'Tailwind'],
+    technologies: ['Angular', 'RxJS', 'TailwindCSS'],
     title: 'OnPush SSR Application',
     link: 'https://drake21-onpush-ssr-app.netlify.app/',
     githubLink: 'https://github.com/ShadowDrake21/onpush-ssr-app',
