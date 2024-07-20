@@ -82,6 +82,14 @@ export const mainStackProjectsContent: IProject[] = [
     githubLink: 'https://github.com/ShadowDrake21/ng-signals-pexels-app',
     year: '2024',
   },
+  {
+    image: '/assets/images/projects/main/onpush-ssr-app.jpg',
+    technologies: ['Angular', 'RxJS', 'Tailwind'],
+    title: 'OnPush SSR Application',
+    link: 'https://drake21-onpush-ssr-app.netlify.app/',
+    githubLink: 'https://github.com/ShadowDrake21/onpush-ssr-app',
+    year: '2024',
+  },
 ];
 
 export const otherProjectsContent: IProject[] = [
