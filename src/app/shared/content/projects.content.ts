@@ -67,7 +67,7 @@ export const mainStackProjectsContent: IProject[] = [
   },
   {
     image: '/assets/images/projects/main/typescripti-task-management-app.jpg',
-    technologies: ['TypeScript'],
+    technologies: ['TypeScript', 'Firebase'],
     title: 'TypeScript Task management app',
     link: 'https://drake21-ts-task-management-app.netlify.app/',
     githubLink:
@@ -76,7 +76,7 @@ export const mainStackProjectsContent: IProject[] = [
   },
   {
     image: '/assets/images/projects/main/ng-signals-pexels-app.jpg',
-    technologies: ['Angular', 'RxJS', 'Angular Material'],
+    technologies: ['Angular', 'RxJS', 'Angular Material', 'Firebase'],
     title: 'Pexels application with Angular Signals',
     link: 'https://drake21-signals-pexels-app.netlify.app/',
     githubLink: 'https://github.com/ShadowDrake21/ng-signals-pexels-app',
@@ -88,6 +88,14 @@ export const mainStackProjectsContent: IProject[] = [
     title: 'OnPush SSR Application',
     link: 'https://drake21-onpush-ssr-app.netlify.app/',
     githubLink: 'https://github.com/ShadowDrake21/onpush-ssr-app',
+    year: '2024',
+  },
+  {
+    image: '/assets/images/projects/main/ng-maps-thumbnail.jpg',
+    technologies: ['Angular', 'RxJS', 'Angular Material', 'Firebase'],
+    title: 'Ng Maps Application with Google Maps',
+    link: 'https://drake21-maps-app.netlify.app/',
+    githubLink: 'https://github.com/ShadowDrake21/ng-maps-app',
     year: '2024',
   },
 ];
