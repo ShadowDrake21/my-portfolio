@@ -39,7 +39,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.subscription.add(
-      this.themeModeService.themeMode.subscribe((mode: ThemeModeType) => {
+      this.themeModeService.themeMode$.subscribe((mode: ThemeModeType) => {
         this.themeMode = mode;
       })
     );

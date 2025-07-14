@@ -28,6 +28,8 @@ export class NavbarComponent implements OnInit, OnDestroy {
   private currentThemeMode: ThemeModeType | null = null;
   private subscription: Subscription = new Subscription();
 
+  private cvUrl = '/assets/Krapyvianskyi D. - CV.pdf';
+
   ngOnInit(): void {
     this.initializeThemeMode();
   }
@@ -55,6 +57,16 @@ export class NavbarComponent implements OnInit, OnDestroy {
         this.currentThemeMode = themeMode;
       })
     );
+  }
+
+  onDownloadCV() {
+    const a = document.createElement('a');
+    a.href = this.cvUrl;
+    a.target = '_blank';
+    a.rel = 'noopener noreferrer';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
   }
 
   ngOnDestroy(): void {
