@@ -1,16 +1,11 @@
 // angular stuff
 import { CommonModule } from '@angular/common';
-import { Component, inject, Input, OnInit } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import {
-  FormControl,
-  FormGroup,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
-import { from, merge, Observable, Subscription } from 'rxjs';
+import { ReactiveFormsModule } from '@angular/forms';
+import { Observable, Subscription } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import emailjs, { type EmailJSResponseStatus } from '@emailjs/browser';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -21,6 +16,18 @@ import { SocialsComponent } from '@shared/components/socials/socials.component';
 
 // interfaces and types
 import { ThemeModeType } from '@shared/models/types.model';
+import { ContactMeService } from '@core/services/contactMe.service';
+import { environment } from 'src/environments/environment.development';
+import { ContactFormData } from '@shared/models/contact-me.model';
+import { ThemeClassPipe } from '@shared/pipes/theme-class.pipe';
+
+type TRANSLATE_MESSAGE_TYPES =
+  | 'SUCCESS_MESSAGE'
+  | 'ERROR_PREFIX'
+  | 'REQUIRED_ERROR'
+  | 'MIN_LENGTH_ERROR'
+  | 'MAX_LENGTH_ERROR'
+  | 'EMAIL_ERROR';
 
 @Component({
   selector: 'app-contact-form',
@@ -31,138 +38,141 @@ import { ThemeModeType } from '@shared/models/types.model';
     MatInputModule,
     MatFormFieldModule,
     ReactiveFormsModule,
-    ContactMeSnackbarComponent,
     TranslateModule,
+    ThemeClassPipe,
   ],
   templateUrl: './contact-form.component.html',
   styleUrl: './contact-form.component.css',
   providers: [TranslateService],
 })
-export class ContactFormComponent implements OnInit {
+export class ContactFormComponent {
   @Input({ required: true, alias: 'themeMode' })
   themeMode$!: Observable<ThemeModeType | null>;
 
-  private _snackBar = inject(MatSnackBar);
-  private translate = inject(TranslateService);
+  private readonly _snackBar = inject(MatSnackBar);
+  private readonly translate = inject(TranslateService);
+  private readonly contactMeService = inject(ContactMeService);
 
   private snackBarDurationInSeconds = 5;
-
-  nameErrorMessage!: string;
-  emailErrorMessage!: string;
-  messageErrorMessage!: string;
-
-  contactForm = new FormGroup({
-    name: new FormControl('', [
-      Validators.required,
-      Validators.minLength(3),
-      Validators.maxLength(60),
-    ]),
-    email: new FormControl('', [Validators.required, Validators.email]),
-    message: new FormControl('', [
-      Validators.required,
-      Validators.minLength(20),
-      Validators.maxLength(500),
-    ]),
-  });
-
   private subscriptions: Subscription[] = [];
 
-  constructor() {
-    this.setupErrorMessageHandlers();
-  }
+  contactForm = this.contactMeService.contactMeForm;
 
-  ngOnInit(): void {}
+  errorMessages = {
+    name: '',
+    email: '',
+    message: '',
+  };
+
+  constructor() {
+    this.setupFormErrorHandlers();
+    emailjs.init(environment.emailjs.publicKey);
+  }
 
   onFormSubmit() {
-    emailjs.init('IGAxW1H-zizWj4l1c');
+    if (this.contactForm.invalid) return;
 
-    const { name, email, message } = this.contactForm.value;
-
-    const currentLang = this.translate.currentLang;
-
-    const submitSubscription = from(
-      emailjs.send('service_ona0hct', 'template_b3srzms', {
-        from_name: name,
-        to_name: 'Demetriusz',
-        from_email: email,
-        message: message,
-      })
-    ).subscribe({
-      next: () => {
-        this.openSnackBar(
-          currentLang === 'en'
-            ? 'Message successfully sent!'
-            : currentLang === 'pl'
-            ? 'Wiadomość pomyślnie wysłana!'
-            : 'Повідомлення успішно відправлено!'
-        );
-        this.contactForm.reset();
-      },
-      error: (error) =>
-        this.openSnackBar(
-          (currentLang === 'en'
-            ? 'Error during message sending: '
-            : currentLang === 'pl'
-            ? 'Wystąpił błąd podczas wysyłania wiadomości: '
-            : 'Помилка під час відправлення повідомлення: ') +
-            ` ${(error as EmailJSResponseStatus).text}`
-        ),
-    });
-
-    this.subscriptions.push(submitSubscription);
+    const formData = this.getFormData();
+    emailjs
+      .send(
+        environment.emailjs.serviceId,
+        environment.emailjs.templateId,
+        formData
+      )
+      .then(
+        () => this.handleSubmitSuccess(),
+        (error: EmailJSResponseStatus) => this.handleSubmitError(error)
+      );
   }
 
-  private setupErrorMessageHandlers() {
-    const controls = ['name', 'email', 'message'] as const;
+  private getFormData(): ContactFormData {
+    return {
+      from_name: this.contactForm.value.name || '',
+      to_name: 'Demetriusz',
+      from_email: this.contactForm.value.email || '',
+      message: this.contactForm.value.message || '',
+    };
+  }
 
-    controls.forEach((control) => {
-      merge(
-        this.contactForm.controls[control].statusChanges,
-        this.contactForm.controls[control].valueChanges
-      )
-        .pipe(takeUntilDestroyed())
+  private handleSubmitSuccess(): void {
+    const message = this.getTranslatedMessage('SUCCESS_MESSAGE');
+    this.showSnackBar(message);
+    this.contactForm.reset();
+  }
+
+  private handleSubmitError(error: EmailJSResponseStatus): void {
+    const prefix = this.getTranslatedMessage('ERROR_PREFIX');
+    const message = `${prefix}: ${error.text}`;
+    this.showSnackBar(message);
+  }
+
+  private setupFormErrorHandlers(): void {
+    (['name', 'email', 'message'] as const).forEach((control) => {
+      this.contactForm
+        .get(control)
+        ?.valueChanges.pipe(takeUntilDestroyed())
         .subscribe(() => this.updateErrorMessage(control));
     });
   }
 
-  updateErrorMessage(control: 'name' | 'email' | 'message') {
-    const controlErrors = this.contactForm.controls[control].errors;
-    const currentLang = this.translate.currentLang;
+  public updateErrorMessage(control: 'name' | 'email' | 'message'): void {
+    const errors = this.contactForm.get(control)?.errors;
+    if (!errors) {
+      this.errorMessages[control] = '';
+      return;
+    }
 
-    if (controlErrors?.['required']) {
-      this[`${control}ErrorMessage`] =
-        currentLang === 'en'
-          ? 'You must enter a value'
-          : currentLang === 'pl'
-          ? 'Musi Państwo wprowadzić znaczenie'
-          : 'Ви повинні ввести значення';
-    } else if (controlErrors?.['minlength']) {
-      this[`${control}ErrorMessage`] =
-        currentLang === 'en'
-          ? 'String is too short'
-          : currentLang === 'pl'
-          ? 'Wiersz jest bardzo krótki'
-          : 'Значення є дуже коротке';
-    } else if (controlErrors?.['maxlength']) {
-      this[`${control}ErrorMessage`] =
-        currentLang === 'en'
-          ? 'String is too long'
-          : currentLang === 'pl'
-          ? 'Wiersz jest bardzo długi'
-          : 'Значення є дуже довге';
-    } else if (control === 'email' && controlErrors?.['email']) {
-      this.emailErrorMessage =
-        currentLang === 'en'
-          ? 'Not a valid e-mail'
-          : currentLang === 'pl'
-          ? 'To nie jest ważny e-mail'
-          : 'Недійсна електронна адреса';
-    } else {
-      this[`${control}ErrorMessage`] = '';
+    if (errors['required']) {
+      this.errorMessages[control] = this.getTranslatedMessage('REQUIRED_ERROR');
+    } else if (errors['minlength']) {
+      this.errorMessages[control] =
+        this.getTranslatedMessage('MIN_LENGTH_ERROR');
+    } else if (errors['maxlength']) {
+      this.errorMessages[control] =
+        this.getTranslatedMessage('MAX_LENGTH_ERROR');
+    } else if (control === 'email' && errors['email']) {
+      this.errorMessages[control] = this.getTranslatedMessage('EMAIL_ERROR');
     }
   }
 
-  openSnackBar(message: string) {
+  private getTranslatedMessage(key: TRANSLATE_MESSAGE_TYPES): string {
+    const translations = {
+      SUCCESS_MESSAGE: {
+        en: 'Message successfully sent!',
+        pl: 'Wiadomość pomyślnie wysłana!',
+        ua: 'Повідомлення успішно відправлено!',
+      },
+      ERROR_PREFIX: {
+        en: 'Error during message sending',
+        pl: 'Wystąpił błąd podczas wysyłania wiadomości',
+        ua: 'Помилка під час відправлення повідомлення',
+      },
+      REQUIRED_ERROR: {
+        en: 'You must enter a value',
+        pl: 'Musi Państwo wprowadzić znaczenie',
+        ua: 'Ви повинні ввести значення',
+      },
+      MIN_LENGTH_ERROR: {
+        en: 'String is too short',
+        pl: 'Wiersz jest bardzo krótki',
+        ua: 'Значення є дуже коротке',
+      },
+      MAX_LENGTH_ERROR: {
+        en: 'String is too long',
+        pl: 'Wiersz jest bardzo długi',
+        ua: 'Значення є дуже довге',
+      },
+      EMAIL_ERROR: {
+        en: 'Not a valid e-mail',
+        pl: 'To nie jest ważny e-mail',
+        ua: 'Недійсна електронна адреса',
+      },
+    };
+    const currentLang = this.translate.currentLang as 'en' | 'pl' | 'ua';
+    return translations[key][currentLang];
+  }
+
+  private showSnackBar(message: string): void {
     this._snackBar.openFromComponent(ContactMeSnackbarComponent, {
       data: message,
       duration: this.snackBarDurationInSeconds * 1000,

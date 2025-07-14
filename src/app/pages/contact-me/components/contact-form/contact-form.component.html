@@ -1,9 +1,6 @@
 <section
   class="section first-screen contact-form"
-  [ngClass]="{
-    'light-mode__section': (themeMode$ | async) === 'light',
-    'dark-mode__section': (themeMode$ | async) === 'dark'
-  }"
+  [ngClass]="themeMode$ | async | themeClass"
 >
   <div class="contact-form__inner">
     <div class="contact-form__second-inner">
@@ -26,7 +23,7 @@
           />
           @if (contactForm.controls.name.invalid &&
           contactForm.controls.name.touched) {
-          <mat-error>{{ nameErrorMessage }}</mat-error>
+          <mat-error>{{ errorMessages.name }}</mat-error>
           }
         </mat-form-field>
         <mat-form-field>
@@ -38,7 +35,7 @@
           />
           @if (contactForm.controls.email.invalid &&
           contactForm.controls.email.touched) {
-          <mat-error>{{ emailErrorMessage }}</mat-error>
+          <mat-error>{{ errorMessages.email }}</mat-error>
           }
         </mat-form-field>
         <mat-form-field>
@@ -51,7 +48,7 @@
           ></textarea>
           @if (contactForm.controls.message.invalid &&
           contactForm.controls.message.touched) {
-          <mat-error>{{ messageErrorMessage }}</mat-error>
+          <mat-error>{{ errorMessages.message }}</mat-error>
           }
         </mat-form-field>
         <button
