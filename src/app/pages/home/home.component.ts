@@ -2,10 +2,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 
-// services
-
-// interfaces and types
-
 // components
 import { StacksComponent } from '@shared/components/stacks/stacks.component';
 import { MyGithubComponent } from './components/my-github/my-github.component';
@@ -14,16 +10,16 @@ import { MyStoryComponent } from './components/my-story/my-story.component';
 import { MainScreenComponent } from './components/main-screen/main-screen.component';
 
 @Component({
-    selector: 'app-home',
-    imports: [
-        CommonModule,
-        MainScreenComponent,
-        StacksComponent,
-        MyGithubComponent,
-        MyStoryComponent,
-        ProjectsComponent,
-    ],
-    templateUrl: './home.component.html',
-    styleUrl: './home.component.css'
+  selector: 'app-home',
+  imports: [
+    CommonModule,
+    MainScreenComponent,
+    StacksComponent,
+    MyGithubComponent,
+    MyStoryComponent,
+    ProjectsComponent,
+  ],
+  templateUrl: './home.component.html',
+  styleUrl: './home.component.css',
 })
 export class HomeComponent {}

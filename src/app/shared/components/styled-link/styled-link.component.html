@@ -1,6 +1,8 @@
+@let mode = themeMode$ | async;
+
 <a
   class="styled-link"
-  [class.dark-mode__styled-link]="(themeMode$ | async) === 'dark'"
-  [routerLink]="link"
-  >{{ title }}</a
+  [class.dark-mode__styled-link]="mode === 'dark'"
+  [routerLink]="link()"
+  >{{ title() }}</a
 >

@@ -1,24 +1,20 @@
+@let mode = themeMode$ | async;
+
 <section
   class="my-github section"
-  [ngClass]="{
-    'light-mode__section': (themeMode$ | async) === 'light',
-    'dark-mode__section': (themeMode$ | async) === 'dark'
-  }"
+  [class.light-mode__section]="mode === 'light'"
+  [class.dark-mode__section]="mode === 'dark'"
 >
   <h2 class="my-github__title section-title">
     {{ "myGitHub.title" | translate }}
   </h2>
   <div class="my-github__inner">
     <div class="my-github__left">
-      <app-git-profile
-        [profile]="user$"
-        [themeMode]="themeMode$"
-      ></app-git-profile>
+      <app-git-profile [profile]="user$ | async"></app-git-profile>
     </div>
     <div class="my-github__right">
       <app-repositories-list
-        [repositories]="repos$"
-        [themeMode]="themeMode$"
+        [repositories]="repos$ | async"
       ></app-repositories-list>
     </div>
   </div>

@@ -1,6 +1,6 @@
 // angular stuff
-import { CommonModule } from '@angular/common';
-import { Component, inject, OnInit } from '@angular/core';
+import { AsyncPipe } from '@angular/common';
+import { Component, inject } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { TranslateModule } from '@ngx-translate/core';
@@ -21,32 +21,29 @@ import { ApplicationState } from '@store/application/application.reducer';
 import * as ApplicationSelectors from '@store/application/application.selectors';
 
 @Component({
-    selector: 'app-projects',
-    imports: [
-        CommonModule,
-        ProjectItemComponent,
-        StyledLinkComponent,
-        TranslateModule,
-    ],
-    templateUrl: './projects.component.html',
-    styleUrl: './projects.component.css'
+  selector: 'app-projects',
+  imports: [
+    AsyncPipe,
+    ProjectItemComponent,
+    StyledLinkComponent,
+    TranslateModule,
+  ],
+  templateUrl: './projects.component.html',
+  styleUrl: './projects.component.css',
 })
-export class ProjectsComponent implements OnInit {
-  mainStackProjectsContent = mainStackProjectsContent;
-  private store = inject(Store<ApplicationState>);
+export class ProjectsComponent {
+  readonly mainStackProjectsContent = mainStackProjectsContent;
+  private readonly store = inject(Store<ApplicationState>);
 
-  lastProjects$!: Observable<IProject[]>;
-  themeMode$!: Observable<ThemeModeType | null>;
-
-  ngOnInit(): void {
-    this.themeMode$ = this.store.select(ApplicationSelectors.selectThemeMode);
-    this.lastProjects$ = of(
-      [...this.mainStackProjectsContent]
-        .slice(
-          this.mainStackProjectsContent.length - 4,
-          this.mainStackProjectsContent.length
-        )
-        .reverse()
-    );
-  }
+  lastProjects$: Observable<IProject[]> = of(
+    [...this.mainStackProjectsContent]
+      .slice(
+        this.mainStackProjectsContent.length - 4,
+        this.mainStackProjectsContent.length
+      )
+      .reverse()
+  );
+  themeMode$: Observable<ThemeModeType | null> = this.store.select(
+    ApplicationSelectors.selectThemeMode
+  );
 }

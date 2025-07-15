@@ -13,19 +13,17 @@ import * as ApplicationSelectors from '@store/application/application.selectors'
 import { ApplicationState } from '@store/application/application.reducer';
 
 @Component({
-    selector: 'app-my-story',
-    imports: [CommonModule, TranslateModule],
-    templateUrl: './my-story.component.html',
-    styleUrl: './my-story.component.css'
+  selector: 'app-my-story',
+  imports: [CommonModule, TranslateModule],
+  templateUrl: './my-story.component.html',
+  styleUrl: './my-story.component.css',
 })
-export class MyStoryComponent implements OnInit {
-  private store = inject(Store<ApplicationState>);
+export class MyStoryComponent {
+  private readonly store = inject(Store<ApplicationState>);
 
-  themeMode$!: Observable<ThemeModeType | null>;
-
-  ngOnInit(): void {
-    this.themeMode$ = this.store.select(ApplicationSelectors.selectThemeMode);
-  }
+  themeMode$: Observable<ThemeModeType | null> = this.store.select(
+    ApplicationSelectors.selectThemeMode
+  );
 
   getItemTitleTranslationId(index: number): string {
     return `myStoryItemTitle_${index}`;

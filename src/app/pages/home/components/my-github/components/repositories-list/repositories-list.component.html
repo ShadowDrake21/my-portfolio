@@ -1,37 +1,38 @@
+@let mode = themeMode$ | async;
+
 <div class="repositories-list">
   <h5
     class="repositories-list__title inter-light"
-    [class.dark-mode__text]="(themeMode$ | async) === 'dark'"
+    [class.dark-mode__text]="mode === 'dark'"
   >
     {{ "myGitHub.subtitle" | translate }}
   </h5>
-  <div
-    *ngIf="repositories$ | async as repositories"
-    class="repositories-list__container"
-  >
+  @if (repositories()) {
+  <div class="repositories-list__container">
+    @for (repository of repositories(); track repository.id) {
     <a
-      *ngFor="let repository of repositories"
       [href]="repository.html_url"
       target="_blank"
       class="repositories-list__container-item inter-medium"
-      [class.dark-mode__repository]="(themeMode$ | async) === 'dark'"
+      [class.dark-mode__repository]="mode === 'dark'"
     >
-      <ng-container *ngIf="!repository.private">
-        <div class="repositories-list__container-item__top">
-          <div class="repositories-list__container-item__top-inner">
-            <h6 class="repositories-list__container-item__name inter-semibold">
-              {{ repository.name | truncateText : 40 }}
-            </h6>
-            <span class="repositories-list__container-item__type">Public</span>
-          </div>
-          <p class="repositories-list__container-item__desc">
-            {{ repository.description ?? "" | truncateText : 60 }}
-          </p>
+      @if (!repository.private) {
+      <div class="repositories-list__container-item__top">
+        <div class="repositories-list__container-item__top-inner">
+          <h6 class="repositories-list__container-item__name inter-semibold">
+            {{ repository.name | truncateText : 40 }}
+          </h6>
+          <span class="repositories-list__container-item__type">Public</span>
         </div>
-        <div class="repositories-list__container-item__language">
-          {{ repository.language }}
-        </div>
-      </ng-container>
-    </a>
+        <p class="repositories-list__container-item__desc">
+          {{ repository.description ?? "" | truncateText : 60 }}
+        </p>
+      </div>
+      <div class="repositories-list__container-item__language">
+        {{ repository.language }}
+      </div>
+      } </a
+    >}
   </div>
+  }
 </div>

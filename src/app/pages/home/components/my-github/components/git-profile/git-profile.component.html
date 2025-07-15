@@ -1,37 +1,37 @@
+@let mode = themeMode$ | async; @if (profile()) {
 <div
-  *ngIf="profile$ | async as profile"
   class="my-github__profile"
-  [class.dark-mode__git-profile]="(themeMode$ | async) === 'dark'"
+  [class.dark-mode__git-profile]="mode === 'dark'"
 >
   <div class="my-github__profile-img__wrapper">
     <img
       class="my-github__profile-img"
-      [src]="profile.avatar_url"
+      [src]="profile()?.avatar_url || '/assets/my-photos/profile-page.jpg'"
       alt="git-user img"
     />
   </div>
   <div class="my-github__profile-content">
     <div class="my-github__profile-content__top">
       <h4 class="my-github__profile-content__name inter-semibold">
-        {{ profile.name }}
+        {{ profile()?.name }}
       </h4>
       <div
         class="my-github__profile-content__location"
-        *ngIf="profile.location"
+        *ngIf="profile()?.location"
       >
-        {{ profile.location }}
+        {{ profile()?.location }}
       </div>
     </div>
     <div class="my-github__profile-login inter-light">
-      <span>{{ profile.login }}</span>
+      <span>{{ profile()?.login }}</span>
       <span>he/him</span>
     </div>
-    <p class="my-github__profile-text inter-light">{{ profile.bio }}</p>
+    <p class="my-github__profile-text inter-light">{{ profile()?.bio }}</p>
     <p class="my-github__profile-text inter-light">
-      Number of public repositories: {{ profile.public_repos }}
+      Number of public repositories: {{ profile()?.public_repos }}
     </p>
     <a
-      [href]="profile.html_url"
+      [href]="profile()?.html_url"
       target="_blank"
       class="my-github__profile-link"
     >
@@ -39,3 +39,4 @@
     >
   </div>
 </div>
+}

@@ -3,8 +3,8 @@
 <section
   class="section main-screen first-screen"
   [ngClass]="{
-    'light-mode__section': (themeMode$ | async) === 'light',
-    'dark-mode__section': (themeMode$ | async) === 'dark'
+    'light-mode__section': mode === 'light',
+    'dark-mode__section': mode === 'dark'
   }"
 >
   <div class="main-screen__top">
@@ -20,7 +20,7 @@
         class="main-screen__content-title"
         [innerHTML]="'mainScreen.title' | translate"
       ></h1>
-      <div [class.dark-mode__text]="(themeMode$ | async) === 'dark'">
+      <div [class.dark-mode__text]="mode === 'dark'">
         <p class="main-screen__content-text">
           {{ "mainScreen.text.paragraph-1" | translate }}
         </p>
@@ -37,7 +37,6 @@
       <helper-styled-link
         link="/profile"
         [title]="'mainScreen.link' | translate"
-        [themeMode]="themeMode$"
       />
     </div>
   </div>

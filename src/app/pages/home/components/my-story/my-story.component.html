@@ -1,9 +1,9 @@
+@let mode = themeMode$ | async;
+
 <section
   class="section my-story"
-  [ngClass]="{
-    'light-mode__section': (themeMode$ | async) === 'light',
-    'dark-mode__section': (themeMode$ | async) === 'dark'
-  }"
+  [class.light-mode__section]="mode === 'light'"
+  [class.dark-mode__section]="mode === 'dark'"
 >
   <h2 class="section-title my-story__title">
     {{ "myStory.title" | translate }}
@@ -14,7 +14,7 @@
     </h5>
     <p
       class="my-story__content-item__text"
-      [class.dark-mode__text]="(themeMode$ | async) === 'dark'"
+      [class.dark-mode__text]="mode === 'dark'"
     >
       {{ "myStory.part-1.paragraphs.1" | translate }}
     </p>
@@ -25,13 +25,13 @@
     </h5>
     <p
       class="my-story__content-item__text"
-      [class.dark-mode__text]="(themeMode$ | async) === 'dark'"
+      [class.dark-mode__text]="mode === 'dark'"
     >
       {{ "myStory.part-2.paragraphs.1" | translate }}
     </p>
     <p
       class="my-story__content-item__text"
-      [class.dark-mode__text]="(themeMode$ | async) === 'dark'"
+      [class.dark-mode__text]="mode === 'dark'"
     >
       {{ "myStory.part-2.paragraphs.2" | translate }}
     </p>
