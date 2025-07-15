@@ -1,6 +1,7 @@
 <div
   class="language-switch"
-  [class.dark-mode__language-switch]="(themeMode$ | async) === 'dark'"
+  [appThemeClass]="themeMode$ | async"
+  classSuffix="language-switch"
   clickOutside
   (clickOutside)="clickedOutside()"
 >

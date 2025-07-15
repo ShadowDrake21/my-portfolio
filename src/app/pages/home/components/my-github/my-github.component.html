@@ -1,10 +1,4 @@
-@let mode = themeMode$ | async;
-
-<section
-  class="my-github section"
-  [class.light-mode__section]="mode === 'light'"
-  [class.dark-mode__section]="mode === 'dark'"
->
+<section class="my-github section" [appThemeClass]="themeMode$ | async">
   <h2 class="my-github__title section-title">
     {{ "myGitHub.title" | translate }}
   </h2>

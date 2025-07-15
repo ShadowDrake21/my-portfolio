@@ -1,5 +1,4 @@
 // angular stuff
-import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 
 // components
@@ -9,15 +8,14 @@ import { EducationComponent } from './components/education/education.component';
 import { StacksComponent } from '@shared/components/stacks/stacks.component';
 
 @Component({
-    selector: 'app-profile',
-    imports: [
-        CommonModule,
-        BasicInfoComponent,
-        WorkingExperienceComponent,
-        StacksComponent,
-        EducationComponent,
-    ],
-    templateUrl: './profile.component.html',
-    styleUrl: './profile.component.css'
+  selector: 'app-profile',
+  imports: [
+    BasicInfoComponent,
+    WorkingExperienceComponent,
+    StacksComponent,
+    EducationComponent,
+  ],
+  templateUrl: './profile.component.html',
+  styleUrl: './profile.component.css',
 })
 export class ProfileComponent {}

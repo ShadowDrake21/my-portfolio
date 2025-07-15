@@ -1,5 +1,4 @@
 // angular stuff
-import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
@@ -15,10 +14,10 @@ import { ApplicationState } from '@store/application/application.reducer';
 import * as ApplicationSelectors from '@store/application/application.selectors';
 
 @Component({
-    selector: 'app-contact-me',
-    imports: [CommonModule, ContactFormComponent],
-    templateUrl: './contact-me.component.html',
-    styleUrl: './contact-me.component.css'
+  selector: 'app-contact-me',
+  imports: [ContactFormComponent],
+  templateUrl: './contact-me.component.html',
+  styleUrl: './contact-me.component.css',
 })
 export class ContactMeComponent {
   private readonly store = inject(Store<ApplicationState>);

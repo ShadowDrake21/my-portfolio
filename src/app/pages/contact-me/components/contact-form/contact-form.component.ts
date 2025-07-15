@@ -1,5 +1,4 @@
 // angular stuff
-import { CommonModule } from '@angular/common';
 import { Component, inject, Input } from '@angular/core';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { MatInputModule } from '@angular/material/input';
@@ -30,19 +29,18 @@ type TRANSLATE_MESSAGE_TYPES =
   | 'EMAIL_ERROR';
 
 @Component({
-    selector: 'app-contact-form',
-    imports: [
-        CommonModule,
-        SocialsComponent,
-        MatInputModule,
-        MatFormFieldModule,
-        ReactiveFormsModule,
-        TranslateModule,
-        ThemeClassPipe,
-    ],
-    templateUrl: './contact-form.component.html',
-    styleUrl: './contact-form.component.css',
-    providers: [TranslateService]
+  selector: 'app-contact-form',
+  imports: [
+    SocialsComponent,
+    MatInputModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    TranslateModule,
+    ThemeClassPipe,
+  ],
+  templateUrl: './contact-form.component.html',
+  styleUrl: './contact-form.component.css',
+  providers: [TranslateService],
 })
 export class ContactFormComponent {
   @Input({ required: true, alias: 'themeMode' })

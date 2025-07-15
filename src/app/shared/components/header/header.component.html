@@ -1,24 +1,19 @@
-<header
-  class="header"
-  [ngClass]="{
-    'dark-mode__header': (themeMode$ | async) === 'dark'
-  }"
->
+@let mode = themeMode$ | async;
+<header class="header" [appThemeClass]="mode" classSuffix="header">
   <div class="container">
     <ul class="header__list">
       <li class="header-part">
-        <div class="header-socials__wrapper" *ngIf="isHeaderFull">
+        @if (isHeaderFull) {
+        <div class="header-socials__wrapper">
           <app-socials></app-socials>
         </div>
+        }
         <div style="display: flex">
           <app-language-switch></app-language-switch>
         </div>
       </li>
       <li class="header-part">
-        <div
-          class="header-location"
-          [class.dark-mode__text]="(themeMode$ | async) === 'dark'"
-        >
+        <div class="header-location" [appThemeClass]="mode" classSuffix="text">
           <span class="header-location__span">{{
             "header.location" | translate
           }}</span>

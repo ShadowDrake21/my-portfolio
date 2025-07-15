@@ -1,9 +1,6 @@
 <section
   class="section basic-info first-screen"
-  [ngClass]="{
-    'light-mode__section': (themeMode$ | async) === 'light',
-    'dark-mode__section': (themeMode$ | async) === 'dark'
-  }"
+  [appThemeClass]="themeMode$ | async"
 >
   <div class="basic-info__top">
     <img

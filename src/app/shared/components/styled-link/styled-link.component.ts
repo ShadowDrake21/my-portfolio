@@ -9,10 +9,11 @@ import { ThemeModeType } from '@shared/models/types.model';
 import { ApplicationState } from '@store/application/application.reducer';
 import * as ApplicationSelectors from '@store/application/application.selectors';
 import { Store } from '@ngrx/store';
+import { ThemeClassDirective } from '@shared/directives/theme-class.directive';
 
 @Component({
   selector: 'helper-styled-link',
-  imports: [AsyncPipe, RouterLink],
+  imports: [AsyncPipe, RouterLink, ThemeClassDirective],
   templateUrl: './styled-link.component.html',
   styleUrl: './styled-link.component.css',
 })

@@ -1,11 +1,10 @@
-<div class="tasks" [class.dark-mode__tasks]="(themeMode$ | async) === 'dark'">
+<div class="tasks" [appThemeClass]="themeMode$ | async" classSuffix="tasks">
   <p class="tasks-text">{{ "mainScreen.mainTasks.text" | translate }}</p>
   <ul class="tasks-list">
-    <li
-      class="tasks-list__item"
-      *ngFor="let task of mainTasksContent; let i = index"
-    >
+    @for (task of mainTasksContent; track $index; let i = $index) {
+    <li class="tasks-list__item">
       {{ "mainScreen.mainTasks.list.task-" + (i + 1) | translate }}
     </li>
+    }
   </ul>
 </div>

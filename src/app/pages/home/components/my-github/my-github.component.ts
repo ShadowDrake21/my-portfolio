@@ -1,5 +1,5 @@
 // angular stuff
-import { AsyncPipe, CommonModule, NgClass } from '@angular/common';
+import { AsyncPipe, NgClass } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
@@ -19,15 +19,16 @@ import { IRepo, IUser } from '@shared/models/github.model';
 // created ngrx stuff
 import { ApplicationState } from '@store/application/application.reducer';
 import * as ApplicationSelectors from '@store/application/application.selectors';
+import { ThemeClassDirective } from '@shared/directives/theme-class.directive';
 
 @Component({
   selector: 'app-my-github',
   imports: [
     AsyncPipe,
-
     GitProfileComponent,
     RepositoriesListComponent,
     TranslateModule,
+    ThemeClassDirective,
   ],
   templateUrl: './my-github.component.html',
   styleUrl: './my-github.component.css',

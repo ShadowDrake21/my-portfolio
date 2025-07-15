@@ -1,10 +1,4 @@
-@let mode = themeMode$ | async;
-
-<section
-  class="latest-projects section"
-  [class.light-mode__section]="mode === 'light'"
-  [class.dark-mode__section]="mode === 'dark'"
->
+<section class="latest-projects section" [appThemeClass]="themeMode$ | async">
   <div class="latest-projects__top">
     <h2 class="latest-project__title section-title">
       {{ "latestProjects.title" | translate }}

@@ -1,5 +1,4 @@
 // angular stuff
-import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 
 // components
@@ -12,7 +11,6 @@ import { MainScreenComponent } from './components/main-screen/main-screen.compon
 @Component({
   selector: 'app-home',
   imports: [
-    CommonModule,
     MainScreenComponent,
     StacksComponent,
     MyGithubComponent,

@@ -1,5 +1,5 @@
 // angular stuff
-import { CommonModule } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 import {
   Component,
   Input,
@@ -19,12 +19,13 @@ import {
 // interfaces and types
 import { IProject } from '@shared/models/project.model';
 import { ThemeModeType } from '@shared/models/types.model';
+import { ThemeClassDirective } from '@shared/directives/theme-class.directive';
 
 @Component({
-    selector: 'app-project-item',
-    imports: [CommonModule, TranslateModule],
-    templateUrl: './project-item.component.html',
-    styleUrl: './project-item.component.css'
+  selector: 'app-project-item',
+  imports: [AsyncPipe, ThemeClassDirective, TranslateModule],
+  templateUrl: './project-item.component.html',
+  styleUrl: './project-item.component.css',
 })
 export class ProjectItemComponent implements OnInit, OnChanges {
   @Input({ required: true, alias: 'themeMode' })

@@ -1,5 +1,4 @@
 // angular stuff
-import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
@@ -11,10 +10,11 @@ import { ThemeModeType } from '@shared/models/types.model';
 // created ngrx stuff
 import * as ApplicationSelectors from '@store/application/application.selectors';
 import { ApplicationState } from '@store/application/application.reducer';
+import { ThemeClassDirective } from '@shared/directives/theme-class.directive';
 
 @Component({
   selector: 'app-my-story',
-  imports: [CommonModule, TranslateModule],
+  imports: [TranslateModule, ThemeClassDirective],
   templateUrl: './my-story.component.html',
   styleUrl: './my-story.component.css',
 })

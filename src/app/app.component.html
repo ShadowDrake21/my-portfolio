@@ -1,13 +1,14 @@
+@let mode = themeMode$ | async;
+
 <div
   class="body-inner"
-  [ngClass]="{
-    'body-light': (themeMode$ | async) === 'light',
-    'body-dark': (themeMode$ | async) === 'dark'
-  }"
+  [class.body-light]="mode === 'light'"
+  [class.body-dark]="mode === 'dark'"
 >
   <app-header [isHeaderFull]="isContactMePage"></app-header>
   <div class="container">
     <router-outlet></router-outlet>
-    <app-footer *ngIf="isContactMePage"></app-footer>
+    @if (isContactMePage) {
+    <app-footer></app-footer>}
   </div>
 </div>

@@ -1,5 +1,4 @@
 // angular stuff
-import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { MatTabChangeEvent, MatTabsModule } from '@angular/material/tabs';
@@ -32,26 +31,27 @@ import { ThemeModeType } from '@shared/models/types.model';
 // created ngrx stuff
 import { ApplicationState } from '@store/application/application.reducer';
 import * as ApplicationSelectors from '@store/application/application.selectors';
+import { ThemeClassDirective } from '@shared/directives/theme-class.directive';
 
 @Component({
-    selector: 'app-projects',
-    imports: [
-        CommonModule,
-        ProjectItemComponent,
-        NgbPaginationModule,
-        MatTabsModule,
-        MatInputModule,
-        MatSelectModule,
-        MatFormFieldModule,
-        ReactiveFormsModule,
-        MatButtonModule,
-        TranslateModule,
-    ],
-    templateUrl: './projects.component.html',
-    styleUrl: './projects.component.css'
+  selector: 'app-projects',
+  imports: [
+    ProjectItemComponent,
+    NgbPaginationModule,
+    MatTabsModule,
+    MatInputModule,
+    MatSelectModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    MatButtonModule,
+    TranslateModule,
+    ThemeClassDirective,
+  ],
+  templateUrl: './projects.component.html',
+  styleUrl: './projects.component.css',
 })
 export class ProjectsComponent implements OnInit {
-  private store = inject(Store<ApplicationState>);
+  private readonly store = inject(Store<ApplicationState>);
 
   private initialMainStackProjectsContent: IProject[] = [];
   copiedMainStackProjectsContent: IProject[] = [];
@@ -64,7 +64,9 @@ export class ProjectsComponent implements OnInit {
   mainCurrentPage: number = 1;
   otherCurrentPage: number = 1;
 
-  themeMode$!: Observable<ThemeModeType | null>;
+  themeMode$: Observable<ThemeModeType | null> = this.store.select(
+    ApplicationSelectors.selectThemeMode
+  );
 
   projectFiltrationForm = new FormGroup({
     technology: new FormControl(''),
@@ -72,8 +74,6 @@ export class ProjectsComponent implements OnInit {
   });
 
   ngOnInit(): void {
-    this.themeMode$ = this.store.select(ApplicationSelectors.selectThemeMode);
-
     this.initialMainStackProjectsContent = [
       ...mainStackProjectsContent,
     ].reverse();

@@ -1,5 +1,4 @@
 // angular stuff
-import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
@@ -17,15 +16,10 @@ import { ApplicationState } from '@store/application/application.reducer';
 import * as ApplicationSelectors from '@store/application/application.selectors';
 
 @Component({
-    selector: 'app-footer',
-    imports: [
-        CommonModule,
-        StyledLinkComponent,
-        SocialsComponent,
-        TranslateModule,
-    ],
-    templateUrl: './footer.component.html',
-    styleUrl: './footer.component.css'
+  selector: 'app-footer',
+  imports: [StyledLinkComponent, SocialsComponent, TranslateModule],
+  templateUrl: './footer.component.html',
+  styleUrl: './footer.component.css',
 })
 export class FooterComponent implements OnInit {
   private store = inject(Store<ApplicationState>);

@@ -1,7 +1,8 @@
 @let mode = themeMode$ | async; @if (profile()) {
 <div
   class="my-github__profile"
-  [class.dark-mode__git-profile]="mode === 'dark'"
+  [appThemeClass]="mode"
+  classSuffix="git-profile"
 >
   <div class="my-github__profile-img__wrapper">
     <img
@@ -15,12 +16,11 @@
       <h4 class="my-github__profile-content__name inter-semibold">
         {{ profile()?.name }}
       </h4>
-      <div
-        class="my-github__profile-content__location"
-        *ngIf="profile()?.location"
-      >
+      @if (profile()?.location) {
+      <div class="my-github__profile-content__location">
         {{ profile()?.location }}
       </div>
+      }
     </div>
     <div class="my-github__profile-login inter-light">
       <span>{{ profile()?.login }}</span>

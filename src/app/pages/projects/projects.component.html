@@ -1,11 +1,7 @@
+@let mode = themeMode$ | async;
+
 <div class="page">
-  <section
-    class="section first-screen projects"
-    [ngClass]="{
-      'light-mode__section': (themeMode$ | async) === 'light',
-      'dark-mode__section': (themeMode$ | async) === 'dark'
-    }"
-  >
+  <section class="section first-screen projects" [appThemeClass]="mode">
     <h2 class="section-title inter-semibold">
       {{ "projects.title" | translate }}
     </h2>
@@ -28,11 +24,9 @@
                   (selectionChange)="onFormChange()"
                   formControlName="technology"
                 >
-                  <mat-option
-                    *ngFor="let technology of technologyFilterContent"
-                    [value]="technology"
-                    >{{ technology }}</mat-option
-                  >
+                  @for (technology of technologyFilterContent; track $index) {
+                  <mat-option [value]="technology">{{ technology }}</mat-option
+                  >}
                 </mat-select>
               </mat-form-field>
               <mat-form-field class="projects-tab__filtration-field">
@@ -43,33 +37,30 @@
                   (selectionChange)="onFormChange()"
                   formControlName="year"
                 >
-                  <mat-option
-                    *ngFor="let year of yearFilterContent"
-                    [value]="year"
-                    >{{ year }}</mat-option
-                  >
+                  @for (year of yearFilterContent; track $index) {
+                  <mat-option [value]="year">{{ year }}</mat-option>
+                  }
                 </mat-select>
               </mat-form-field>
             </div>
+            @if (projectFiltrationForm.touched) {
             <button
-              *ngIf="projectFiltrationForm.touched"
               mat-flat-button
               color="warn"
               class="projects-tab__filtration-btn"
               type="reset"
             >
-              {{ "projects.filtration.resetBnt" | translate }}
-            </button>
+              {{ "projects.filtration.resetBnt" | translate }}</button
+            >} @if (!checkIfDataChanged()) {
             <button
-              *ngIf="!checkIfDataChanged()"
               type="button"
               mat-flat-button
               color="primary"
               class="projects-tab__filtration-btn"
               (click)="loadAllProjects()"
             >
-              {{ "projects.filtration.loadBtn" | translate }}
-            </button>
+              {{ "projects.filtration.loadBtn" | translate }}</button
+            >}
           </form>
           @if (copiedMainStackProjectsContent.length) {
           <div class="projects-tab__list">
@@ -88,18 +79,14 @@
               {{ "projects.filtration.errorMessage" | translate }}
             </h4>
           </div>
-          }
-
+          } @if (getContentSize('main') > itemsPerPage &&
+          copiedMainStackProjectsContent.length > itemsPerPage) {
           <ngb-pagination
-            *ngIf="
-              getContentSize('main') > itemsPerPage &&
-              copiedMainStackProjectsContent.length > itemsPerPage
-            "
             class="project-tab__pagination"
             [(page)]="mainCurrentPage"
             [pageSize]="itemsPerPage"
             [collectionSize]="getContentSize('main')"
-          />
+          />}
         </div>
       </mat-tab>
       <mat-tab [label]="'projects.tabs.second' | translate">
@@ -115,14 +102,15 @@
             }
           </div>
 
+          @if (getContentSize('other') > itemsPerPage) {
           <ngb-pagination
-            *ngIf="getContentSize('other') > itemsPerPage"
             class="project-tab__pagination"
             [(page)]="otherCurrentPage"
             [pageSize]="itemsPerPage"
             [collectionSize]="getContentSize('other')"
-          /></div
-      ></mat-tab>
+          />}
+        </div></mat-tab
+      >
     </mat-tab-group>
   </section>
 </div>

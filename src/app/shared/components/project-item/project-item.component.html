@@ -1,6 +1,7 @@
 <div
   class="project-item"
-  [class.dark-mode__project-item]="(themeMode$ | async) === 'dark'"
+  [appThemeClass]="themeMode$ | async"
+  classSuffix="project-item"
 >
   <img
     [src]="copiedProjectItem.image"
@@ -10,12 +11,12 @@
 
   <div class="project-item__content">
     <div class="project-item__technologies">
+      @for (image of copiedProjectItem.technologies; track $index) {
       <img
-        *ngFor="let image of copiedProjectItem.technologies"
         [src]="image"
         class="project-item__technology"
         alt="project technology"
-      />
+      />}
     </div>
     <div class="project-item__links inter-medium">
       <a

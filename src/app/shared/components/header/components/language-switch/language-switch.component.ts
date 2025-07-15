@@ -10,7 +10,6 @@ import {
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { CommonModule } from '@angular/common';
 import { Store } from '@ngrx/store';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
@@ -26,18 +25,19 @@ import { languageType, ThemeModeType } from '@shared/models/types.model';
 // created ngrx stuff
 import { ApplicationState } from '@store/application/application.reducer';
 import * as ApplicationSelectors from '@store/application/application.selectors';
+import { ThemeClassDirective } from '@shared/directives/theme-class.directive';
 
 @Component({
-    selector: 'app-language-switch',
-    imports: [
-        CommonModule,
-        MatMenuModule,
-        MatButtonModule,
-        ClickOutsideDirective,
-        TranslateModule,
-    ],
-    templateUrl: './language-switch.component.html',
-    styleUrl: './language-switch.component.css'
+  selector: 'app-language-switch',
+  imports: [
+    MatMenuModule,
+    MatButtonModule,
+    ClickOutsideDirective,
+    TranslateModule,
+    ThemeClassDirective,
+  ],
+  templateUrl: './language-switch.component.html',
+  styleUrl: './language-switch.component.css',
 })
 export class LanguageSwitchComponent implements OnInit, AfterViewInit {
   private store = inject(Store<ApplicationState>);

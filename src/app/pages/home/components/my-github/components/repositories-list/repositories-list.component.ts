@@ -3,6 +3,7 @@ import { AsyncPipe } from '@angular/common';
 import { Component, inject, input } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { TranslateModule } from '@ngx-translate/core';
+import { ThemeClassDirective } from '@shared/directives/theme-class.directive';
 
 // interfaces and types
 import { IRepo } from '@shared/models/github.model';
@@ -16,7 +17,7 @@ import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-repositories-list',
-  imports: [TruncateTextPipe, TranslateModule, AsyncPipe],
+  imports: [TruncateTextPipe, TranslateModule, AsyncPipe, ThemeClassDirective],
   templateUrl: './repositories-list.component.html',
   styleUrl: './repositories-list.component.css',
 })

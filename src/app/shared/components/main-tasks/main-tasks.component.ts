@@ -1,5 +1,4 @@
 // angular stuff
-import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
@@ -14,12 +13,13 @@ import { ThemeModeType } from '@shared/models/types.model';
 // created ngrx stuff
 import { ApplicationState } from '@store/application/application.reducer';
 import * as ApplicationSelectors from '@store/application/application.selectors';
+import { ThemeClassDirective } from '@shared/directives/theme-class.directive';
 
 @Component({
-    selector: 'app-main-tasks',
-    imports: [CommonModule, TranslateModule],
-    templateUrl: './main-tasks.component.html',
-    styleUrl: './main-tasks.component.css'
+  selector: 'app-main-tasks',
+  imports: [TranslateModule, ThemeClassDirective],
+  templateUrl: './main-tasks.component.html',
+  styleUrl: './main-tasks.component.css',
 })
 export class MainTasksComponent implements OnInit {
   mainTasksContent = mainTasksContent;

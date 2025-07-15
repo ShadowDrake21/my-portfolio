@@ -1,5 +1,4 @@
 // angular stuff
-import { CommonModule } from '@angular/common';
 import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
@@ -13,12 +12,13 @@ import * as ApplicationActions from '@store/application/application.actions';
 
 // interfaces and types
 import { ThemeModeType } from '@shared/models/types.model';
+import { ThemeClassDirective } from '@shared/directives/theme-class.directive';
 
 @Component({
-    selector: 'app-navbar',
-    imports: [CommonModule, RouterModule, TranslateModule],
-    templateUrl: './navbar.component.html',
-    styleUrl: './navbar.component.css'
+  selector: 'app-navbar',
+  imports: [RouterModule, TranslateModule, ThemeClassDirective],
+  templateUrl: './navbar.component.html',
+  styleUrl: './navbar.component.css',
 })
 export class NavbarComponent implements OnInit, OnDestroy {
   private store = inject(Store<ApplicationState>);

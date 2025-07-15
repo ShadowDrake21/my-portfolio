@@ -1,10 +1,6 @@
 @let mode = themeMode$ | async;
 
-<section
-  class="section my-story"
-  [class.light-mode__section]="mode === 'light'"
-  [class.dark-mode__section]="mode === 'dark'"
->
+<section class="section my-story" [appThemeClass]="mode">
   <h2 class="section-title my-story__title">
     {{ "myStory.title" | translate }}
   </h2>
@@ -14,7 +10,8 @@
     </h5>
     <p
       class="my-story__content-item__text"
-      [class.dark-mode__text]="mode === 'dark'"
+      [appThemeClass]="mode"
+      classSuffix="text"
     >
       {{ "myStory.part-1.paragraphs.1" | translate }}
     </p>
@@ -25,13 +22,15 @@
     </h5>
     <p
       class="my-story__content-item__text"
-      [class.dark-mode__text]="mode === 'dark'"
+      [appThemeClass]="mode"
+      classSuffix="text"
     >
       {{ "myStory.part-2.paragraphs.1" | translate }}
     </p>
     <p
       class="my-story__content-item__text"
-      [class.dark-mode__text]="mode === 'dark'"
+      [appThemeClass]="mode"
+      classSuffix="text"
     >
       {{ "myStory.part-2.paragraphs.2" | translate }}
     </p>

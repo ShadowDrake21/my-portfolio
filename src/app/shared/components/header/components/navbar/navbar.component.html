@@ -1,4 +1,6 @@
-<nav class="navbar" [class.dark-mode__navbar]="(themeMode$ | async) === 'dark'">
+@let mode = themeMode$ | async;
+
+<nav class="navbar" [appThemeClass]="mode" classSuffix="navbar">
   <div>
     <ul class="navbar__list">
       <li class="navbar__list-item" routerLinkActive="active">
@@ -37,13 +39,13 @@
       </li>
       <li
         class="navbar__list-item theme-mode"
-        [class]="(themeMode$ | async) === 'light' ? 'light-mode' : 'dark-mode'"
+        [class]="mode === 'light' ? 'light-mode' : 'dark-mode'"
       >
         <button class="navbar__item-btn" (click)="onChangeTheme()">
           <img
             class="navbar__item-link__img"
             [src]="
-              (themeMode$ | async) === 'light'
+              mode === 'light'
                 ? '/assets/icons/navbar/light mode 1.svg'
                 : '/assets/icons/navbar/dark mode.svg'
             "
@@ -63,10 +65,7 @@
           {{ "header.navbar.downloadCV" | translate }}
         </button>
       </div>
-      <div
-        class="header-location"
-        [class.dark-mode__text]="(themeMode$ | async) === 'dark'"
-      >
+      <div class="header-location" [appThemeClass]="mode" classSuffix="text">
         <span class="header-location__span">{{
           "header.location" | translate
         }}</span>

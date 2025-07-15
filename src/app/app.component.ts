@@ -1,6 +1,5 @@
 // angular stuff
 import { Component, inject, OnDestroy, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import {
   filter,
@@ -24,13 +23,14 @@ import { ThemeModeType } from '@shared/models/types.model';
 import { ApplicationState } from './store/application/application.reducer';
 import * as ApplicationActions from '../app/store/application/application.actions';
 import * as ApplicationSelectors from '../app/store/application/application.selectors';
+import { AsyncPipe } from '@angular/common';
 
 @Component({
-    selector: 'app-root',
-    imports: [CommonModule, RouterOutlet, HeaderComponent, FooterComponent],
-    templateUrl: './app.component.html',
-    styleUrl: './app.component.css',
-    providers: [TranslateService]
+  selector: 'app-root',
+  imports: [RouterOutlet, HeaderComponent, FooterComponent, AsyncPipe],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.css',
+  providers: [TranslateService],
 })
 export class AppComponent implements OnInit, OnDestroy {
   private router = inject(Router);
