@@ -26,12 +26,11 @@ import * as ApplicationActions from '../app/store/application/application.action
 import * as ApplicationSelectors from '../app/store/application/application.selectors';
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [CommonModule, RouterOutlet, HeaderComponent, FooterComponent],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css',
-  providers: [TranslateService],
+    selector: 'app-root',
+    imports: [CommonModule, RouterOutlet, HeaderComponent, FooterComponent],
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.css',
+    providers: [TranslateService]
 })
 export class AppComponent implements OnInit, OnDestroy {
   private router = inject(Router);

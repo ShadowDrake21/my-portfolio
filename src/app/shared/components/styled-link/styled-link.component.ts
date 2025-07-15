@@ -8,11 +8,10 @@ import { RouterLink } from '@angular/router';
 import { ThemeModeType } from '@shared/models/types.model';
 
 @Component({
-  selector: 'helper-styled-link',
-  standalone: true,
-  imports: [CommonModule, RouterLink],
-  templateUrl: './styled-link.component.html',
-  styleUrl: './styled-link.component.css',
+    selector: 'helper-styled-link',
+    imports: [CommonModule, RouterLink],
+    templateUrl: './styled-link.component.html',
+    styleUrl: './styled-link.component.css'
 })
 export class StyledLinkComponent {
   @Input({ required: true }) link!: string;

@@ -12,11 +12,10 @@ import { ThemeModeType } from '@shared/models/types.model';
 import { TruncateTextPipe } from '@shared/pipes/truncate-text.pipe';
 
 @Component({
-  selector: 'app-repositories-list',
-  standalone: true,
-  imports: [CommonModule, TruncateTextPipe, TranslateModule],
-  templateUrl: './repositories-list.component.html',
-  styleUrl: './repositories-list.component.css',
+    selector: 'app-repositories-list',
+    imports: [CommonModule, TruncateTextPipe, TranslateModule],
+    templateUrl: './repositories-list.component.html',
+    styleUrl: './repositories-list.component.css'
 })
 export class RepositoriesListComponent {
   @Input({ alias: 'repositories', required: true }) repositories$!: Observable<

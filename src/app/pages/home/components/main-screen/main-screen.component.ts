@@ -1,8 +1,7 @@
 // angular stuff
 import { Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';
-import { Component, inject, OnInit } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Component, inject } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { TranslateModule } from '@ngx-translate/core';
 
@@ -18,23 +17,19 @@ import { ApplicationState } from '@store/application/application.reducer';
 import * as ApplicationSelectors from '@store/application/application.selectors';
 
 @Component({
-  selector: 'app-main-screen',
-  standalone: true,
-  imports: [
-    CommonModule,
-    RouterLink,
-    StyledLinkComponent,
-    MainTasksComponent,
-    TranslateModule,
-  ],
-  templateUrl: './main-screen.component.html',
-  styleUrl: './main-screen.component.css',
+    selector: 'app-main-screen',
+    imports: [
+        CommonModule,
+        StyledLinkComponent,
+        MainTasksComponent,
+        TranslateModule,
+    ],
+    templateUrl: './main-screen.component.html',
+    styleUrl: './main-screen.component.css'
 })
-export class MainScreenComponent implements OnInit {
-  private store = inject(Store<ApplicationState>);
-  themeMode$!: Observable<ThemeModeType | null>;
-
-  ngOnInit(): void {
-    this.themeMode$ = this.store.select(ApplicationSelectors.selectThemeMode);
-  }
+export class MainScreenComponent {
+  private readonly store = inject(Store<ApplicationState>);
+  themeMode$: Observable<ThemeModeType | null> = this.store.select(
+    ApplicationSelectors.selectThemeMode
+  );
 }

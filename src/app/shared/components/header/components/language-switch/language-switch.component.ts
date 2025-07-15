@@ -28,17 +28,16 @@ import { ApplicationState } from '@store/application/application.reducer';
 import * as ApplicationSelectors from '@store/application/application.selectors';
 
 @Component({
-  selector: 'app-language-switch',
-  standalone: true,
-  imports: [
-    CommonModule,
-    MatMenuModule,
-    MatButtonModule,
-    ClickOutsideDirective,
-    TranslateModule,
-  ],
-  templateUrl: './language-switch.component.html',
-  styleUrl: './language-switch.component.css',
+    selector: 'app-language-switch',
+    imports: [
+        CommonModule,
+        MatMenuModule,
+        MatButtonModule,
+        ClickOutsideDirective,
+        TranslateModule,
+    ],
+    templateUrl: './language-switch.component.html',
+    styleUrl: './language-switch.component.css'
 })
 export class LanguageSwitchComponent implements OnInit, AfterViewInit {
   private store = inject(Store<ApplicationState>);

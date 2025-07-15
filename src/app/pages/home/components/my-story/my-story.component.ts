@@ -13,11 +13,10 @@ import * as ApplicationSelectors from '@store/application/application.selectors'
 import { ApplicationState } from '@store/application/application.reducer';
 
 @Component({
-  selector: 'app-my-story',
-  standalone: true,
-  imports: [CommonModule, TranslateModule],
-  templateUrl: './my-story.component.html',
-  styleUrl: './my-story.component.css',
+    selector: 'app-my-story',
+    imports: [CommonModule, TranslateModule],
+    templateUrl: './my-story.component.html',
+    styleUrl: './my-story.component.css'
 })
 export class MyStoryComponent implements OnInit {
   private store = inject(Store<ApplicationState>);

@@ -16,11 +16,10 @@ import { ApplicationState } from '@store/application/application.reducer';
 import * as ApplicationSelectors from '@store/application/application.selectors';
 
 @Component({
-  selector: 'app-main-tasks',
-  standalone: true,
-  imports: [CommonModule, TranslateModule],
-  templateUrl: './main-tasks.component.html',
-  styleUrl: './main-tasks.component.css',
+    selector: 'app-main-tasks',
+    imports: [CommonModule, TranslateModule],
+    templateUrl: './main-tasks.component.html',
+    styleUrl: './main-tasks.component.css'
 })
 export class MainTasksComponent implements OnInit {
   mainTasksContent = mainTasksContent;

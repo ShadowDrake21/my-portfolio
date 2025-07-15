@@ -16,11 +16,10 @@ import { ApplicationState } from '@store/application/application.reducer';
 import * as ApplicationSelectors from '@store/application/application.selectors';
 
 @Component({
-  selector: 'app-working-experience',
-  standalone: true,
-  imports: [CommonModule, TranslateModule],
-  templateUrl: './working-experience.component.html',
-  styleUrl: './working-experience.component.css',
+    selector: 'app-working-experience',
+    imports: [CommonModule, TranslateModule],
+    templateUrl: './working-experience.component.html',
+    styleUrl: './working-experience.component.css'
 })
 export class WorkingExperienceComponent implements OnInit {
   workingExperienceContent = workingExperienceContent;

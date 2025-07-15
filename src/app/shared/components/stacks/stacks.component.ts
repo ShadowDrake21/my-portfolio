@@ -23,11 +23,10 @@ import { ApplicationState } from '@store/application/application.reducer';
 import * as ApplicationSelectors from '@store/application/application.selectors';
 
 @Component({
-  selector: 'app-stacks',
-  standalone: true,
-  imports: [CommonModule, StackItemComponent, TranslateModule],
-  templateUrl: './stacks.component.html',
-  styleUrl: './stacks.component.css',
+    selector: 'app-stacks',
+    imports: [CommonModule, StackItemComponent, TranslateModule],
+    templateUrl: './stacks.component.html',
+    styleUrl: './stacks.component.css'
 })
 export class StacksComponent implements OnInit {
   technologyStackContent = technologyStackContent;

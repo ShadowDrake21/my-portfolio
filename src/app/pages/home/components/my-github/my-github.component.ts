@@ -21,16 +21,15 @@ import { ApplicationState } from '@store/application/application.reducer';
 import * as ApplicationSelectors from '@store/application/application.selectors';
 
 @Component({
-  selector: 'app-my-github',
-  standalone: true,
-  imports: [
-    CommonModule,
-    GitProfileComponent,
-    RepositoriesListComponent,
-    TranslateModule,
-  ],
-  templateUrl: './my-github.component.html',
-  styleUrl: './my-github.component.css',
+    selector: 'app-my-github',
+    imports: [
+        CommonModule,
+        GitProfileComponent,
+        RepositoriesListComponent,
+        TranslateModule,
+    ],
+    templateUrl: './my-github.component.html',
+    styleUrl: './my-github.component.css'
 })
 export class MyGithubComponent implements OnInit {
   private store = inject(Store<ApplicationState>);

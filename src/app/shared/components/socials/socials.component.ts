@@ -9,11 +9,10 @@ import { ApplicationState } from '@store/application/application.reducer';
 import * as ApplicationSelectors from '@store/application/application.selectors';
 
 @Component({
-  selector: 'app-socials',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './socials.component.html',
-  styleUrl: './socials.component.css',
+    selector: 'app-socials',
+    imports: [CommonModule],
+    templateUrl: './socials.component.html',
+    styleUrl: './socials.component.css'
 })
 export class SocialsComponent {
   private store = inject(Store<ApplicationState>);

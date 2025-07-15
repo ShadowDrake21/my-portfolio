@@ -21,16 +21,15 @@ import { ApplicationState } from '@store/application/application.reducer';
 import * as ApplicationSelectors from '@store/application/application.selectors';
 
 @Component({
-  selector: 'app-projects',
-  standalone: true,
-  imports: [
-    CommonModule,
-    ProjectItemComponent,
-    StyledLinkComponent,
-    TranslateModule,
-  ],
-  templateUrl: './projects.component.html',
-  styleUrl: './projects.component.css',
+    selector: 'app-projects',
+    imports: [
+        CommonModule,
+        ProjectItemComponent,
+        StyledLinkComponent,
+        TranslateModule,
+    ],
+    templateUrl: './projects.component.html',
+    styleUrl: './projects.component.css'
 })
 export class ProjectsComponent implements OnInit {
   mainStackProjectsContent = mainStackProjectsContent;

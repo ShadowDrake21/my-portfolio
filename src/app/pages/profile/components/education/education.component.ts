@@ -16,11 +16,10 @@ import { ApplicationState } from '@store/application/application.reducer';
 import * as ApplicationSelectors from '@store/application/application.selectors';
 
 @Component({
-  selector: 'app-education',
-  standalone: true,
-  imports: [CommonModule, TranslateModule],
-  templateUrl: './education.component.html',
-  styleUrl: './education.component.css',
+    selector: 'app-education',
+    imports: [CommonModule, TranslateModule],
+    templateUrl: './education.component.html',
+    styleUrl: './education.component.css'
 })
 export class EducationComponent implements OnInit {
   educationContent = educationContent;

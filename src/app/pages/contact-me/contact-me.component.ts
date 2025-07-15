@@ -15,18 +15,15 @@ import { ApplicationState } from '@store/application/application.reducer';
 import * as ApplicationSelectors from '@store/application/application.selectors';
 
 @Component({
-  selector: 'app-contact-me',
-  standalone: true,
-  imports: [CommonModule, ContactFormComponent],
-  templateUrl: './contact-me.component.html',
-  styleUrl: './contact-me.component.css',
+    selector: 'app-contact-me',
+    imports: [CommonModule, ContactFormComponent],
+    templateUrl: './contact-me.component.html',
+    styleUrl: './contact-me.component.css'
 })
-export class ContactMeComponent implements OnInit {
-  private store = inject(Store<ApplicationState>);
+export class ContactMeComponent {
+  private readonly store = inject(Store<ApplicationState>);
 
-  themeMode$!: Observable<ThemeModeType | null>;
-
-  ngOnInit(): void {
-    this.themeMode$ = this.store.select(ApplicationSelectors.selectThemeMode);
-  }
+  themeMode$: Observable<ThemeModeType | null> = this.store.select(
+    ApplicationSelectors.selectThemeMode
+  );
 }

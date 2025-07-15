@@ -9,16 +9,15 @@ import { EducationComponent } from './components/education/education.component';
 import { StacksComponent } from '@shared/components/stacks/stacks.component';
 
 @Component({
-  selector: 'app-profile',
-  standalone: true,
-  imports: [
-    CommonModule,
-    BasicInfoComponent,
-    WorkingExperienceComponent,
-    StacksComponent,
-    EducationComponent,
-  ],
-  templateUrl: './profile.component.html',
-  styleUrl: './profile.component.css',
+    selector: 'app-profile',
+    imports: [
+        CommonModule,
+        BasicInfoComponent,
+        WorkingExperienceComponent,
+        StacksComponent,
+        EducationComponent,
+    ],
+    templateUrl: './profile.component.html',
+    styleUrl: './profile.component.css'
 })
 export class ProfileComponent {}

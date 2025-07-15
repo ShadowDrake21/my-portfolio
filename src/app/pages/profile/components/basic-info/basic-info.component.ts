@@ -16,11 +16,10 @@ import { ApplicationState } from '@store/application/application.reducer';
 import * as ApplicationSelectors from '@store/application/application.selectors';
 
 @Component({
-  selector: 'app-basic-info',
-  standalone: true,
-  imports: [CommonModule, MainTasksComponent, TranslateModule],
-  templateUrl: './basic-info.component.html',
-  styleUrl: './basic-info.component.css',
+    selector: 'app-basic-info',
+    imports: [CommonModule, MainTasksComponent, TranslateModule],
+    templateUrl: './basic-info.component.html',
+    styleUrl: './basic-info.component.css'
 })
 export class BasicInfoComponent implements OnInit {
   private store = inject(Store<ApplicationState>);

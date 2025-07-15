@@ -15,11 +15,10 @@ import * as ApplicationActions from '@store/application/application.actions';
 import { ThemeModeType } from '@shared/models/types.model';
 
 @Component({
-  selector: 'app-navbar',
-  standalone: true,
-  imports: [CommonModule, RouterModule, TranslateModule],
-  templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.css',
+    selector: 'app-navbar',
+    imports: [CommonModule, RouterModule, TranslateModule],
+    templateUrl: './navbar.component.html',
+    styleUrl: './navbar.component.css'
 })
 export class NavbarComponent implements OnInit, OnDestroy {
   private store = inject(Store<ApplicationState>);

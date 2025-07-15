@@ -15,17 +15,16 @@ import { ApplicationState } from 'src/app/store/application/application.reducer'
 import * as ApplicationSelectors from '@store/application/application.selectors';
 
 @Component({
-  selector: 'app-header',
-  standalone: true,
-  imports: [
-    CommonModule,
-    LanguageSwitchComponent,
-    NavbarComponent,
-    SocialsComponent,
-    TranslateModule,
-  ],
-  templateUrl: './header.component.html',
-  styleUrl: './header.component.css',
+    selector: 'app-header',
+    imports: [
+        CommonModule,
+        LanguageSwitchComponent,
+        NavbarComponent,
+        SocialsComponent,
+        TranslateModule,
+    ],
+    templateUrl: './header.component.html',
+    styleUrl: './header.component.css'
 })
 export class HeaderComponent implements OnInit {
   @Input({ required: true }) isHeaderFull: boolean = true;
