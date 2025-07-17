@@ -1,0 +1,118 @@
+.contact-form__inner {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  padding: var(--spacing-40) var(--zero-spacing) 70px;
+}
+
+.contact-form__second-inner {
+  max-width: 400px;
+  width: var(--full-spacing);
+}
+
+.contact-form__title {
+  padding-bottom: var(--spacing-15);
+}
+
+.contact-form__emailbox {
+  margin-bottom: 45px;
+  padding: 8px var(--spacing-10) 7px;
+  border: var(--spacing-1) solid var(--border-1);
+  color: var(--main-color-2);
+}
+
+.contact-form__socials {
+  display: flex;
+  justify-content: center;
+  padding-bottom: var(--spacing-40);
+}
+
+.contact-form__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-10);
+}
+
+.contact-form__wrapper-btn {
+  font-size: var(--spacing-18);
+  line-height: var(--spacing-24);
+  color: var(--white-color);
+  background-color: var(--black-color);
+  padding: 11px var(--spacing-10) var(--spacing-12);
+  width: var(--full-spacing);
+  outline: none;
+  border: none;
+}
+
+.contact-form__wrapper-btn:disabled {
+  background-color: var(--secondary-color-3);
+}
+
+.contact-form__copyright {
+  font-size: var(--spacing-14);
+  line-height: var(--spacing-18);
+  color: var(--main-color-1);
+  text-align: center;
+}
+
+.dark-mode__section .contact-form__emailbox {
+  color: var(--dark-mode__color-1);
+  border-color: var(--main-color-3);
+}
+
+.dark-mode__section .contact-form__wrapper-btn {
+  background-color: var(--white-color);
+  color: var(--black-color);
+}
+
+.dark-mode__section .contact-form__wrapper-btn:disabled {
+  color: var(--white-color);
+  background-color: var(--secondary-color-3);
+}
+
+@media (max-width: 800px) {
+  .contact-form__inner {
+    padding: 30px 0 50px;
+  }
+}
+
+@media (max-width: 700px) {
+  .contact-form__emailbox {
+    margin-bottom: 30px;
+  }
+
+  .contact-form__wrapper-btn {
+    font-size: 16px;
+    line-height: 22px;
+    padding: 10px 8px 11px;
+  }
+
+  .contact-form__socials {
+    padding-bottom: 30px;
+  }
+}
+
+@media (max-width: 500px) {
+  .contact-form__emailbox {
+    margin-bottom: 20px;
+  }
+
+  .contact-form__socials {
+    padding-bottom: 20px;
+  }
+
+  .contact-form__wrapper {
+    gap: 5px;
+  }
+}
+
+@media (max-width: 400px) {
+  .contact-form__inner {
+    padding: 20px 0 30px;
+  }
+
+  .contact-form__copyright {
+    font-size: 12px;
+    line-height: 16px;
+  }
+}

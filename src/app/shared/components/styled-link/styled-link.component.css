@@ -1,0 +1,31 @@
+.styled-link {
+  padding: var(--spacing-16) 48px var(--spacing-16) var(--spacing-40);
+  border: var(--spacing-1) solid var(--border-1);
+  position: relative;
+  text-decoration: none;
+  color: var(--black-color);
+}
+
+.styled-link::after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  background-image: url("/assets/icons/arrow-right.svg");
+  background-size: contain;
+  width: var(--spacing-24);
+  height: var(--spacing-24);
+  top: var(--half-spacing);
+  transform: translateY(var(--negative-half-spacing));
+  right: 13px;
+  z-index: 10;
+}
+
+.dark-mode__styled-link {
+  color: var(--white-color);
+  border: var(--spacing-1) solid var(--dark-mode__color-1);
+}
+
+.dark-mode__styled-link::after {
+  filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(117deg)
+    brightness(108%) contrast(101%);
+}

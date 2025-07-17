@@ -1,0 +1,121 @@
+.main-screen__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-20);
+  padding-bottom: 50px;
+}
+
+.main-screen__image-wrapper {
+  flex-shrink: var(--zero-spacing);
+  width: 440px;
+  height: 440px;
+  border-radius: var(--half-spacing);
+  overflow: hidden;
+}
+
+.main-screen__image {
+  width: var(--full-spacing);
+  height: var(--full-spacing);
+  object-fit: cover;
+}
+
+.main-screen__content {
+  text-align: center;
+}
+
+.main-screen__content-title {
+  font-size: 36px;
+  line-height: 44px;
+  padding-bottom: var(--spacing-10);
+}
+
+.main-screen__content-text {
+  padding-bottom: var(--spacing-10);
+}
+
+.main-screen__tasks-text {
+  padding-bottom: var(--spacing-15);
+}
+
+.main-screen__tasks-list {
+  display: flex;
+  gap: var(--spacing-15);
+  justify-content: space-between;
+}
+
+.main-screen__tasks-list__item {
+  color: var(--main-color-3);
+  position: relative;
+  padding-left: var(--spacing-20);
+}
+
+.main-screen__tasks-list__item::before {
+  position: absolute;
+  content: "";
+  width: var(--spacing-14);
+  height: var(--spacing-14);
+  border-radius: var(--half-spacing);
+  background-color: var(--main-color-2);
+  top: var(--half-spacing);
+  transform: translateY(var(--negative-half-spacing));
+  left: var(--zero-spacing);
+}
+
+@media (max-width: 1400px) {
+  .main-screen__content-title {
+    font-size: 32px;
+    line-height: 40px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .main-screen__content-title {
+    font-size: 30px;
+    line-height: 38px;
+  }
+
+  .main-screen__image-wrapper {
+    width: 380px;
+    height: 380px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .main-screen__top {
+    flex-direction: column;
+    padding-bottom: 40px;
+  }
+}
+
+@media (max-width: 600px) {
+  .main-screen__content-title {
+    font-size: 26px;
+    line-height: 34px;
+  }
+  .main-screen__top {
+    padding-bottom: 30px;
+  }
+}
+
+@media (max-width: 500px) {
+  .main-screen__image-wrapper {
+    width: 300px;
+    height: 300px;
+  }
+
+  .main-screen__content-title {
+    font-size: 24px;
+    line-height: 32px;
+  }
+}
+
+@media (max-width: 400px) {
+  .main-screen__content-title {
+    font-size: 22px;
+    line-height: 30px;
+  }
+  .main-screen__top {
+    padding-bottom: 20px;
+  }
+}

@@ -1,0 +1,23 @@
+<section class="latest-projects section" [appThemeClass]="themeMode$ | async">
+  <div class="latest-projects__top">
+    <h2 class="latest-project__title section-title">
+      {{ "latestProjects.title" | translate }}
+    </h2>
+    <helper-styled-link
+      link="/projects"
+      [title]="'latestProjects.link' | translate"
+    ></helper-styled-link>
+  </div>
+  @if (lastProjects$ | async; as lastProjects) {
+  <div class="latest-project__list">
+    @for (project of lastProjects; track $index) {
+    <div class="latest-project__list-item__wrapper">
+      <app-project-item
+        [themeMode]="themeMode$"
+        [item]="project"
+      ></app-project-item>
+    </div>
+    }
+  </div>
+  }
+</section>

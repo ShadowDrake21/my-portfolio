@@ -1,0 +1,15 @@
+<div style="display: flex; align-items: center; justify-content: space-between">
+  <span matSnackBarLabel>
+    {{ message }}
+  </span>
+  <span matSnackBarActions>
+    <button
+      mat-icon-button
+      color="warn"
+      matSnackBarAction
+      (click)="snackBarRef.dismissWithAction()"
+    >
+      <mat-icon color="white">delete</mat-icon>
+    </button>
+  </span>
+</div>

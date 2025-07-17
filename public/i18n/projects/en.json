@@ -1,0 +1,16 @@
+{
+  "projects": {
+    "title": "My Projects",
+    "tabs": {
+      "first": "Main stack",
+      "second": "Other"
+    },
+    "filtration": {
+      "technologyLabel": "Technology",
+      "yearLabel": "Year",
+      "resetBnt": "Reset",
+      "loadBtn": "Load all projects",
+      "errorMessage": "There is no project that satisfy that criteria"
+    }
+  }
+}

@@ -1,0 +1,36 @@
+<div
+  class="project-item"
+  [appThemeClass]="themeMode$ | async"
+  classSuffix="project-item"
+>
+  <img
+    [src]="copiedProjectItem.image"
+    alt="projectItem image"
+    class="project-item__img"
+  />
+
+  <div class="project-item__content">
+    <div class="project-item__technologies">
+      @for (image of copiedProjectItem.technologies; track $index) {
+      <img
+        [src]="image"
+        class="project-item__technology"
+        alt="project technology"
+      />}
+    </div>
+    <div class="project-item__links inter-medium">
+      <a
+        class="project-item__link main"
+        [href]="copiedProjectItem.link"
+        target="_blank"
+        >{{ copiedProjectItem.title }}</a
+      >
+      <a
+        class="project-item__link github"
+        [href]="copiedProjectItem.githubLink"
+        target="_blank"
+        >{{ "singleProject.github-link" | translate }}</a
+      >
+    </div>
+  </div>
+</div>

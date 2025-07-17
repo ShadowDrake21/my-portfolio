@@ -1,0 +1,34 @@
+.social-list {
+  display: flex;
+  gap: 26px;
+  list-style: none;
+  margin: var(--zero-spacing);
+  padding: var(--zero-spacing);
+}
+
+.social-list.dark-mode__socials
+  .social-list__item
+  .social-item__link
+  .social-item__link-icon {
+  filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(115deg)
+    brightness(106%) contrast(104%);
+}
+
+.social-item__link-icon {
+  width: 35px;
+  height: 35px;
+  object-fit: cover;
+}
+
+@media (max-width: 1000px) {
+  .social-list {
+    gap: 15px;
+  }
+}
+
+@media (max-width: 400px) {
+  .social-item__link-icon {
+    width: 30px;
+    height: 30px;
+  }
+}

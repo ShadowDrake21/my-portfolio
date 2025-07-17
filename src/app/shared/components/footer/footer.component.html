@@ -1,0 +1,21 @@
+<footer class="footer" [appThemeClass]="themeMode$ | async">
+  <div class="footer__inner">
+    <h3 class="footer__title section-title inter-semibold">
+      {{ "footer.title" | translate }}
+    </h3>
+    <div class="footer__socials">
+      <p>{{ "footer.socials-text" | translate }}</p>
+      <app-socials></app-socials>
+    </div>
+    <div class="footer__send-email">
+      <p>{{ "footer.email-text" | translate }}</p>
+      <helper-styled-link
+        link="/contact-me"
+        [title]="'footer.email-btn' | translate"
+      ></helper-styled-link>
+    </div>
+    <p class="footer__copyright">
+      {{ "footer.copyright" | translate }}
+    </p>
+  </div>
+</footer>

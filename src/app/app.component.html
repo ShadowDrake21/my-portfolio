@@ -1,0 +1,14 @@
+@let mode = themeMode$ | async;
+
+<div
+  class="body-inner"
+  [class.body-light]="mode === 'light'"
+  [class.body-dark]="mode === 'dark'"
+>
+  <app-header [isHeaderFull]="isContactMePage"></app-header>
+  <div class="container">
+    <router-outlet></router-outlet>
+    @if (isContactMePage) {
+    <app-footer></app-footer>}
+  </div>
+</div>

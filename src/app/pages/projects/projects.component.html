@@ -1,0 +1,116 @@
+@let mode = themeMode$ | async;
+
+<div class="page">
+  <section class="section first-screen projects" [appThemeClass]="mode">
+    <h2 class="section-title inter-semibold">
+      {{ "projects.title" | translate }}
+    </h2>
+    <mat-tab-group
+      animationDuration="0ms"
+      (selectedTabChange)="onTabChanged($event)"
+    >
+      <mat-tab [label]="'projects.tabs.first' | translate">
+        <div class="projects-tab">
+          <form
+            [formGroup]="projectFiltrationForm"
+            class="projects-tab__filtration"
+          >
+            <div class="projects-tab__filtration-inner">
+              <mat-form-field class="projects-tab__filtration-field">
+                <mat-label>
+                  {{ "projects.filtration.technologyLabel" | translate }}
+                </mat-label>
+                <mat-select
+                  (selectionChange)="onFormChange()"
+                  formControlName="technology"
+                >
+                  @for (technology of technologyFilterContent; track $index) {
+                  <mat-option [value]="technology">{{ technology }}</mat-option
+                  >}
+                </mat-select>
+              </mat-form-field>
+              <mat-form-field class="projects-tab__filtration-field">
+                <mat-label>
+                  {{ "projects.filtration.yearLabel" | translate }}
+                </mat-label>
+                <mat-select
+                  (selectionChange)="onFormChange()"
+                  formControlName="year"
+                >
+                  @for (year of yearFilterContent; track $index) {
+                  <mat-option [value]="year">{{ year }}</mat-option>
+                  }
+                </mat-select>
+              </mat-form-field>
+            </div>
+            @if (projectFiltrationForm.touched) {
+            <button
+              mat-flat-button
+              color="warn"
+              class="projects-tab__filtration-btn"
+              type="reset"
+            >
+              {{ "projects.filtration.resetBnt" | translate }}</button
+            >} @if (!checkIfDataChanged()) {
+            <button
+              type="button"
+              mat-flat-button
+              color="primary"
+              class="projects-tab__filtration-btn"
+              (click)="loadAllProjects()"
+            >
+              {{ "projects.filtration.loadBtn" | translate }}</button
+            >}
+          </form>
+          @if (copiedMainStackProjectsContent.length) {
+          <div class="projects-tab__list">
+            @for (item of copiedMainStackProjectsContent | slice:
+            (mainCurrentPage-1) * itemsPerPage : mainCurrentPage * itemsPerPage;
+            track item) {
+            <app-project-item
+              [themeMode]="themeMode$"
+              [item]="item"
+            ></app-project-item>
+            }
+          </div>
+          } @else {
+          <div class="projects-tab__list-noelements">
+            <h4 class="inter-medium">
+              {{ "projects.filtration.errorMessage" | translate }}
+            </h4>
+          </div>
+          } @if (getContentSize('main') > itemsPerPage &&
+          copiedMainStackProjectsContent.length > itemsPerPage) {
+          <ngb-pagination
+            class="project-tab__pagination"
+            [(page)]="mainCurrentPage"
+            [pageSize]="itemsPerPage"
+            [collectionSize]="getContentSize('main')"
+          />}
+        </div>
+      </mat-tab>
+      <mat-tab [label]="'projects.tabs.second' | translate">
+        <div class="projects-tab">
+          <div class="projects-tab__list">
+            @for (item of copiedOtherProjectsContent | slice:
+            (otherCurrentPage-1) * itemsPerPage : otherCurrentPage *
+            itemsPerPage; track item) {
+            <app-project-item
+              [themeMode]="themeMode$"
+              [item]="item"
+            ></app-project-item>
+            }
+          </div>
+
+          @if (getContentSize('other') > itemsPerPage) {
+          <ngb-pagination
+            class="project-tab__pagination"
+            [(page)]="otherCurrentPage"
+            [pageSize]="itemsPerPage"
+            [collectionSize]="getContentSize('other')"
+          />}
+        </div></mat-tab
+      >
+    </mat-tab-group>
+  </section>
+</div>

@@ -1,0 +1,28 @@
+<section
+  class="section working-experience"
+  [appThemeClass]="themeMode$ | async"
+>
+  <h2 class="section-title working-experience__title">
+    {{ "workingExperience.title" | translate }}
+  </h2>
+  @if (workingExperienceContent.length) {
+  <div class="working-experience__list">
+    @for (item of workingExperienceContent; track $index) {
+    <div class="working-experience__list-item">
+      <h5 class="working-experience__list-item__title inter-medium">
+        {{ item.positionName }}
+      </h5>
+      <span class="working-experience__list-item__text">{{
+        item.companyName + ", " + item.workYears
+      }}</span>
+    </div>
+    }
+  </div>
+  } @else {
+  <div class="working-experience__noexperience-wrapper">
+    <p class="working-experience__noexperience inter-medium">
+      {{ "workingExperience.noExperience" | translate }}
+    </p>
+  </div>
+  }
+</section>

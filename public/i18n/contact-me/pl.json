@@ -1,0 +1,11 @@
+{
+  "contactForm": {
+    "title": "Współpracujmy!",
+    "labels": {
+      "name": "Imię",
+      "email": "E-mail",
+      "message": "Wiadomość"
+    },
+    "btn": "Wysłać wiadomość"
+  }
+}

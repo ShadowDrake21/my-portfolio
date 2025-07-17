@@ -1,0 +1,26 @@
+<section class="section education" [appThemeClass]="themeMode$ | async">
+  <h2 class="section-title education__title">
+    {{ "education.title" | translate }}
+  </h2>
+  <div class="education__list">
+    @for (item of educationContent; track $index) {
+    <div class="education__list-item">
+      <div class="education__list-item__left">
+        <h5 class="education__list-item__title inter-medium">
+          {{ "education.item-1.title" | translate }}
+        </h5>
+        <span class="education__list-item__text">
+          {{ "education.item-1.subtitle" | translate }}
+        </span>
+      </div>
+      @if (item.yearsToFinish) {
+      <div class="education__list-item__right">
+        <p class="education__list-item__right-text">
+          {{ "education.item-1.remainder" | translate }}
+        </p>
+      </div>
+      }
+    </div>
+    }
+  </div>
+</section>

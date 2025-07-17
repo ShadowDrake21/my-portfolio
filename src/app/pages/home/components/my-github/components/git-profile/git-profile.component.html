@@ -1,0 +1,42 @@
+@let mode = themeMode$ | async; @if (profile()) {
+<div
+  class="my-github__profile"
+  [appThemeClass]="mode"
+  classSuffix="git-profile"
+>
+  <div class="my-github__profile-img__wrapper">
+    <img
+      class="my-github__profile-img"
+      [src]="profile()?.avatar_url || '/assets/my-photos/profile-page.jpg'"
+      alt="git-user img"
+    />
+  </div>
+  <div class="my-github__profile-content">
+    <div class="my-github__profile-content__top">
+      <h4 class="my-github__profile-content__name inter-semibold">
+        {{ profile()?.name }}
+      </h4>
+      @if (profile()?.location) {
+      <div class="my-github__profile-content__location">
+        {{ profile()?.location }}
+      </div>
+      }
+    </div>
+    <div class="my-github__profile-login inter-light">
+      <span>{{ profile()?.login }}</span>
+      <span>he/him</span>
+    </div>
+    <p class="my-github__profile-text inter-light">{{ profile()?.bio }}</p>
+    <p class="my-github__profile-text inter-light">
+      Number of public repositories: {{ profile()?.public_repos }}
+    </p>
+    <a
+      [href]="profile()?.html_url"
+      target="_blank"
+      class="my-github__profile-link"
+    >
+      {{ "myGitHub.link" | translate }}</a
+    >
+  </div>
+</div>
+}

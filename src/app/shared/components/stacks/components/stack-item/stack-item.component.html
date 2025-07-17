@@ -1,0 +1,32 @@
+<div
+  class="stack-item"
+  [appThemeClass]="themeMode$ | async"
+  classSuffix="stack-item"
+>
+  <div class="stack-item__icon-wrapper">
+    <img [src]="stackItem.icon" class="stack-item__icon" alt="stack icon" />
+  </div>
+  <div class="stack-item__content">
+    @if (stackItem.level) {
+    <h4 class="stack-item__title inter-medium">
+      {{
+        "stacks.languageStack.list." + (stackItem.title | lowercase) + ".title"
+          | translate
+      }}
+    </h4>
+    } @else {
+    <h4 class="stack-item__title inter-medium">
+      {{ stackItem.title }}
+    </h4>
+    } @if (stackItem.level) {
+    <span class="stack-item__level inter-light"
+      >{{ "stacks.languageStack.levelSubtitle" | translate | titlecase }}:
+      {{
+        "stacks.languageStack.list." + (stackItem.title | lowercase) + ".level"
+          | translate
+          | titlecase
+      }}</span
+    >
+    }
+  </div>
+</div>

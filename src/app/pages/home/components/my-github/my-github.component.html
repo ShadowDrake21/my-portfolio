@@ -1,0 +1,15 @@
+<section class="my-github section" [appThemeClass]="themeMode$ | async">
+  <h2 class="my-github__title section-title">
+    {{ "myGitHub.title" | translate }}
+  </h2>
+  <div class="my-github__inner">
+    <div class="my-github__left">
+      <app-git-profile [profile]="user$ | async"></app-git-profile>
+    </div>
+    <div class="my-github__right">
+      <app-repositories-list
+        [repositories]="repos$ | async"
+      ></app-repositories-list>
+    </div>
+  </div>
+</section>

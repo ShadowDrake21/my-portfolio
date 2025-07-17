@@ -1,0 +1,38 @@
+<section
+  class="section basic-info first-screen"
+  [appThemeClass]="themeMode$ | async"
+>
+  <div class="basic-info__top">
+    <img
+      src="/assets/my-photos/profile-page.jpg"
+      alt="my photo"
+      class="basic-info__top-img"
+    />
+    <div class="basic-info__top-content">
+      <h1 class="basic-info__top-content__title inter-semibold">
+        {{ "basicInfo.title" | translate }}
+      </h1>
+      <div class="basic-info__top-content__text">
+        <p>
+          {{ "basicInfo.top-content.text-1" | translate }}
+        </p>
+        <p>{{ "basicInfo.top-content.text-2" | translate }}</p>
+        <p>
+          {{ "basicInfo.top-content.text-3" | translate }}
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="basic-info__bottom">
+    <p>
+      {{ "basicInfo.bottom-content.text-1" | translate }}
+    </p>
+    <p>
+      {{ "basicInfo.bottom-content.text-2" | translate }}
+    </p>
+    <p>
+      {{ "basicInfo.bottom-content.text-3" | translate }}
+    </p>
+  </div>
+  <app-main-tasks></app-main-tasks>
+</section>

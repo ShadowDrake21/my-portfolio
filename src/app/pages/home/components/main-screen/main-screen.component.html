@@ -1,0 +1,38 @@
+@let mode = themeMode$ | async;
+
+<section class="section main-screen first-screen" [appThemeClass]="mode">
+  <div class="main-screen__top">
+    <div class="main-screen__image-wrapper">
+      <img
+        class="main-screen__image"
+        src="/assets/my-photos/home-page.jpg"
+        alt="author-photo"
+      />
+    </div>
+    <div class="main-screen__content">
+      <h1
+        class="main-screen__content-title"
+        [innerHTML]="'mainScreen.title' | translate"
+      ></h1>
+      <div [appThemeClass]="mode" classSuffix="text">
+        <p class="main-screen__content-text">
+          {{ "mainScreen.text.paragraph-1" | translate }}
+        </p>
+        <p class="main-screen__content-text">
+          {{ "mainScreen.text.paragraph-2" | translate }}
+        </p>
+        <p class="main-screen__content-text">
+          {{ "mainScreen.text.paragraph-3" | translate }}
+        </p>
+        <p class="main-screen__content-text">
+          {{ "mainScreen.text.paragraph-4" | translate }}
+        </p>
+      </div>
+      <helper-styled-link
+        link="/profile"
+        [title]="'mainScreen.link' | translate"
+      />
+    </div>
+  </div>
+  <app-main-tasks></app-main-tasks>
+</section>

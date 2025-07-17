@@ -1,0 +1,38 @@
+@let mode = themeMode$ | async;
+
+<section class="section my-story" [appThemeClass]="mode">
+  <h2 class="section-title my-story__title">
+    {{ "myStory.title" | translate }}
+  </h2>
+  <div class="my-story__content-item">
+    <h5 class="my-story__content-item__title">
+      {{ "myStory.part-1.title" | translate }}
+    </h5>
+    <p
+      class="my-story__content-item__text"
+      [appThemeClass]="mode"
+      classSuffix="text"
+    >
+      {{ "myStory.part-1.paragraphs.1" | translate }}
+    </p>
+  </div>
+  <div class="my-story__content-item">
+    <h5 class="my-story__content-item__title">
+      {{ "myStory.part-2.title" | translate }}
+    </h5>
+    <p
+      class="my-story__content-item__text"
+      [appThemeClass]="mode"
+      classSuffix="text"
+    >
+      {{ "myStory.part-2.paragraphs.1" | translate }}
+    </p>
+    <p
+      class="my-story__content-item__text"
+      [appThemeClass]="mode"
+      classSuffix="text"
+    >
+      {{ "myStory.part-2.paragraphs.2" | translate }}
+    </p>
+  </div>
+</section>

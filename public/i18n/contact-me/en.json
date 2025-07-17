@@ -1,0 +1,11 @@
+{
+  "contactForm": {
+    "title": "Send Message",
+    "labels": {
+      "name": "Name",
+      "email": "E-mail",
+      "message": "Message"
+    },
+    "btn": "Send Message"
+  }
+}

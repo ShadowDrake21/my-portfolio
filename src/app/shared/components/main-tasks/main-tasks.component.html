@@ -1,0 +1,10 @@
+<div class="tasks" [appThemeClass]="themeMode$ | async" classSuffix="tasks">
+  <p class="tasks-text">{{ "mainScreen.mainTasks.text" | translate }}</p>
+  <ul class="tasks-list">
+    @for (task of mainTasksContent; track $index; let i = $index) {
+    <li class="tasks-list__item">
+      {{ "mainScreen.mainTasks.list.task-" + (i + 1) | translate }}
+    </li>
+    }
+  </ul>
+</div>
