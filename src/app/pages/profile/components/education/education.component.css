@@ -27,7 +27,7 @@
   content: "";
   width: var(--spacing-20);
   height: var(--spacing-20);
-  background-image: url("/assets/icons/education/bachelor-hat.svg");
+  background-image: url("/icons/education/bachelor-hat.svg");
   background-repeat: no-repeat;
   background-size: contain;
   top: var(--spacing-20);

@@ -1,6 +1,6 @@
 <section
   class="section first-screen contact-form"
-  [ngClass]="themeMode$ | async | themeClass"
+  [appThemeClass]="themeMode$ | async"
 >
   <div class="contact-form__inner">
     <div class="contact-form__second-inner">

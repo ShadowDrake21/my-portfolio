@@ -1,5 +1,5 @@
 // angular stuff
-import { Injectable } from '@angular/core';
+import { effect, Injectable, signal } from '@angular/core';
 import { BehaviorSubject, distinctUntilChanged, Observable, of } from 'rxjs';
 
 // utils
@@ -12,17 +12,16 @@ const THEME_MODE_KEY = 'themeMode';
 
 @Injectable({ providedIn: 'root' })
 export class ThemeModeService {
-  private _themeMode$$: BehaviorSubject<ThemeModeType>;
+  themeMode = signal<ThemeModeType>('light');
 
   constructor() {
-    this._themeMode$$ = new BehaviorSubject<ThemeModeType>('light');
     this.initializeThemeMode();
   }
 
   private initializeThemeMode(): void {
     const storedTheme = this.loadThemeModeFromStorage();
     if (storedTheme) {
-      this._themeMode$$.next(storedTheme);
+      this.themeMode.set(storedTheme);
     }
   }
 
@@ -44,17 +43,13 @@ export class ThemeModeService {
     return value === 'light' || value === 'dark';
   }
 
-  get themeMode$(): Observable<ThemeModeType> {
-    return this._themeMode$$.asObservable().pipe(distinctUntilChanged());
-  }
-
   setThemeMode(value: ThemeModeType): void {
     if (this.isValidThemeMode(value)) {
       console.warn(`Invalid theme mode attempted: ${value}`);
       return;
     }
 
-    this._themeMode$$.next(value);
+    this.themeMode.set(value);
     this.saveThemeModeToStorage(value);
   }
 
@@ -75,7 +70,7 @@ export class ThemeModeService {
   }
 
   toggleThemeMode(): void {
-    const current = this._themeMode$$.value;
+    const current = this.themeMode();
     this.setThemeMode(current === 'light' ? 'dark' : 'light');
   }
 }

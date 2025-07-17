@@ -213,7 +213,7 @@ a {
 .dark-mode__header .header-location__span::before {
   position: absolute;
   left: var(--zero-spacing);
-  content: url("/assets/icons/location.svg");
+  content: url("/icons/location.svg");
   filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(351deg)
     brightness(104%) contrast(102%);
   width: var(--spacing-16);
@@ -269,7 +269,7 @@ a {
 .header-location__span::before {
   position: absolute;
   left: var(--zero-spacing);
-  content: url("/assets/icons/location.svg");
+  content: url("/icons/location.svg");
   width: var(--spacing-16);
   height: var(--spacing-16);
   top: var(--half-spacing);

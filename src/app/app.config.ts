@@ -36,10 +36,10 @@ export const appConfig: ApplicationConfig = {
           useFactory: (http: HttpClient): MultiTranslateHttpLoader => {
             return new MultiTranslateHttpLoader(http, {
               resources: [
-                { prefix: '../assets/i18n/home/', suffix: '.json' },
-                { prefix: '../assets/i18n/profile/', suffix: '.json' },
-                { prefix: '../assets/i18n/projects/', suffix: '.json' },
-                { prefix: '../assets/i18n/contact-me/', suffix: '.json' },
+                { prefix: 'i18n/home/', suffix: '.json' },
+                { prefix: 'i18n/profile/', suffix: '.json' },
+                { prefix: 'i18n/projects/', suffix: '.json' },
+                { prefix: 'i18n/contact-me/', suffix: '.json' },
               ],
             });
           },

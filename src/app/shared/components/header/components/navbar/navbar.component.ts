@@ -13,10 +13,11 @@ import * as ApplicationActions from '@store/application/application.actions';
 // interfaces and types
 import { ThemeModeType } from '@shared/models/types.model';
 import { ThemeClassDirective } from '@shared/directives/theme-class.directive';
+import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-navbar',
-  imports: [RouterModule, TranslateModule, ThemeClassDirective],
+  imports: [RouterModule, TranslateModule, ThemeClassDirective, AsyncPipe],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css',
 })
@@ -27,7 +28,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   private currentThemeMode: ThemeModeType | null = null;
   private subscription: Subscription = new Subscription();
 
-  private cvUrl = '/assets/Krapyvianskyi D. - CV.pdf';
+  private cvUrl = 'Krapyvianskyi D. - CV.pdf';
 
   ngOnInit(): void {
     this.initializeThemeMode();
@@ -41,7 +42,6 @@ export class NavbarComponent implements OnInit, OnDestroy {
           : ('light' as ThemeModeType);
 
       if (updatedThemeMode !== this.currentThemeMode) {
-        console.log('onChangeTheme()', updatedThemeMode);
         this.store.dispatch(
           ApplicationActions.setThemeMode({ themeMode: updatedThemeMode })
         );

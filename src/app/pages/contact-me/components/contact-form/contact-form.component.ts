@@ -19,6 +19,8 @@ import { ContactMeService } from '@core/services/contactMe.service';
 import { environment } from 'src/environments/environment.development';
 import { ContactFormData } from '@shared/models/contact-me.model';
 import { ThemeClassPipe } from '@shared/pipes/theme-class.pipe';
+import { ThemeClassDirective } from '@shared/directives/theme-class.directive';
+import { AsyncPipe } from '@angular/common';
 
 type TRANSLATE_MESSAGE_TYPES =
   | 'SUCCESS_MESSAGE'
@@ -36,7 +38,8 @@ type TRANSLATE_MESSAGE_TYPES =
     MatFormFieldModule,
     ReactiveFormsModule,
     TranslateModule,
-    ThemeClassPipe,
+    ThemeClassDirective,
+    AsyncPipe,
   ],
   templateUrl: './contact-form.component.html',
   styleUrl: './contact-form.component.css',

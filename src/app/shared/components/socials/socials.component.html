@@ -1,9 +1,4 @@
-<ul
-  class="social-list"
-  [ngClass]="{
-    'dark-mode__socials': (themeMode$ | async) === 'dark'
-  }"
->
+<ul class="social-list" [appThemeClass]="themeMode$ | async">
   <li class="social-list__item">
     <a
       href="https://www.facebook.com/profile.php?id=100081115124854"
@@ -11,7 +6,7 @@
       class="social-item__link"
     >
       <img
-        src="/assets/icons/socials/facebook.svg"
+        src="/icons/socials/facebook.svg"
         alt="facebook"
         class="social-item__link-icon"
       />
@@ -23,11 +18,7 @@
       target="_blank"
       class="social-item__link"
     >
-      <img
-        src="/assets/icons/socials/x1.svg"
-        class="social-item__link-icon"
-        alt="x"
-      />
+      <img src="/icons/socials/x1.svg" class="social-item__link-icon" alt="x" />
     </a>
   </li>
   <li class="social-list__item">
@@ -37,7 +28,7 @@
       class="social-item__link"
     >
       <img
-        src="/assets/icons/socials/linkedin.svg"
+        src="/icons/socials/linkedin.svg"
         class="social-item__link-icon"
         alt="linked in"
       />
@@ -46,7 +37,7 @@
   <li class="social-list__item">
     <a href="https://t.me/Drake21" target="_blank" class="social-item__link">
       <img
-        src="/assets/icons/socials/telegram.svg"
+        src="/icons/socials/telegram.svg"
         class="social-item__link-icon"
         alt="telegram"
       />
@@ -59,7 +50,7 @@
       class="social-item__link"
     >
       <img
-        src="/assets/icons/socials/github.svg"
+        src="/icons/socials/github.svg"
         class="social-item__link-icon"
         alt="github"
       />

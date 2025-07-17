@@ -34,7 +34,7 @@
   content: "";
   width: var(--spacing-16);
   height: var(--spacing-16);
-  background-image: url("/assets/icons/location.svg");
+  background-image: url("/icons/location.svg");
   background-size: contain;
   background-repeat: no-repeat;
   left: var(--zero-spacing);

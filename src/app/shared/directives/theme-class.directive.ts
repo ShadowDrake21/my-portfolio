@@ -1,4 +1,12 @@
-import { Directive, ElementRef, inject, input, OnInit } from '@angular/core';
+import {
+  Directive,
+  effect,
+  ElementRef,
+  inject,
+  input,
+  OnInit,
+} from '@angular/core';
+import { ThemeModeService } from '@core/services/themeMode.service';
 import { ThemeModeType } from '@shared/models/types.model';
 
 type ClassSuffixType =
@@ -19,16 +27,24 @@ type ClassSuffixType =
 })
 export class ThemeClassDirective implements OnInit {
   private readonly el = inject(ElementRef);
+  private readonly themeModeService = inject(ThemeModeService);
   appThemeClass = input<ThemeModeType | null>(null);
 
   classSuffix = input<ClassSuffixType>('section');
 
+  private themeEffect = effect(() => {
+    const theme = this.themeModeService.themeMode();
+    this.updateThemeClasses(theme);
+  });
+
   ngOnInit(): void {
-    this.updateThemeClasses();
+    this.updateThemeClasses(this.themeModeService.themeMode());
   }
 
-  private updateThemeClasses(): void {
-    const theme = this.appThemeClass();
+  private updateThemeClasses(theme: ThemeModeType): void {
+    console.log('Updating theme classes...', {
+      theme,
+    });
     const suffix = this.classSuffix();
 
     this.el.nativeElement.classList.remove(

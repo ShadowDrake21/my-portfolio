@@ -8,7 +8,7 @@ import { forkJoin, map, Observable } from 'rxjs';
 import { Resource } from '@shared/models/types.model';
 
 export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http, 'src/assets/i18n/', '.json');
+  return new TranslateHttpLoader(http, 'public/i18n/', '.json');
 }
 
 export const mergeObjectsRecursively = (
@@ -61,10 +61,7 @@ export class MultiTranslateHttpLoader implements TranslateLoader {
     let resources: Resource[] = [...this.resources];
 
     if (this.withCommon) {
-      resources = [
-        { prefix: '../assets/i18n/common/', suffix: '.json' },
-        ...resources,
-      ];
+      resources = [{ prefix: 'i18n/common/', suffix: '.json' }, ...resources];
     }
 
     return forkJoin(

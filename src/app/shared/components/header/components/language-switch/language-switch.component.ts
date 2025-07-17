@@ -26,6 +26,7 @@ import { languageType, ThemeModeType } from '@shared/models/types.model';
 import { ApplicationState } from '@store/application/application.reducer';
 import * as ApplicationSelectors from '@store/application/application.selectors';
 import { ThemeClassDirective } from '@shared/directives/theme-class.directive';
+import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-language-switch',
@@ -35,6 +36,7 @@ import { ThemeClassDirective } from '@shared/directives/theme-class.directive';
     ClickOutsideDirective,
     TranslateModule,
     ThemeClassDirective,
+    AsyncPipe,
   ],
   templateUrl: './language-switch.component.html',
   styleUrl: './language-switch.component.css',
@@ -124,16 +126,13 @@ export class LanguageSwitchComponent implements OnInit, AfterViewInit {
   updateLanguageImage(language: languageType) {
     switch (language) {
       case 'en':
-        this.currentLanguageImg =
-          '/assets/icons/language-switcher/english-flag.svg';
+        this.currentLanguageImg = '/icons/language-switcher/english-flag.svg';
         break;
       case 'pl':
-        this.currentLanguageImg =
-          '/assets/icons/language-switcher/poland-flag.svg';
+        this.currentLanguageImg = '/icons/language-switcher/poland-flag.svg';
         break;
       case 'ua':
-        this.currentLanguageImg =
-          '/assets/icons/language-switcher/ukraine-flag.svg';
+        this.currentLanguageImg = '/icons/language-switcher/ukraine-flag.svg';
         break;
     }
   }

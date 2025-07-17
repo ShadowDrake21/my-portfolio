@@ -11,10 +11,11 @@ import { ThemeModeType } from '@shared/models/types.model';
 import * as ApplicationSelectors from '@store/application/application.selectors';
 import { ApplicationState } from '@store/application/application.reducer';
 import { ThemeClassDirective } from '@shared/directives/theme-class.directive';
+import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-my-story',
-  imports: [TranslateModule, ThemeClassDirective],
+  imports: [TranslateModule, ThemeClassDirective, AsyncPipe],
   templateUrl: './my-story.component.html',
   styleUrl: './my-story.component.css',
 })

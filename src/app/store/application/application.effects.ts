@@ -1,7 +1,7 @@
 // angular stuff
 import { inject, Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { catchError, exhaustMap, map, of } from 'rxjs';
+import { catchError, exhaustMap, map, of, tap } from 'rxjs';
 
 // services
 import { ThemeModeService } from '@core/services/themeMode.service';
@@ -35,6 +35,10 @@ export class ApplicationEffects {
       ofType(ApplicationActions.setThemeMode),
       exhaustMap(({ themeMode }) =>
         this.themeModeService.saveThemeMode(themeMode).pipe(
+          tap(() => {
+            console.log(`Theme mode set to: ${themeMode}`);
+            this.themeModeService.themeMode.set(themeMode);
+          }),
           map(() => ApplicationActions.setThemeModeSuccess({ themeMode })),
           catchError(() => of(ApplicationActions.setThemeModeFailure()))
         )

@@ -10,7 +10,7 @@
   content: "";
   display: inline-block;
   position: absolute;
-  background-image: url("/assets/icons/arrow-right.svg");
+  background-image: url("/icons/arrow-right.svg");
   background-size: contain;
   width: var(--spacing-24);
   height: var(--spacing-24);
