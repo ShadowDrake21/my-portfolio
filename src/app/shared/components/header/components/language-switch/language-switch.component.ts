@@ -2,6 +2,7 @@
 import {
   AfterViewInit,
   Component,
+  DestroyRef,
   ElementRef,
   inject,
   OnInit,
@@ -9,7 +10,7 @@ import {
 } from '@angular/core';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
@@ -17,16 +18,19 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { ClickOutsideDirective } from '@shared/directives/click-outside.directive';
 
 // utils
-import { retrieveFromLS, saveToLS } from '@shared/utils/localStorage.utils';
+import { saveToLS } from '@shared/utils/localStorage.utils';
 
 // interfaces and types
-import { languageType, ThemeModeType } from '@shared/models/types.model';
+import { LanguageType } from '@shared/models/types.model';
 
 // created ngrx stuff
 import { ApplicationState } from '@store/application/application.reducer';
 import * as ApplicationSelectors from '@store/application/application.selectors';
 import { ThemeClassDirective } from '@shared/directives/theme-class.directive';
 import { AsyncPipe } from '@angular/common';
+import { getCurrentLanguage } from './utils/current-language.utils';
+import { languageIcons } from './icons/language-icons';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-language-switch',
@@ -42,103 +46,92 @@ import { AsyncPipe } from '@angular/common';
   styleUrl: './language-switch.component.css',
 })
 export class LanguageSwitchComponent implements OnInit, AfterViewInit {
-  private store = inject(Store<ApplicationState>);
-  private translate = inject(TranslateService);
+  private readonly store = inject(Store<ApplicationState>);
+  private readonly translate = inject(TranslateService);
+  private readonly destroyRef = inject(DestroyRef);
 
   @ViewChild('languageSwitchDropdown')
-  languageSwitchDropdown!: ElementRef<HTMLUListElement>;
+  private languageSwitchDropdown!: ElementRef<HTMLUListElement>;
 
-  private isListenerAttached = false;
-
-  themeMode$!: Observable<ThemeModeType | null>;
-  currentLanguage$$: BehaviorSubject<languageType> =
-    new BehaviorSubject<languageType>('en');
-
-  currentLanguageImg!: string;
+  themeMode$ = this.store.select(ApplicationSelectors.selectThemeMode);
+  currentLanguage$$ = new BehaviorSubject<LanguageType>(getCurrentLanguage());
+  currentLanguageImg: string = '';
 
   ngOnInit(): void {
-    this.themeMode$ = this.store.select(ApplicationSelectors.selectThemeMode);
-    const currentLanguageStr = retrieveFromLS('current_language');
-    if (currentLanguageStr) {
-      const currentLanguageCode = JSON.parse(
-        currentLanguageStr
-      ) as languageType;
-      this.currentLanguage$$.next(currentLanguageCode);
+    this.translate.use(this.currentLanguage$$.getValue());
+    this.updateLanguageImage(this.currentLanguage$$.getValue());
 
-      this.translate.use(currentLanguageCode);
-    }
-    this.currentLanguage$$.subscribe((language) => {
-      this.updateLanguageImage(language);
-    });
-  }
-
-  onToggleLanguageSwitch(event: MouseEvent) {
-    event?.stopPropagation();
-    const el = this.languageSwitchDropdown.nativeElement;
-    el.classList.toggle('show');
+    this.currentLanguage$$
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe((language) => {
+        this.updateLanguageImage(language);
+      });
   }
 
   ngAfterViewInit(): void {
     this.setActiveLanguage();
-    this.onLanguageSwitch();
+    this.setupLanguageSwitchListener();
   }
 
-  setActiveLanguage() {
-    const language = this.currentLanguage$$.getValue();
-    const sociaListEl = this.languageSwitchDropdown.nativeElement;
-    (Array.from(sociaListEl.children) as Array<HTMLLIElement>)
-      .find((li) => li.dataset?.['language'] === language)
-      ?.classList.add('active');
+  toggleLanguageDropdown(event: MouseEvent) {
+    event?.stopPropagation();
+    this.languageSwitchDropdown.nativeElement.classList.toggle('show');
   }
 
-  onLanguageSwitch() {
-    const sociaListEl = this.languageSwitchDropdown.nativeElement;
+  closeDropdown() {
+    this.languageSwitchDropdown.nativeElement.classList.remove('show');
+  }
 
-    if (!this.isListenerAttached) {
-      sociaListEl.addEventListener('click', (event) => {
+  private setActiveLanguage(): void {
+    const languageElements = this.getLanguagesHtmlElements();
+    const activeElement = languageElements.find((li) =>
+      this.isLanguageActive(li)
+    );
+    languageElements.forEach((li) => li.classList.remove('active'));
+    activeElement?.classList.add('active');
+  }
+
+  private isLanguageActive(li: HTMLLIElement): boolean {
+    return li.dataset?.['language'] === this.currentLanguage$$.value;
+  }
+
+  private getLanguagesHtmlElements(): HTMLLIElement[] {
+    return Array.from(
+      this.languageSwitchDropdown.nativeElement.children
+    ) as HTMLLIElement[];
+  }
+
+  private setupLanguageSwitchListener() {
+    this.languageSwitchDropdown.nativeElement.addEventListener(
+      'click',
+      (event) => {
         const target = event.target as HTMLElement;
-        const liElement = target.closest(
+        const languageElement = target.closest(
           'li.language-switch__option'
         ) as HTMLLIElement;
 
-        if (liElement) {
-          const choosenLanguage = liElement.dataset?.['language'];
+        if (!languageElement) return;
 
-          if (choosenLanguage) {
-            (Array.from(sociaListEl.children) as Array<HTMLLIElement>).forEach(
-              (li) => {
-                li.classList.toggle('active', li === liElement);
-              }
-            );
+        const selectedLanguage = languageElement.dataset?.[
+          'language'
+        ] as LanguageType;
 
-            saveToLS('current_language', choosenLanguage);
-            this.currentLanguage$$.next(choosenLanguage as languageType);
-            this.translate.use(choosenLanguage);
-            sociaListEl.classList.remove('show');
-          }
-        }
-      });
+        if (!selectedLanguage) return;
 
-      this.isListenerAttached = true;
-    }
+        this.changeLanguage(selectedLanguage);
+      }
+    );
   }
 
-  updateLanguageImage(language: languageType) {
-    switch (language) {
-      case 'en':
-        this.currentLanguageImg = '/icons/language-switcher/english-flag.svg';
-        break;
-      case 'pl':
-        this.currentLanguageImg = '/icons/language-switcher/poland-flag.svg';
-        break;
-      case 'ua':
-        this.currentLanguageImg = '/icons/language-switcher/ukraine-flag.svg';
-        break;
-    }
+  private changeLanguage(language: LanguageType): void {
+    saveToLS('current_language', language);
+    this.currentLanguage$$.next(language);
+    this.translate.use(language);
+    this.setActiveLanguage();
+    this.closeDropdown();
   }
 
-  clickedOutside(): void {
-    const el = this.languageSwitchDropdown.nativeElement;
-    el.classList.remove('show');
+  updateLanguageImage(language: LanguageType) {
+    this.currentLanguageImg = languageIcons[language] || languageIcons.en;
   }
 }

@@ -3,7 +3,7 @@ export interface IUser {
   id: number;
   node_id: string;
   avatar_url: string;
-  gravatar_id: string;
+  gravatar_id: string | null;
   url: string;
   html_url: string;
   followers_url: string;
@@ -17,7 +17,7 @@ export interface IUser {
   received_events_url: string;
   type: string;
   site_admin: boolean;
-  name: string;
+  name: string | null;
   company: any;
   blog: string;
   location: string;

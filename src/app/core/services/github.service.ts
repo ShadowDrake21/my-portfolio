@@ -1,7 +1,7 @@
 // angular stuff
 import { Injectable } from '@angular/core';
 import { Octokit } from '@octokit/rest';
-import { catchError, from, map, Observable } from 'rxjs';
+import { catchError, from, map, Observable, throwError } from 'rxjs';
 
 // interfaces and types
 import { IRepo, IUser } from '@shared/models/github.model';
@@ -30,9 +30,9 @@ export class GithubService {
         }
         return response.data as IUser;
       }),
-      catchError((error) => {
-        throw new Error(`Failed to fetch user: ${error.message}`);
-      })
+      catchError((error) =>
+        this.handleError(`Failed to fetch user: ${error.message}`)
+      )
     );
   }
 
@@ -50,9 +50,13 @@ export class GithubService {
         }
         return response.data as IRepo[];
       }),
-      catchError((error) => {
-        throw new Error(`Failed to fetch repositories: ${error.message}`);
-      })
+      catchError((error) =>
+        this.handleError(`Failed to fetch repositories: ${error.message}`)
+      )
     );
+  }
+
+  private handleError(error: string): Observable<never> {
+    return throwError(() => new Error(error));
   }
 }

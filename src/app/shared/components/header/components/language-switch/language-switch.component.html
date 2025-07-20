@@ -3,13 +3,13 @@
   [appThemeClass]="themeMode$ | async"
   classSuffix="language-switch"
   clickOutside
-  (clickOutside)="clickedOutside()"
+  (clickOutside)="closeDropdown()"
 >
   <div>
     <div class="language-switch__wrapper">
       <button
         class="language-switch__btn"
-        (click)="onToggleLanguageSwitch($event)"
+        (click)="toggleLanguageDropdown($event)"
       >
         <img
           class="current-language__icon language-switch__btn-responsive"

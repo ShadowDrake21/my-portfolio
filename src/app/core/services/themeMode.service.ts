@@ -1,6 +1,6 @@
 // angular stuff
-import { effect, Injectable, signal } from '@angular/core';
-import { BehaviorSubject, distinctUntilChanged, Observable, of } from 'rxjs';
+import { Injectable, signal } from '@angular/core';
+import { Observable, of } from 'rxjs';
 
 // utils
 import { retrieveFromLS, saveToLS } from '@shared/utils/localStorage.utils';
@@ -20,9 +20,7 @@ export class ThemeModeService {
 
   private initializeThemeMode(): void {
     const storedTheme = this.loadThemeModeFromStorage();
-    if (storedTheme) {
-      this.themeMode.set(storedTheme);
-    }
+    if (storedTheme) this.themeMode.set(storedTheme);
   }
 
   private loadThemeModeFromStorage(): ThemeModeType | null {
@@ -31,12 +29,22 @@ export class ThemeModeService {
 
       if (!themeModeStr) return null;
 
-      const parsedThemeMode = JSON.parse(themeModeStr);
-      return this.isValidThemeMode(parsedThemeMode) ? parsedThemeMode : null;
+      return this.loadThemeModeFromStorageParsing(themeModeStr);
     } catch (error) {
-      console.error('Error loading theme mode from storage:', error);
-      return null;
+      return this.loadThemeModeFromStorageError(error);
     }
+  }
+
+  private loadThemeModeFromStorageParsing(
+    themeModeStr: string
+  ): ThemeModeType | null {
+    const parsedThemeMode = JSON.parse(themeModeStr);
+    return this.isValidThemeMode(parsedThemeMode) ? parsedThemeMode : null;
+  }
+
+  private loadThemeModeFromStorageError(error: unknown): null {
+    console.error('Error loading theme mode from storage:', error);
+    return null;
   }
 
   private isValidThemeMode(value: unknown): value is ThemeModeType {
@@ -44,13 +52,17 @@ export class ThemeModeService {
   }
 
   setThemeMode(value: ThemeModeType): void {
-    if (this.isValidThemeMode(value)) {
-      console.warn(`Invalid theme mode attempted: ${value}`);
+    if (!this.isValidThemeMode(value)) {
+      this.setInvalidThemeMode(value);
       return;
     }
 
     this.themeMode.set(value);
     this.saveThemeModeToStorage(value);
+  }
+
+  private setInvalidThemeMode(value: ThemeModeType): void {
+    console.warn(`Invalid theme mode attempted: ${value}`);
   }
 
   private saveThemeModeToStorage(value: ThemeModeType): void {
