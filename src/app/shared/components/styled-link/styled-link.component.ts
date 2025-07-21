@@ -1,11 +1,9 @@
 // angular stuff
 import { AsyncPipe } from '@angular/common';
 import { Component, inject, input } from '@angular/core';
-import { Observable } from 'rxjs';
 import { RouterLink } from '@angular/router';
 
 // interfaces and types
-import { ThemeModeType } from '@shared/models/types.model';
 import { ApplicationState } from '@store/application/application.reducer';
 import * as ApplicationSelectors from '@store/application/application.selectors';
 import { Store } from '@ngrx/store';
@@ -22,7 +20,5 @@ export class StyledLinkComponent {
 
   link = input.required<string>();
   title = input.required<string>();
-  themeMode$: Observable<ThemeModeType | null> = this.store.select(
-    ApplicationSelectors.selectThemeMode
-  );
+  themeMode$ = this.store.select(ApplicationSelectors.selectThemeMode);
 }

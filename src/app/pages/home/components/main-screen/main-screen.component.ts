@@ -1,5 +1,4 @@
 // angular stuff
-import { Observable } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { Store } from '@ngrx/store';
@@ -10,7 +9,6 @@ import { MainTasksComponent } from '@shared/components/main-tasks/main-tasks.com
 import { StyledLinkComponent } from '@shared/components/styled-link/styled-link.component';
 
 // interfaces and types
-import { ThemeModeType } from '@shared/models/types.model';
 
 // created ngrx stuff
 import { ApplicationState } from '@store/application/application.reducer';
@@ -31,7 +29,5 @@ import { ThemeClassDirective } from '@shared/directives/theme-class.directive';
 })
 export class MainScreenComponent {
   private readonly store = inject(Store<ApplicationState>);
-  themeMode$: Observable<ThemeModeType | null> = this.store.select(
-    ApplicationSelectors.selectThemeMode
-  );
+  themeMode$ = this.store.select(ApplicationSelectors.selectThemeMode);
 }

@@ -4,14 +4,14 @@
   classSuffix="project-item"
 >
   <img
-    [src]="copiedProjectItem.image"
+    [src]="displayProjectItem.image"
     alt="projectItem image"
     class="project-item__img"
   />
 
   <div class="project-item__content">
     <div class="project-item__technologies">
-      @for (image of copiedProjectItem.technologies; track $index) {
+      @for (image of displayProjectItem.technologies; track $index) {
       <img
         [src]="image"
         class="project-item__technology"
@@ -21,13 +21,13 @@
     <div class="project-item__links inter-medium">
       <a
         class="project-item__link main"
-        [href]="copiedProjectItem.link"
+        [href]="displayProjectItem.link"
         target="_blank"
-        >{{ copiedProjectItem.title }}</a
+        >{{ displayProjectItem.title }}</a
       >
       <a
         class="project-item__link github"
-        [href]="copiedProjectItem.githubLink"
+        [href]="displayProjectItem.githubLink"
         target="_blank"
         >{{ "singleProject.github-link" | translate }}</a
       >

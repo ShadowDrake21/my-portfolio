@@ -1,8 +1,7 @@
 // angular stuff
 import { AsyncPipe } from '@angular/common';
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
 import { TranslateModule } from '@ngx-translate/core';
 
 // components
@@ -16,7 +15,6 @@ import {
 } from '@shared/content/stacks.content';
 
 // interfaces and types
-import { ThemeModeType } from '@shared/models/types.model';
 
 // created ngrx stuff
 import { ApplicationState } from '@store/application/application.reducer';
@@ -34,16 +32,14 @@ import { ThemeClassDirective } from '@shared/directives/theme-class.directive';
   templateUrl: './stacks.component.html',
   styleUrl: './stacks.component.css',
 })
-export class StacksComponent implements OnInit {
-  technologyStackContent = technologyStackContent;
-  otherTechnologiesContent = otherTechnologiesContent;
-  languageStackContent = languageStackContent;
+export class StacksComponent {
+  readonly content = {
+    technologyStack: technologyStackContent,
+    otherTechnologies: otherTechnologiesContent,
+    languageStack: languageStackContent,
+  };
 
-  private store = inject(Store<ApplicationState>);
+  private readonly store = inject(Store<ApplicationState>);
 
-  themeMode$!: Observable<ThemeModeType | null>;
-
-  ngOnInit(): void {
-    this.themeMode$ = this.store.select(ApplicationSelectors.selectThemeMode);
-  }
+  themeMode$ = this.store.select(ApplicationSelectors.selectThemeMode);
 }

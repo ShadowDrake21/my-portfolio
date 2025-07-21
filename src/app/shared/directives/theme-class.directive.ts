@@ -42,9 +42,6 @@ export class ThemeClassDirective implements OnInit {
   }
 
   private updateThemeClasses(theme: ThemeModeType): void {
-    console.log('Updating theme classes...', {
-      theme,
-    });
     const suffix = this.classSuffix();
 
     this.el.nativeElement.classList.remove(

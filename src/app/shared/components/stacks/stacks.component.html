@@ -4,7 +4,7 @@
       {{ "stacks.technologyStackTitle" | translate }}
     </h2>
     <div class="stacks-list technology-grid__list">
-      @for (technology of technologyStackContent; track $index) {
+      @for (technology of content.technologyStack; track $index) {
       <app-stack-item
         [item]="technology"
         [themeMode]="themeMode$"
@@ -17,7 +17,7 @@
       {{ "stacks.otherTechnologiesTitle" | translate }}
     </h2>
     <div class="stacks-list language-grid__list">
-      @for (other of otherTechnologiesContent; track $index) {
+      @for (other of content.otherTechnologies; track $index) {
       <app-stack-item [item]="other" [themeMode]="themeMode$"></app-stack-item>
       }
     </div>
@@ -27,7 +27,7 @@
       {{ "stacks.languageStackTitle" | translate }}
     </h2>
     <div class="stacks-list language-grid__list">
-      @for (language of languageStackContent; track $index) {
+      @for (language of content.languageStack; track $index) {
       <app-stack-item
         [item]="language"
         [themeMode]="themeMode$"

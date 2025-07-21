@@ -12,7 +12,7 @@ import * as ApplicationActions from './application.actions';
 @Injectable()
 export class ApplicationEffects {
   private actions$ = inject(Actions);
-  private themeModeService = inject(ThemeModeService);
+  private readonly themeModeService = inject(ThemeModeService);
 
   loadThemeMode = createEffect(() =>
     this.actions$.pipe(

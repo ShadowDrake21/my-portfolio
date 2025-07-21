@@ -14,6 +14,8 @@ import * as ApplicationActions from '@store/application/application.actions';
 import { ThemeModeType } from '@shared/models/types.model';
 import { ThemeClassDirective } from '@shared/directives/theme-class.directive';
 import { AsyncPipe } from '@angular/common';
+import { ThemeMode } from './enum/theme-mode.enum';
+import { onDownloadCV } from './utils/download-cv.utils';
 
 @Component({
   selector: 'app-navbar',
@@ -22,35 +24,13 @@ import { AsyncPipe } from '@angular/common';
   styleUrl: './navbar.component.css',
 })
 export class NavbarComponent implements OnInit, OnDestroy {
-  private store = inject(Store<ApplicationState>);
+  private readonly store = inject(Store<ApplicationState>);
 
-  themeMode$!: Observable<ThemeModeType | null>;
+  themeMode$ = this.store.select(ApplicationSelectors.selectThemeMode);
   private currentThemeMode: ThemeModeType | null = null;
   private subscription: Subscription = new Subscription();
 
-  private cvUrl = 'Krapyvianskyi D. - CV.pdf';
-
   ngOnInit(): void {
-    this.initializeThemeMode();
-  }
-
-  onChangeTheme() {
-    if (this.currentThemeMode) {
-      const updatedThemeMode =
-        this.currentThemeMode === 'light'
-          ? ('dark' as ThemeModeType)
-          : ('light' as ThemeModeType);
-
-      if (updatedThemeMode !== this.currentThemeMode) {
-        this.store.dispatch(
-          ApplicationActions.setThemeMode({ themeMode: updatedThemeMode })
-        );
-      }
-    }
-  }
-
-  initializeThemeMode() {
-    this.themeMode$ = this.store.select(ApplicationSelectors.selectThemeMode);
     this.subscription.add(
       this.themeMode$.subscribe((themeMode) => {
         this.currentThemeMode = themeMode;
@@ -58,15 +38,23 @@ export class NavbarComponent implements OnInit, OnDestroy {
     );
   }
 
-  onDownloadCV() {
-    const a = document.createElement('a');
-    a.href = this.cvUrl;
-    a.target = '_blank';
-    a.rel = 'noopener noreferrer';
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
+  onChangeTheme() {
+    if (!this.currentThemeMode) return;
+    const updatedThemeMode = this.getUpdatedThemeMode();
+    this.dispatchThemeMode(updatedThemeMode);
   }
+
+  private getUpdatedThemeMode(): ThemeModeType {
+    return this.currentThemeMode === ThemeMode.LIGHT
+      ? ThemeMode.DARK
+      : ThemeMode.LIGHT;
+  }
+
+  private dispatchThemeMode(themeMode: ThemeModeType) {
+    this.store.dispatch(ApplicationActions.setThemeMode({ themeMode }));
+  }
+
+  onDownloadCV = () => onDownloadCV();
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();

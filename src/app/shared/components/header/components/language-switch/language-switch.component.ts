@@ -104,23 +104,24 @@ export class LanguageSwitchComponent implements OnInit, AfterViewInit {
   private setupLanguageSwitchListener() {
     this.languageSwitchDropdown.nativeElement.addEventListener(
       'click',
-      (event) => {
-        const target = event.target as HTMLElement;
-        const languageElement = target.closest(
-          'li.language-switch__option'
-        ) as HTMLLIElement;
-
-        if (!languageElement) return;
-
-        const selectedLanguage = languageElement.dataset?.[
-          'language'
-        ] as LanguageType;
-
-        if (!selectedLanguage) return;
-
-        this.changeLanguage(selectedLanguage);
-      }
+      (event) => this.setupLanguageSwitchChange(event)
     );
+  }
+
+  private setupLanguageSwitchChange(event: Event) {
+    const languageElement = this.getLanguageElement(event);
+    const selectedLanguage = this.getSelectedLanguage(languageElement);
+    this.changeLanguage(selectedLanguage);
+  }
+
+  private getLanguageElement(event: Event): HTMLLIElement | null {
+    return (event.target as HTMLElement).closest(
+      'li.language-switch__option'
+    ) as HTMLLIElement;
+  }
+
+  private getSelectedLanguage(element: HTMLLIElement | null): LanguageType {
+    return element?.dataset?.['language'] as LanguageType;
   }
 
   private changeLanguage(language: LanguageType): void {
