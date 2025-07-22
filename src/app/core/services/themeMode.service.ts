@@ -1,11 +1,8 @@
-// angular stuff
 import { Injectable, signal } from '@angular/core';
 import { Observable, of } from 'rxjs';
 
-// utils
 import { retrieveFromLS, saveToLS } from '@shared/utils/localStorage.utils';
 
-// interfaces and types
 import { ThemeModeType } from '@shared/models/types.model';
 
 const THEME_MODE_KEY = 'themeMode';

@@ -1,7 +1,5 @@
-// angular stuff
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 
-// created ngrx stuff
 import { ApplicationState } from './application.reducer';
 
 export const selectApplicationState =

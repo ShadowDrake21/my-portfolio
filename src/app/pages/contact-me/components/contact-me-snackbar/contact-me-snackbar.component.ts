@@ -1,4 +1,3 @@
-// angular stuff
 import { Component, Inject, inject } from '@angular/core';
 import {
   MAT_SNACK_BAR_DATA,
@@ -11,16 +10,16 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 
 @Component({
-    selector: 'app-contact-me-snackbar',
-    imports: [
-        MatSnackBarLabel,
-        MatSnackBarActions,
-        MatSnackBarAction,
-        MatIconModule,
-        MatButtonModule,
-    ],
-    templateUrl: './contact-me-snackbar.component.html',
-    styleUrl: './contact-me-snackbar.component.css'
+  selector: 'app-contact-me-snackbar',
+  imports: [
+    MatSnackBarLabel,
+    MatSnackBarActions,
+    MatSnackBarAction,
+    MatIconModule,
+    MatButtonModule,
+  ],
+  templateUrl: './contact-me-snackbar.component.html',
+  styleUrl: './contact-me-snackbar.component.css',
 })
 export class ContactMeSnackbarComponent {
   snackBarRef = inject(MatSnackBarRef);

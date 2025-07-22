@@ -11,20 +11,17 @@
     >
       <mat-tab [label]="'projects.tabs.first' | translate">
         <div class="projects-tab">
-          <form
-            [formGroup]="projectFiltrationForm"
-            class="projects-tab__filtration"
-          >
+          <form [formGroup]="filterForm" class="projects-tab__filtration">
             <div class="projects-tab__filtration-inner">
               <mat-form-field class="projects-tab__filtration-field">
                 <mat-label>
                   {{ "projects.filtration.technologyLabel" | translate }}
                 </mat-label>
                 <mat-select
-                  (selectionChange)="onFormChange()"
+                  (selectionChange)="onFilterChange()"
                   formControlName="technology"
                 >
-                  @for (technology of technologyFilterContent; track $index) {
+                  @for (technology of content.technologyFilter; track $index) {
                   <mat-option [value]="technology">{{ technology }}</mat-option
                   >}
                 </mat-select>
@@ -34,16 +31,16 @@
                   {{ "projects.filtration.yearLabel" | translate }}
                 </mat-label>
                 <mat-select
-                  (selectionChange)="onFormChange()"
+                  (selectionChange)="onFilterChange()"
                   formControlName="year"
                 >
-                  @for (year of yearFilterContent; track $index) {
+                  @for (year of content.yearFilter; track $index) {
                   <mat-option [value]="year">{{ year }}</mat-option>
                   }
                 </mat-select>
               </mat-form-field>
             </div>
-            @if (projectFiltrationForm.touched) {
+            @if (filterForm.touched) {
             <button
               mat-flat-button
               color="warn"
@@ -51,22 +48,20 @@
               type="reset"
             >
               {{ "projects.filtration.resetBnt" | translate }}</button
-            >} @if (!checkIfDataChanged()) {
+            >} @if (hasFilteresChanged()) {
             <button
               type="button"
               mat-flat-button
               color="primary"
               class="projects-tab__filtration-btn"
-              (click)="loadAllProjects()"
+              (click)="resetFilters()"
             >
               {{ "projects.filtration.loadBtn" | translate }}</button
             >}
           </form>
-          @if (copiedMainStackProjectsContent.length) {
+          @if (filteredMainProjects.length) {
           <div class="projects-tab__list">
-            @for (item of copiedMainStackProjectsContent | slice:
-            (mainCurrentPage-1) * itemsPerPage : mainCurrentPage * itemsPerPage;
-            track item) {
+            @for (item of getPaginatedProjects(ProjectTab.MAIN); track item) {
             <app-project-item
               [themeMode]="themeMode$"
               [item]="item"
@@ -79,22 +74,20 @@
               {{ "projects.filtration.errorMessage" | translate }}
             </h4>
           </div>
-          } @if (getContentSize('main') > itemsPerPage &&
-          copiedMainStackProjectsContent.length > itemsPerPage) {
+          } @if (getProjectCount(ProjectTab.MAIN) > ITEMS_PER_PAGE &&
+          filteredMainProjects.length > ITEMS_PER_PAGE) {
           <ngb-pagination
             class="project-tab__pagination"
-            [(page)]="mainCurrentPage"
-            [pageSize]="itemsPerPage"
-            [collectionSize]="getContentSize('main')"
+            [(page)]="currentPage[ProjectTab.MAIN]"
+            [pageSize]="ITEMS_PER_PAGE"
+            [collectionSize]="getProjectCount(ProjectTab.MAIN)"
           />}
         </div>
       </mat-tab>
       <mat-tab [label]="'projects.tabs.second' | translate">
         <div class="projects-tab">
           <div class="projects-tab__list">
-            @for (item of copiedOtherProjectsContent | slice:
-            (otherCurrentPage-1) * itemsPerPage : otherCurrentPage *
-            itemsPerPage; track item) {
+            @for (item of getPaginatedProjects(ProjectTab.OTHER); track item) {
             <app-project-item
               [themeMode]="themeMode$"
               [item]="item"
@@ -102,12 +95,12 @@
             }
           </div>
 
-          @if (getContentSize('other') > itemsPerPage) {
+          @if (getProjectCount(ProjectTab.OTHER) > ITEMS_PER_PAGE) {
           <ngb-pagination
             class="project-tab__pagination"
-            [(page)]="otherCurrentPage"
-            [pageSize]="itemsPerPage"
-            [collectionSize]="getContentSize('other')"
+            [(page)]="currentPage[ProjectTab.OTHER]"
+            [pageSize]="ITEMS_PER_PAGE"
+            [collectionSize]="getProjectCount(ProjectTab.OTHER)"
           />}
         </div></mat-tab
       >

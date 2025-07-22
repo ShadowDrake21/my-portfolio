@@ -1,12 +1,9 @@
-// angular stuff
 import { inject, Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { catchError, exhaustMap, map, of, tap } from 'rxjs';
 
-// services
 import { ThemeModeService } from '@core/services/themeMode.service';
 
-// created ngrx stuff
 import * as ApplicationActions from './application.actions';
 
 @Injectable()

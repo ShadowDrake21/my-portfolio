@@ -1,7 +1,5 @@
-// angular stuff
 import { Component } from '@angular/core';
 
-// components
 import { StacksComponent } from '@shared/components/stacks/stacks.component';
 import { MyGithubComponent } from './components/my-github/my-github.component';
 import { ProjectsComponent } from './components/projects/projects.component';

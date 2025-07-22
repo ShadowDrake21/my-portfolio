@@ -1,16 +1,13 @@
-// angular stuff
 import { AsyncPipe } from '@angular/common';
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { Observable } from 'rxjs';
 
-// content
 import {
   otherTechnologiesContent,
   technologyStackContent,
 } from '@shared/content/stacks.content';
 
-// interfaces and types
 import { IProject } from '@shared/models/project.model';
 import { ThemeModeType } from '@shared/models/types.model';
 import { ThemeClassDirective } from '@shared/directives/theme-class.directive';

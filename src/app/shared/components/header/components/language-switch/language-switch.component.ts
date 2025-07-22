@@ -1,4 +1,3 @@
-// angular stuff
 import {
   AfterViewInit,
   Component,
@@ -14,16 +13,11 @@ import { BehaviorSubject } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
-// directives
 import { ClickOutsideDirective } from '@shared/directives/click-outside.directive';
 
-// utils
 import { saveToLS } from '@shared/utils/localStorage.utils';
 
-// interfaces and types
 import { LanguageType } from '@shared/models/types.model';
-
-// created ngrx stuff
 import { ApplicationState } from '@store/application/application.reducer';
 import * as ApplicationSelectors from '@store/application/application.selectors';
 import { ThemeClassDirective } from '@shared/directives/theme-class.directive';
@@ -60,7 +54,10 @@ export class LanguageSwitchComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
     this.translate.use(this.currentLanguage$$.getValue());
     this.updateLanguageImage(this.currentLanguage$$.getValue());
+    this.updateLanguageImageOnLanguageChange();
+  }
 
+  private updateLanguageImageOnLanguageChange() {
     this.currentLanguage$$
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe((language) => {

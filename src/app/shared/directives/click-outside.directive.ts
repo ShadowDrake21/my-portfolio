@@ -1,4 +1,3 @@
-// angular stuff
 import { DOCUMENT } from '@angular/common';
 import {
   AfterViewInit,

@@ -1,16 +1,13 @@
-// angular stuff
 import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { Observable, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { TranslateModule } from '@ngx-translate/core';
 
-// created ngrx stuff
 import { ApplicationState } from '@store/application/application.reducer';
 import * as ApplicationSelectors from '@store/application/application.selectors';
 import * as ApplicationActions from '@store/application/application.actions';
 
-// interfaces and types
 import { ThemeModeType } from '@shared/models/types.model';
 import { ThemeClassDirective } from '@shared/directives/theme-class.directive';
 import { AsyncPipe } from '@angular/common';

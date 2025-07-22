@@ -1,8 +1,6 @@
-// angular stuff
 import { Component, inject } from '@angular/core';
 import { Store } from '@ngrx/store';
 
-// created ngrx stuff
 import { ApplicationState } from '@store/application/application.reducer';
 import * as ApplicationSelectors from '@store/application/application.selectors';
 import { ThemeClassDirective } from '@shared/directives/theme-class.directive';

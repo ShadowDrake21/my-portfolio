@@ -1,13 +1,7 @@
-// angular stuff
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
 import { TranslateModule } from '@ngx-translate/core';
 
-// interfaces and types
-import { ThemeModeType } from '@shared/models/types.model';
-
-// created ngrx stuff
 import * as ApplicationSelectors from '@store/application/application.selectors';
 import { ApplicationState } from '@store/application/application.reducer';
 import { ThemeClassDirective } from '@shared/directives/theme-class.directive';
@@ -22,9 +16,7 @@ import { AsyncPipe } from '@angular/common';
 export class MyStoryComponent {
   private readonly store = inject(Store<ApplicationState>);
 
-  themeMode$: Observable<ThemeModeType | null> = this.store.select(
-    ApplicationSelectors.selectThemeMode
-  );
+  themeMode$ = this.store.select(ApplicationSelectors.selectThemeMode);
 
   getItemTitleTranslationId(index: number): string {
     return `myStoryItemTitle_${index}`;

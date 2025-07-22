@@ -1,7 +1,5 @@
-// angular stuff
 import { Component } from '@angular/core';
 
-// components
 import { BasicInfoComponent } from './components/basic-info/basic-info.component';
 import { WorkingExperienceComponent } from './components/working-experience/working-experience.component';
 import { EducationComponent } from './components/education/education.component';

@@ -1,4 +1,3 @@
-// angular stuff
 import {
   ApplicationConfig,
   importProvidersFrom,
@@ -14,10 +13,8 @@ import '@angular/localize/init';
 import { HttpClient, provideHttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 
-// utils
 import { MultiTranslateHttpLoader } from '@shared/utils/translate.utils';
 
-// created ngrx stuff
 import { applicationReducer } from './store/application/application.reducer';
 import { ApplicationEffects } from './store/application/application.effects';
 

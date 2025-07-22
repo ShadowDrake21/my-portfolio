@@ -1,10 +1,8 @@
-// angular stuff
 import { HttpClient } from '@angular/common/http';
 import { TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { forkJoin, map, Observable } from 'rxjs';
 
-// interfaces and types
 import { Resource } from '@shared/models/types.model';
 
 export function HttpLoaderFactory(http: HttpClient) {

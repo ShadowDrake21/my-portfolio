@@ -1,10 +1,8 @@
-// angular stuff
 import { AsyncPipe, LowerCasePipe, TitleCasePipe } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { Observable } from 'rxjs';
 
-// interfaces and types
 import { IStackItem } from '@shared/models/stack.model';
 import { ThemeModeType } from '@shared/models/types.model';
 import { ThemeClassDirective } from '@shared/directives/theme-class.directive';

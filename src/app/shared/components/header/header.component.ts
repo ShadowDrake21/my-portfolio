@@ -1,15 +1,12 @@
-// angular stuff
 import { AsyncPipe } from '@angular/common';
 import { Component, inject, Input } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { TranslateModule } from '@ngx-translate/core';
 
-// components
 import { LanguageSwitchComponent } from './components/language-switch/language-switch.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SocialsComponent } from '../socials/socials.component';
 
-// created ngrx stuff
 import { ApplicationState } from 'src/app/store/application/application.reducer';
 import * as ApplicationSelectors from '@store/application/application.selectors';
 import { ThemeClassDirective } from '@shared/directives/theme-class.directive';

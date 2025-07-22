@@ -1,10 +1,7 @@
-// angular stuff
 import { createReducer, on } from '@ngrx/store';
 
-// interfaces and types
 import { ThemeModeType } from '@shared/models/types.model';
 
-// created ngrx stuff
 import * as ApplicationActions from './application.actions';
 
 export interface ApplicationState {

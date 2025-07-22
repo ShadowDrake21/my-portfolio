@@ -1,20 +1,14 @@
-// angular stuff
 import { AsyncPipe } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { map } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { TranslateModule } from '@ngx-translate/core';
 
-// services
 import { GithubService } from 'src/app/core/services/github.service';
 
-// components
 import { GitProfileComponent } from './components/git-profile/git-profile.component';
 import { RepositoriesListComponent } from './components/repositories-list/repositories-list.component';
 
-// interfaces and types
-
-// created ngrx stuff
 import { ApplicationState } from '@store/application/application.reducer';
 import * as ApplicationSelectors from '@store/application/application.selectors';
 import { ThemeClassDirective } from '@shared/directives/theme-class.directive';
