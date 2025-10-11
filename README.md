@@ -1,59 +1,113 @@
-# PortfolioUpdate
+My Portfolio
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.15.
+A personal portfolio website built in Angular to showcase my projects, skills, and contact information.
+Live demo: drake21-portfolio.netlify.app
+ 
+GitHub
 
-## Development server
+📂 Project Structure
 
-To start a local development server, run:
+This project was generated with Angular CLI v19.2.15 
+GitHub
 
-```bash
+my-portfolio/
+├── src/
+│   ├── app/           # Angular components, modules, services, etc.
+│   ├── assets/        # images, styles, icons, etc.
+│   ├── environments/  # environment files (dev, prod)
+│   └── index.html
+├── public/            # static files
+├── .vscode/            # workspace settings
+├── netlify.toml        # Netlify deployment config
+├── package.json
+├── angular.json
+└── README.md
+
+🚀 Features & Highlights
+
+Responsive, modern design to present your work and background
+
+Smooth navigation between sections (About, Projects, Skills, Contact)
+
+Easy to update — just add new projects or sections via Angular components
+
+Deployed on Netlify, with simple CI/CD setup
+
+Uses Angular routing, modular architecture, and component-based design
+
+🛠️ Setup & Local Development
+Prerequisites
+
+Node.js & npm (>= latest stable)
+
+Angular CLI (npm install -g @angular/cli)
+
+Steps
+
+Clone the repo
+
+git clone https://github.com/ShadowDrake21/my-portfolio.git
+cd my-portfolio
+
+
+Install dependencies
+
+npm install
+
+
+Run in development mode
+
 ng serve
-```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
-## Code scaffolding
+This serves the site at http://localhost:4200/ by default. The app reloads when you change source files. 
+GitHub
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Build for production
 
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
 ng build
-```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
 
-## Running unit tests
+The built files will be output to the dist/ folder. 
+GitHub
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+🧪 Testing
 
-```bash
+Unit tests: Run via
+
 ng test
-```
 
-## Running end-to-end tests
 
-For end-to-end (e2e) testing, run:
+Angular’s default test runner (Karma) will execute the tests. 
+GitHub
 
-```bash
+End-to-end (E2E) tests:
+
 ng e2e
-```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
 
-## Additional Resources
+(If you add an E2E testing framework like Protractor or Cypress) 
+GitHub
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+📦 Deployment
+
+This project is configured for Netlify using the netlify.toml file. On each push to the main branch, Netlify can build and publish automatically. 
+GitHub
+
+You can also deploy to any static-hosting provider that supports Angular (e.g. GitHub Pages, Vercel). The production build (dist/) can be served with any static server.
+
+🧾 About Me / Contact Info
+
+My contact email: dmytrokrapyvianskyi@gmail.com
+
+🚧 Future Improvements
+
+Add a blog section (integrated via CMS or Markdown)
+
+Dark/light mode toggle
+
+Animations and transitions for interactive feel
+
+More robust SEO / meta tags per page
+
+Localization / multilingual supportv
